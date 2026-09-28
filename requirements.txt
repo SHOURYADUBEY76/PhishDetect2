@@ -1,0 +1,17 @@
+# Core dependencies for Region-Aware Phishing URL Detection
+fastapi>=0.115.0
+uvicorn>=0.34.0
+pydantic>=2.10.0
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.5.0
+lightgbm>=4.3.0
+xgboost>=2.0.0
+tldextract>=5.1.0
+tranco>=0.8.0
+shap>=0.45.0
+datasets>=3.0.0
+requests>=2.31.0
+tqdm>=4.66.0
+tensorflow>=2.16.0
+keras>=3.0.0
