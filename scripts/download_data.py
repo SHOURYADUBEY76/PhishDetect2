@@ -1,10 +1,12 @@
 """Data ingestion and preprocessing pipeline.
 Downloads and prepares PhreshPhish, Tranco legitimate URLs, and Indian phishing feeds.
 Applies domain-level deduplication and leakage-free group partitioning.
+Includes robust retry handling, per-file caching, chunked streaming, and progress logging.
 """
 
 import os
 import sys
+import time
 import datetime
 import urllib.request
 import pandas as pd
@@ -18,51 +20,84 @@ from src.utils.domain import extract_registered_domain, extract_tld, normalize_u
 from src.features.regional import INDIAN_BRANDS, INDIAN_LURES, INDIAN_TLDS
 
 
-def download_phreshphish(n_train_files: int = 5, n_test_files: int = 3) -> pd.DataFrame:
-    """Download PhreshPhish parquet files from Hugging Face without heavy HTML."""
+def download_single_parquet_with_retry(
+    url: str,
+    target_cache_path: str,
+    split_name: str,
+    max_retries: int = 3,
+    timeout_sec: int = 25
+) -> pd.DataFrame:
+    """Download and cache a single PhreshPhish parquet file with explicit retries and timeouts."""
+    if os.path.exists(target_cache_path):
+        print(f"  [Cache Hit] Loading {os.path.basename(target_cache_path)}", flush=True)
+        return pd.read_csv(target_cache_path)
+
+    for attempt in range(1, max_retries + 1):
+        print(f"  [Fetching] {os.path.basename(url)} (Attempt {attempt}/{max_retries})...", flush=True)
+        try:
+            # Read only the lightweight metadata columns via pyarrow
+            df_part = pd.read_parquet(
+                url,
+                columns=["url", "label", "date"],
+                engine="pyarrow"
+            )
+            df_part["split"] = split_name
+            os.makedirs(os.path.dirname(target_cache_path), exist_ok=True)
+            df_part.to_csv(target_cache_path, index=False)
+            print(f"  [Success] Saved {os.path.basename(target_cache_path)} ({len(df_part)} rows)", flush=True)
+            return df_part
+        except Exception as e:
+            print(f"  [Warning] Attempt {attempt} failed for {os.path.basename(url)}: {e}", flush=True)
+            if attempt < max_retries:
+                time.sleep(2 * attempt)
+
+    print(f"  [Failed] Could not download {url} after {max_retries} attempts.", flush=True)
+    return pd.DataFrame()
+
+
+def download_phreshphish(n_train_files: int = 6, n_test_files: int = 3) -> pd.DataFrame:
+    """Download PhreshPhish parquets from Hugging Face with independent per-file caching."""
     raw_path = "data/raw/phreshphish_raw.csv"
     if os.path.exists(raw_path):
-        print(f"Loading cached PhreshPhish from {raw_path}")
-        return pd.read_csv(raw_path)
+        print(f"[PhreshPhish] Loading cached raw dataset from {raw_path}", flush=True)
+        df_cached = pd.read_csv(raw_path)
+        print(f"[PhreshPhish] Loaded {len(df_cached)} records from {raw_path}", flush=True)
+        return df_cached
 
-    print("Downloading PhreshPhish subset from Hugging Face...")
+    cache_dir = "data/raw/phreshphish_cache"
+    os.makedirs(cache_dir, exist_ok=True)
+    print(f"[PhreshPhish] Initializing download (n_train={n_train_files}, n_test={n_test_files})...", flush=True)
     dfs = []
-    
-    # Train parquets
+
+    # 1. Train parquets
     for i in range(n_train_files):
         idx_str = f"{i:03d}"
-        url = f"https://huggingface.co/datasets/phreshphish/phreshphish/resolve/main/data/train-{idx_str}.parquet"
-        try:
-            print(f"  Fetching train-{idx_str}.parquet...")
-            df = pd.read_parquet(url, columns=["url", "label", "date"])
-            df["split"] = "train"
-            dfs.append(df)
-        except Exception as e:
-            print(f"  Warning: failed to load train-{idx_str}: {e}")
+        file_url = f"https://huggingface.co/datasets/phreshphish/phreshphish/resolve/main/data/train-{idx_str}.parquet"
+        cache_file = os.path.join(cache_dir, f"train_{idx_str}.csv")
+        df_part = download_single_parquet_with_retry(file_url, cache_file, split_name="train")
+        if not df_part.empty:
+            dfs.append(df_part)
 
-    # Test parquets
+    # 2. Test parquets
     for i in range(n_test_files):
         idx_str = f"{i:03d}"
-        url = f"https://huggingface.co/datasets/phreshphish/phreshphish/resolve/main/data/test-{idx_str}.parquet"
-        try:
-            print(f"  Fetching test-{idx_str}.parquet...")
-            df = pd.read_parquet(url, columns=["url", "label", "date"])
-            df["split"] = "test"
-            dfs.append(df)
-        except Exception as e:
-            print(f"  Warning: failed to load test-{idx_str}: {e}")
+        file_url = f"https://huggingface.co/datasets/phreshphish/phreshphish/resolve/main/data/test-{idx_str}.parquet"
+        cache_file = os.path.join(cache_dir, f"test_{idx_str}.csv")
+        df_part = download_single_parquet_with_retry(file_url, cache_file, split_name="test")
+        if not df_part.empty:
+            dfs.append(df_part)
 
     if not dfs:
         raise RuntimeError("Failed to load any PhreshPhish parquets from Hugging Face.")
 
     combined = pd.concat(dfs, ignore_index=True)
     combined["url"] = combined["url"].astype(str).apply(normalize_url)
-    combined["label"] = (combined["label"] == "phish").astype(int)
+    combined["label"] = (combined["label"].astype(str).str.lower() == "phish").astype(int)
     combined["date"] = combined["date"].astype(str)
-    
+
     os.makedirs("data/raw", exist_ok=True)
     combined.to_csv(raw_path, index=False)
-    print(f"Saved PhreshPhish raw ({len(combined)} rows) to {raw_path}")
+    print(f"[PhreshPhish] Successfully constructed and saved {raw_path} ({len(combined)} rows)", flush=True)
     return combined
 
 
@@ -72,10 +107,10 @@ def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.Data
     indian_path = "data/raw/tranco_indian_legit.csv"
 
     if os.path.exists(global_path) and os.path.exists(indian_path):
-        print(f"Loading cached Tranco legit lists from {global_path} and {indian_path}")
+        print(f"[Tranco] Loading cached legit lists from {global_path} and {indian_path}", flush=True)
         return pd.read_csv(global_path), pd.read_csv(indian_path)
 
-    print("Fetching Tranco top list...")
+    print("[Tranco] Fetching Tranco top list...", flush=True)
     t = Tranco(cache=True, cache_dir="data/raw/tranco_cache")
     t_list = t.list()
     domains = t_list.top(max_count)
@@ -84,6 +119,7 @@ def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.Data
     records_global = []
     records_indian = []
 
+    print(f"[Tranco] Processing {len(domains)} domains for Indian and Global partitions...", flush=True)
     for d in domains:
         url = f"https://{d}"
         tld = extract_tld(url)
@@ -104,9 +140,11 @@ def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.Data
     df_global = pd.DataFrame(records_global)
     df_indian = pd.DataFrame(records_indian)
 
+    os.makedirs("data/raw", exist_ok=True)
     df_global.to_csv(global_path, index=False)
     df_indian.to_csv(indian_path, index=False)
-    print(f"Saved Tranco global legit ({len(df_global)} rows) and Indian legit ({len(df_indian)} rows)")
+    print(f"[Tranco] Saved global legit ({len(df_global)} rows) to {global_path}", flush=True)
+    print(f"[Tranco] Saved Indian legit ({len(df_indian)} rows) to {indian_path}", flush=True)
     return df_global, df_indian
 
 
@@ -114,14 +152,15 @@ def download_indian_phishing() -> pd.DataFrame:
     """Extract Indian-targeted phishing URLs from Phishing.Database and OpenPhish."""
     raw_path = "data/raw/indian_phishing_raw.csv"
     if os.path.exists(raw_path):
-        print(f"Loading cached Indian phishing from {raw_path}")
+        print(f"[Indian Phishing] Loading cached dataset from {raw_path}", flush=True)
         return pd.read_csv(raw_path)
 
     today_str = datetime.date.today().isoformat()
-    print("Extracting Indian phishing feeds...")
+    print("[Indian Phishing] Extracting Indian phishing feeds...", flush=True)
     collected_urls = []
 
     # 1. OpenPhish community feed
+    print("  [OpenPhish] Checking community feed...", flush=True)
     try:
         req = urllib.request.Request("https://openphish.com/feed.txt", headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=10) as resp:
@@ -131,42 +170,51 @@ def download_indian_phishing() -> pd.DataFrame:
                 tld = extract_tld(u_norm)
                 if tld in INDIAN_TLDS or any(b in u_norm for b in INDIAN_BRANDS) or any(l in u_norm for l in INDIAN_LURES):
                     collected_urls.append(u)
-        print(f"  OpenPhish yielded {len(collected_urls)} matching Indian lures.")
+        print(f"  [OpenPhish] Yielded {len(collected_urls)} matching Indian lures.", flush=True)
     except Exception as e:
-        print(f"  Warning: OpenPhish fetch error: {e}")
+        print(f"  [OpenPhish Warning] Fetch error: {e}", flush=True)
 
-    # 2. Phishing.Database active links
+    # 2. Phishing.Database active links with fast chunked streaming
+    print("  [Phishing.Database] Streaming active links (chunk-buffered filter)...", flush=True)
     try:
         url_feed = "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links-ACTIVE.txt"
-        print("  Streaming Phishing.Database active links (filtering Indian lures)...")
         req = urllib.request.Request(url_feed, headers={"User-Agent": "Mozilla/5.0"})
         with urllib.request.urlopen(req, timeout=20) as resp:
-            # Stream line-by-line to avoid loading 65MB all at once
-            count = 0
-            for line in resp:
-                u = line.decode("utf-8", errors="ignore").strip()
-                if not u:
-                    continue
-                count += 1
-                u_lower = u.lower()
-                tld = extract_tld(u_lower)
-                # Match Indian brand lures, regional TLD, or Indian lure terms
-                is_indian_candidate = (
-                    tld in INDIAN_TLDS
-                    or any(b in u_lower for b in ["sbi", "hdfc", "icici", "paytm", "phonepe", "upi", "aadhaar", "pan-", "irctc", "airtel", "jio"])
-                    or any(l in u_lower for l in ["kyc-update", "yono", "bhim", "pan-card", "recharge-offer"])
-                )
-                if is_indian_candidate:
-                    collected_urls.append(u)
-                    if len(collected_urls) >= 3000:
-                        break
-        print(f"  Phishing.Database yielded {len(collected_urls)} Indian phishing candidates from {count} inspected.")
-    except Exception as e:
-        print(f"  Warning: Phishing.Database stream error: {e}")
+            buffer = ""
+            inspected_count = 0
+            while len(collected_urls) < 3000 and inspected_count < 150000:
+                chunk = resp.read(524288)  # 512 KB chunk
+                if not chunk:
+                    break
+                text = buffer + chunk.decode("utf-8", errors="ignore")
+                lines = text.split("\n")
+                buffer = lines[-1]
+                for line in lines[:-1]:
+                    u = line.strip()
+                    if not u:
+                        continue
+                    inspected_count += 1
+                    u_lower = u.lower()
+                    tld = extract_tld(u_lower)
+                    is_indian_candidate = (
+                        tld in INDIAN_TLDS
+                        or any(b in u_lower for b in ["sbi", "hdfc", "icici", "paytm", "phonepe", "upi", "aadhaar", "pan-", "irctc", "airtel", "jio"])
+                        or any(l in u_lower for l in ["kyc-update", "yono", "bhim", "pan-card", "recharge-offer"])
+                    )
+                    if is_indian_candidate:
+                        collected_urls.append(u)
+                        if len(collected_urls) >= 3000:
+                            break
+                if inspected_count % 30000 == 0:
+                    print(f"    Inspected {inspected_count} records; matched {len(collected_urls)} Indian lures...", flush=True)
 
-    # Fallback template lures if network was limited
+        print(f"  [Phishing.Database] Matched {len(collected_urls)} Indian phishing candidates from {inspected_count} records.", flush=True)
+    except Exception as e:
+        print(f"  [Phishing.Database Warning] Stream error: {e}", flush=True)
+
+    # Fallback template lures if network was limited or yield was small
     if len(collected_urls) < 100:
-        print("  Generating realistic synthetic Indian phishing lures to supplement feed...")
+        print("  [Notice] Generating realistic synthetic Indian phishing lures to supplement feed...", flush=True)
         templates = [
             "http://sbi-kyc-update-portal-{idx}.info/login.php",
             "http://onlinesbi-retail-banking-{idx}.top/auth",
@@ -190,8 +238,9 @@ def download_indian_phishing() -> pd.DataFrame:
         "source": "indian_phishing_feed"
     })
     df_phish.drop_duplicates(subset=["url"], inplace=True)
+    os.makedirs("data/raw", exist_ok=True)
     df_phish.to_csv(raw_path, index=False)
-    print(f"Saved Indian phishing raw ({len(df_phish)} rows) to {raw_path}")
+    print(f"[Indian Phishing] Saved {raw_path} ({len(df_phish)} rows)", flush=True)
     return df_phish
 
 
@@ -199,20 +248,20 @@ def build_leakage_free_splits():
     """Build processed datasets with strict domain-level group separation."""
     os.makedirs("data/processed", exist_ok=True)
 
-    print("\n--- Constructing Leakage-Free Datasets ---")
+    print("\n=======================================================", flush=True)
+    print("   CONSTRUCTING LEAKAGE-FREE DOMAIN-GROUPED SPLITS", flush=True)
+    print("=======================================================", flush=True)
+
     df_phresh = download_phreshphish(n_train_files=6, n_test_files=3)
     df_tranco_global, df_tranco_in = download_tranco_legit()
     df_indian_phish = download_indian_phishing()
 
-    # Add registered domain
+    print("\nComputing registered domains for all datasets...", flush=True)
     df_phresh["registered_domain"] = df_phresh["url"].apply(extract_registered_domain)
     df_indian_phish["registered_domain"] = df_indian_phish["url"].apply(extract_registered_domain)
 
     # 1. Global Benchmark (PhreshPhish)
-    # Deduplicate by URL
     df_phresh = df_phresh.drop_duplicates(subset=["url"]).copy()
-    
-    # Train/Test based on PhreshPhish's temporal/preset splits
     global_train = df_phresh[df_phresh["split"] == "train"].copy()
     global_test = df_phresh[df_phresh["split"] == "test"].copy()
 
@@ -221,7 +270,6 @@ def build_leakage_free_splits():
     global_test = global_test[~global_test["registered_domain"].isin(train_domains)].copy()
 
     # 2. Indian Evaluation Set (Indian Phishing + Indian Legitimate)
-    # Balance Indian phishing with Indian Tranco legitimate domains
     n_phish = len(df_indian_phish)
     in_legit_sample = df_tranco_in.sample(n=min(n_phish, len(df_tranco_in)), random_state=42)
 
@@ -230,12 +278,12 @@ def build_leakage_free_splits():
         in_legit_sample[["url", "label", "date", "registered_domain"]]
     ], ignore_index=True)
 
-    # Ensure no domain overlap between Global Train and Indian Test
+    # Ensure no domain overlap between Global Train and Indian dataset
     indian_combined = indian_combined[~indian_combined["registered_domain"].isin(train_domains)].copy()
     indian_combined = indian_combined.drop_duplicates(subset=["url"]).sample(frac=1.0, random_state=42).reset_index(drop=True)
 
     # Split Indian dataset into train part (for E3 regional augmentation) and test part (for E2/E3 evaluation)
-    # Using domain-grouped split
+    # Using domain-grouped partitioning
     unique_indian_domains = indian_combined["registered_domain"].unique()
     np.random.seed(42)
     shuffled_domains = np.random.permutation(unique_indian_domains)
@@ -247,17 +295,47 @@ def build_leakage_free_splits():
     indian_test = indian_combined[indian_combined["registered_domain"].isin(indian_test_domains)].copy()
 
     # Save processed datasets
-    global_train.to_csv("data/processed/global_train.csv", index=False)
-    global_test.to_csv("data/processed/global_test.csv", index=False)
-    indian_train.to_csv("data/processed/indian_train.csv", index=False)
-    indian_test.to_csv("data/processed/indian_test.csv", index=False)
+    out_global_train = "data/processed/global_train.csv"
+    out_global_test = "data/processed/global_test.csv"
+    out_indian_train = "data/processed/indian_train.csv"
+    out_indian_test = "data/processed/indian_test.csv"
 
-    print("\nDataset Construction Summary:")
-    print(f"  Global Train: {len(global_train)} samples ({global_train['label'].sum()} phish, {len(global_train)-global_train['label'].sum()} legit)")
-    print(f"  Global Test : {len(global_test)} samples ({global_test['label'].sum()} phish, {len(global_test)-global_test['label'].sum()} legit)")
-    print(f"  Indian Train: {len(indian_train)} samples ({indian_train['label'].sum()} phish, {len(indian_train)-indian_train['label'].sum()} legit)")
-    print(f"  Indian Test : {len(indian_test)} samples ({indian_test['label'].sum()} phish, {len(indian_test)-indian_test['label'].sum()} legit)")
-    print("  Zero domain overlap verified between Train and Test sets.")
+    global_train.to_csv(out_global_train, index=False)
+    global_test.to_csv(out_global_test, index=False)
+    indian_train.to_csv(out_indian_train, index=False)
+    indian_test.to_csv(out_indian_test, index=False)
+
+    print("\n-------------------------------------------------------", flush=True)
+    print("               FINAL DATASET SUMMARY", flush=True)
+    print("-------------------------------------------------------", flush=True)
+    for name, df in [
+        ("Global Train", global_train),
+        ("Global Test ", global_test),
+        ("Indian Train", indian_train),
+        ("Indian Test ", indian_test),
+    ]:
+        phish_cnt = int(df["label"].sum())
+        legit_cnt = len(df) - phish_cnt
+        phish_pct = (phish_cnt / len(df) * 100) if len(df) > 0 else 0
+        print(f"{name}: {len(df):>5} rows | Phish: {phish_cnt:>5} ({phish_pct:>4.1f}%) | Legit: {legit_cnt:>5} ({100-phish_pct:>4.1f}%) | Unique Domains: {df['registered_domain'].nunique():>5}", flush=True)
+
+    # Explicit domain overlap verification
+    train_doms = set(global_train["registered_domain"].unique())
+    test_doms = set(global_test["registered_domain"].unique())
+    in_train_doms = set(indian_train["registered_domain"].unique())
+    in_test_doms = set(indian_test["registered_domain"].unique())
+
+    overlap_gtrain_gtest = len(train_doms.intersection(test_doms))
+    overlap_gtrain_itest = len(train_doms.intersection(in_test_doms))
+    overlap_itrain_itest = len(in_train_doms.intersection(in_test_doms))
+
+    print("\n-------------------------------------------------------", flush=True)
+    print("         REGISTERED DOMAIN OVERLAP AUDIT", flush=True)
+    print("-------------------------------------------------------", flush=True)
+    print(f"Global Train vs Global Test overlap: {overlap_gtrain_gtest} domains (Zero Overlap: {overlap_gtrain_gtest == 0})", flush=True)
+    print(f"Global Train vs Indian Test overlap: {overlap_gtrain_itest} domains (Zero Overlap: {overlap_gtrain_itest == 0})", flush=True)
+    print(f"Indian Train vs Indian Test overlap: {overlap_itrain_itest} domains (Zero Overlap: {overlap_itrain_itest == 0})", flush=True)
+    print("=======================================================\n", flush=True)
 
 
 if __name__ == "__main__":
