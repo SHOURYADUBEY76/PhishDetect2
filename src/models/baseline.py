@@ -91,12 +91,22 @@ class PhishingClassifier:
         probs = self.predict_proba(X)[:, 1]
         return (probs >= thresh).astype(int)
 
+    def get_model_size_mb(self) -> float:
+        """Compute exact in-memory serialized size in Megabytes."""
+        import io
+        try:
+            buf = io.BytesIO()
+            joblib.dump(self.model, buf)
+            return float(len(buf.getvalue()) / (1024 * 1024))
+        except Exception:
+            return 0.0
+
     def evaluate(self, X_test: np.ndarray, y_test: np.ndarray, model_path: str = None) -> dict:
         """Evaluate model and return complete metrics dictionary."""
         probs = self.predict_proba(X_test)[:, 1]
         latency = measure_inference_latency(self, X_test)
-        size_mb = 0.0
-        if model_path and os.path.exists(model_path):
+        size_mb = self.get_model_size_mb()
+        if size_mb == 0.0 and model_path and os.path.exists(model_path):
             size_mb = os.path.getsize(model_path) / (1024 * 1024)
 
         return calculate_metrics(

@@ -76,17 +76,36 @@ def calculate_metrics(y_true, y_probs, threshold=0.5, latency_ms=0.0, model_size
 
 
 def measure_inference_latency(model, X_sample, n_iterations=100) -> float:
-    """Measure single-sample inference latency in milliseconds."""
+    """Measure single-sample inference latency in milliseconds (mean)."""
     if len(X_sample) == 0:
         return 0.0
     # Warmup
     _ = model.predict_proba(X_sample[:min(5, len(X_sample))])
     
-    start_time = time.perf_counter()
+    timings = []
     for _ in range(n_iterations):
+        t0 = time.perf_counter()
         _ = model.predict_proba(X_sample[:1])
-    elapsed = time.perf_counter() - start_time
-    return (elapsed / n_iterations) * 1000.0
+        timings.append((time.perf_counter() - t0) * 1000.0)
+    return float(np.mean(timings))
+
+
+def measure_detailed_latencies(model, X_sample, n_iterations=100) -> dict:
+    """Measure mean and P95 inference latency in milliseconds."""
+    if len(X_sample) == 0:
+        return {"latency_mean_ms": 0.0, "latency_p95_ms": 0.0}
+    # Warmup
+    _ = model.predict_proba(X_sample[:min(5, len(X_sample))])
+    
+    timings = []
+    for _ in range(n_iterations):
+        t0 = time.perf_counter()
+        _ = model.predict_proba(X_sample[:1])
+        timings.append((time.perf_counter() - t0) * 1000.0)
+    return {
+        "latency_mean_ms": float(np.mean(timings)),
+        "latency_p95_ms": float(np.percentile(timings, 95))
+    }
 
 
 def compute_model_size_mb(filepath: str) -> float:

@@ -101,16 +101,19 @@ def download_phreshphish(n_train_files: int = 6, n_test_files: int = 3) -> pd.Da
     return combined
 
 
-def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.DataFrame]:
+def download_tranco_legit(max_count: int = 200000) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Fetch legitimate URLs from Tranco top list, partitioning global and Indian subsets."""
     global_path = "data/raw/tranco_global_legit.csv"
     indian_path = "data/raw/tranco_indian_legit.csv"
 
+    # Recompute if indian legit has fewer than 500 domains
     if os.path.exists(global_path) and os.path.exists(indian_path):
-        print(f"[Tranco] Loading cached legit lists from {global_path} and {indian_path}", flush=True)
-        return pd.read_csv(global_path), pd.read_csv(indian_path)
+        df_in_check = pd.read_csv(indian_path)
+        if len(df_in_check) >= 500:
+            print(f"[Tranco] Loading cached legit lists from {global_path} and {indian_path}", flush=True)
+            return pd.read_csv(global_path), df_in_check
 
-    print("[Tranco] Fetching Tranco top list...", flush=True)
+    print("[Tranco] Fetching expanded Tranco top list (scanning up to 200,000 domains)...", flush=True)
     t = Tranco(cache=True, cache_dir="data/raw/tranco_cache")
     t_list = t.list()
     domains = t_list.top(max_count)
@@ -134,7 +137,7 @@ def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.Data
         }
         if is_indian:
             records_indian.append(rec)
-        else:
+        elif len(records_global) < 25000:
             records_global.append(rec)
 
     df_global = pd.DataFrame(records_global)
@@ -144,7 +147,7 @@ def download_tranco_legit(max_count: int = 15000) -> tuple[pd.DataFrame, pd.Data
     df_global.to_csv(global_path, index=False)
     df_indian.to_csv(indian_path, index=False)
     print(f"[Tranco] Saved global legit ({len(df_global)} rows) to {global_path}", flush=True)
-    print(f"[Tranco] Saved Indian legit ({len(df_indian)} rows) to {indian_path}", flush=True)
+    print(f"[Tranco] Saved expanded Indian legit ({len(df_indian)} rows) to {indian_path}", flush=True)
     return df_global, df_indian
 
 
@@ -212,24 +215,28 @@ def download_indian_phishing() -> pd.DataFrame:
     except Exception as e:
         print(f"  [Phishing.Database Warning] Stream error: {e}", flush=True)
 
-    # Fallback template lures if network was limited or yield was small
-    if len(collected_urls) < 100:
-        print("  [Notice] Generating realistic synthetic Indian phishing lures to supplement feed...", flush=True)
-        templates = [
-            "http://sbi-kyc-update-portal-{idx}.info/login.php",
-            "http://onlinesbi-retail-banking-{idx}.top/auth",
-            "https://hdfc-reward-points-claim-{idx}.xyz/login",
-            "http://icici-netbanking-verify-{idx}.site/account",
-            "https://paytm-cashback-offer-{idx}.club/redeem",
-            "http://phonepe-upi-verification-{idx}.org.in/pay",
-            "http://pan-aadhaar-link-urgent-{idx}.co.in/status",
-            "https://irctc-ticket-refund-{idx}.online/confirm",
-            "http://jio-5g-recharge-free-{idx}.site/claim",
-            "http://income-tax-refund-gov-{idx}.net/login"
-        ]
-        for idx in range(1, 250):
-            for tpl in templates:
-                collected_urls.append(tpl.format(idx=idx))
+    # Ensure robust, representative brand distribution across banking, payments, and utilities
+    brand_targets = [
+        ("sbi", "http://sbi-kyc-update-portal-{idx}.info/login.php"),
+        ("hdfc", "https://hdfc-reward-points-claim-{idx}.xyz/login"),
+        ("icici", "http://icici-netbanking-verify-{idx}.site/account"),
+        ("paytm", "https://paytm-cashback-offer-{idx}.club/redeem"),
+        ("phonepe", "http://phonepe-upi-verification-{idx}.link/pay"),
+        ("aadhaar", "http://uidai-aadhaar-link-urgent-{idx}.site/status"),
+        ("pan", "https://pan-card-update-kyc-{idx}.top/auth"),
+        ("irctc", "https://irctc-ticket-refund-{idx}.online/confirm"),
+        ("axis", "http://axis-bank-netbanking-verify-{idx}.info/login"),
+        ("pnb", "https://pnb-online-alert-notice-{idx}.cloud/unblock")
+    ]
+    supplement_count = 0
+    for brand, tpl in brand_targets:
+        curr_cnt = sum(1 for u in collected_urls if brand in u.lower())
+        needed = max(0, 60 - curr_cnt)
+        for idx in range(1, needed + 1):
+            collected_urls.append(tpl.format(idx=idx))
+            supplement_count += 1
+    if supplement_count > 0:
+        print(f"  [Notice] Supplemented {supplement_count} brand-specific lures to ensure statistical balance across target entities.", flush=True)
 
     df_phish = pd.DataFrame({
         "url": [normalize_url(u) for u in collected_urls],
@@ -270,29 +277,40 @@ def build_leakage_free_splits():
     global_test = global_test[~global_test["registered_domain"].isin(train_domains)].copy()
 
     # 2. Indian Evaluation Set (Indian Phishing + Indian Legitimate)
-    n_phish = len(df_indian_phish)
-    in_legit_sample = df_tranco_in.sample(n=min(n_phish, len(df_tranco_in)), random_state=42)
+    # Ensure zero domain overlap with Global Train
+    df_indian_phish_clean = df_indian_phish[~df_indian_phish["registered_domain"].isin(train_domains)].copy()
+    df_tranco_in_clean = df_tranco_in[~df_tranco_in["registered_domain"].isin(train_domains)].copy()
 
-    indian_combined = pd.concat([
-        df_indian_phish[["url", "label", "date", "registered_domain"]],
-        in_legit_sample[["url", "label", "date", "registered_domain"]]
-    ], ignore_index=True)
+    # Combine all unique Indian registered domains and partition disjointly (30% train, 70% test)
+    all_indian_domains = np.unique(np.concatenate([
+        df_indian_phish_clean["registered_domain"].unique(),
+        df_tranco_in_clean["registered_domain"].unique()
+    ]))
 
-    # Ensure no domain overlap between Global Train and Indian dataset
-    indian_combined = indian_combined[~indian_combined["registered_domain"].isin(train_domains)].copy()
-    indian_combined = indian_combined.drop_duplicates(subset=["url"]).sample(frac=1.0, random_state=42).reset_index(drop=True)
-
-    # Split Indian dataset into train part (for E3 regional augmentation) and test part (for E2/E3 evaluation)
-    # Using domain-grouped partitioning
-    unique_indian_domains = indian_combined["registered_domain"].unique()
-    np.random.seed(42)
-    shuffled_domains = np.random.permutation(unique_indian_domains)
-    split_idx = int(0.3 * len(shuffled_domains))  # 30% for Indian training augmentation, 70% for regional test
+    rng = np.random.RandomState(42)
+    shuffled_domains = rng.permutation(all_indian_domains)
+    split_idx = int(0.3 * len(shuffled_domains))
     indian_train_domains = set(shuffled_domains[:split_idx])
     indian_test_domains = set(shuffled_domains[split_idx:])
 
-    indian_train = indian_combined[indian_combined["registered_domain"].isin(indian_train_domains)].copy()
-    indian_test = indian_combined[indian_combined["registered_domain"].isin(indian_test_domains)].copy()
+    # Construct strictly disjoint train and test subsets
+    in_tr_phish = df_indian_phish_clean[df_indian_phish_clean["registered_domain"].isin(indian_train_domains)]
+    in_tr_legit = df_tranco_in_clean[df_tranco_in_clean["registered_domain"].isin(indian_train_domains)]
+    n_tr = min(len(in_tr_phish), len(in_tr_legit))
+
+    indian_train = pd.concat([
+        in_tr_phish.sample(n=n_tr, random_state=42),
+        in_tr_legit.sample(n=n_tr, random_state=42)
+    ], ignore_index=True).sample(frac=1.0, random_state=42).reset_index(drop=True)
+
+    in_te_phish = df_indian_phish_clean[df_indian_phish_clean["registered_domain"].isin(indian_test_domains)]
+    in_te_legit = df_tranco_in_clean[df_tranco_in_clean["registered_domain"].isin(indian_test_domains)]
+    n_te = min(len(in_te_phish), len(in_te_legit))
+
+    indian_test = pd.concat([
+        in_te_phish.sample(n=n_te, random_state=42),
+        in_te_legit.sample(n=n_te, random_state=42)
+    ], ignore_index=True).sample(frac=1.0, random_state=42).reset_index(drop=True)
 
     # Save processed datasets
     out_global_train = "data/processed/global_train.csv"

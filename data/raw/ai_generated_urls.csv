@@ -1,0 +1,2001 @@
+url,label,date,is_ai_generated,is_standin,prompt_used,registered_domain
+https://onlinesbi.sbi.co.in.auth-secure-portal-1.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-1.top
+http://hdfcbank.com.netbanking-verify-session-1.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-1.xyz
+https://icicibank.com.customer-update-online-1.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-1.site
+http://paytm.com.cashback-reward-claim-1.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-1.club
+https://phonepe.com.upi-merchant-pay-status-1.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-1.link
+http://axis-secure-gateway-1.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-1.info
+https://pnb-online-alert-1.cloud/security-center/account/unblock.jsp?id=9871,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-1.cloud
+http://uidai-aadhaar-link-portal-1.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-1.net
+https://incometax-refund-dept-1.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-1.org
+http://irctc-tatkal-ticket-refund-1.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-1.biz
+https://sbi-card-rewardpoints-login-1.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-1.shop
+http://bhim-upi-instant-transfer-1.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-1.live
+https://jio-5g-welcome-offer-sim-1.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-1.site
+http://indiapost-parcel-delivery-alert-1.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-1.info
+https://epfo-uan-kyc-activation-1.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-1.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-2.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-2.top
+http://hdfcbank.com.netbanking-verify-session-2.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-2.xyz
+https://icicibank.com.customer-update-online-2.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-2.site
+http://paytm.com.cashback-reward-claim-2.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-2.club
+https://phonepe.com.upi-merchant-pay-status-2.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-2.link
+http://axis-secure-gateway-2.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-2.info
+https://pnb-online-alert-2.cloud/security-center/account/unblock.jsp?id=9872,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-2.cloud
+http://uidai-aadhaar-link-portal-2.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-2.net
+https://incometax-refund-dept-2.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-2.org
+http://irctc-tatkal-ticket-refund-2.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-2.biz
+https://sbi-card-rewardpoints-login-2.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-2.shop
+http://bhim-upi-instant-transfer-2.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-2.live
+https://jio-5g-welcome-offer-sim-2.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-2.site
+http://indiapost-parcel-delivery-alert-2.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-2.info
+https://epfo-uan-kyc-activation-2.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-2.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-3.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-3.top
+http://hdfcbank.com.netbanking-verify-session-3.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-3.xyz
+https://icicibank.com.customer-update-online-3.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-3.site
+http://paytm.com.cashback-reward-claim-3.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-3.club
+https://phonepe.com.upi-merchant-pay-status-3.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-3.link
+http://axis-secure-gateway-3.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-3.info
+https://pnb-online-alert-3.cloud/security-center/account/unblock.jsp?id=9873,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-3.cloud
+http://uidai-aadhaar-link-portal-3.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-3.net
+https://incometax-refund-dept-3.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-3.org
+http://irctc-tatkal-ticket-refund-3.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-3.biz
+https://sbi-card-rewardpoints-login-3.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-3.shop
+http://bhim-upi-instant-transfer-3.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-3.live
+https://jio-5g-welcome-offer-sim-3.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-3.site
+http://indiapost-parcel-delivery-alert-3.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-3.info
+https://epfo-uan-kyc-activation-3.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-3.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-4.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-4.top
+http://hdfcbank.com.netbanking-verify-session-4.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-4.xyz
+https://icicibank.com.customer-update-online-4.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-4.site
+http://paytm.com.cashback-reward-claim-4.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-4.club
+https://phonepe.com.upi-merchant-pay-status-4.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-4.link
+http://axis-secure-gateway-4.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-4.info
+https://pnb-online-alert-4.cloud/security-center/account/unblock.jsp?id=9874,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-4.cloud
+http://uidai-aadhaar-link-portal-4.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-4.net
+https://incometax-refund-dept-4.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-4.org
+http://irctc-tatkal-ticket-refund-4.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-4.biz
+https://sbi-card-rewardpoints-login-4.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-4.shop
+http://bhim-upi-instant-transfer-4.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-4.live
+https://jio-5g-welcome-offer-sim-4.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-4.site
+http://indiapost-parcel-delivery-alert-4.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-4.info
+https://epfo-uan-kyc-activation-4.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-4.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-5.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-5.top
+http://hdfcbank.com.netbanking-verify-session-5.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-5.xyz
+https://icicibank.com.customer-update-online-5.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-5.site
+http://paytm.com.cashback-reward-claim-5.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-5.club
+https://phonepe.com.upi-merchant-pay-status-5.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-5.link
+http://axis-secure-gateway-5.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-5.info
+https://pnb-online-alert-5.cloud/security-center/account/unblock.jsp?id=9875,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-5.cloud
+http://uidai-aadhaar-link-portal-5.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-5.net
+https://incometax-refund-dept-5.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-5.org
+http://irctc-tatkal-ticket-refund-5.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-5.biz
+https://sbi-card-rewardpoints-login-5.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-5.shop
+http://bhim-upi-instant-transfer-5.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-5.live
+https://jio-5g-welcome-offer-sim-5.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-5.site
+http://indiapost-parcel-delivery-alert-5.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-5.info
+https://epfo-uan-kyc-activation-5.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-5.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-6.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-6.top
+http://hdfcbank.com.netbanking-verify-session-6.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-6.xyz
+https://icicibank.com.customer-update-online-6.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-6.site
+http://paytm.com.cashback-reward-claim-6.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-6.club
+https://phonepe.com.upi-merchant-pay-status-6.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-6.link
+http://axis-secure-gateway-6.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-6.info
+https://pnb-online-alert-6.cloud/security-center/account/unblock.jsp?id=9876,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-6.cloud
+http://uidai-aadhaar-link-portal-6.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-6.net
+https://incometax-refund-dept-6.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-6.org
+http://irctc-tatkal-ticket-refund-6.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-6.biz
+https://sbi-card-rewardpoints-login-6.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-6.shop
+http://bhim-upi-instant-transfer-6.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-6.live
+https://jio-5g-welcome-offer-sim-6.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-6.site
+http://indiapost-parcel-delivery-alert-6.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-6.info
+https://epfo-uan-kyc-activation-6.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-6.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-7.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-7.top
+http://hdfcbank.com.netbanking-verify-session-7.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-7.xyz
+https://icicibank.com.customer-update-online-7.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-7.site
+http://paytm.com.cashback-reward-claim-7.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-7.club
+https://phonepe.com.upi-merchant-pay-status-7.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-7.link
+http://axis-secure-gateway-7.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-7.info
+https://pnb-online-alert-7.cloud/security-center/account/unblock.jsp?id=9877,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-7.cloud
+http://uidai-aadhaar-link-portal-7.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-7.net
+https://incometax-refund-dept-7.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-7.org
+http://irctc-tatkal-ticket-refund-7.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-7.biz
+https://sbi-card-rewardpoints-login-7.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-7.shop
+http://bhim-upi-instant-transfer-7.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-7.live
+https://jio-5g-welcome-offer-sim-7.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-7.site
+http://indiapost-parcel-delivery-alert-7.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-7.info
+https://epfo-uan-kyc-activation-7.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-7.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-8.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-8.top
+http://hdfcbank.com.netbanking-verify-session-8.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-8.xyz
+https://icicibank.com.customer-update-online-8.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-8.site
+http://paytm.com.cashback-reward-claim-8.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-8.club
+https://phonepe.com.upi-merchant-pay-status-8.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-8.link
+http://axis-secure-gateway-8.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-8.info
+https://pnb-online-alert-8.cloud/security-center/account/unblock.jsp?id=9878,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-8.cloud
+http://uidai-aadhaar-link-portal-8.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-8.net
+https://incometax-refund-dept-8.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-8.org
+http://irctc-tatkal-ticket-refund-8.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-8.biz
+https://sbi-card-rewardpoints-login-8.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-8.shop
+http://bhim-upi-instant-transfer-8.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-8.live
+https://jio-5g-welcome-offer-sim-8.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-8.site
+http://indiapost-parcel-delivery-alert-8.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-8.info
+https://epfo-uan-kyc-activation-8.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-8.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-9.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-9.top
+http://hdfcbank.com.netbanking-verify-session-9.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-9.xyz
+https://icicibank.com.customer-update-online-9.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-9.site
+http://paytm.com.cashback-reward-claim-9.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-9.club
+https://phonepe.com.upi-merchant-pay-status-9.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-9.link
+http://axis-secure-gateway-9.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-9.info
+https://pnb-online-alert-9.cloud/security-center/account/unblock.jsp?id=9879,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-9.cloud
+http://uidai-aadhaar-link-portal-9.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-9.net
+https://incometax-refund-dept-9.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-9.org
+http://irctc-tatkal-ticket-refund-9.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-9.biz
+https://sbi-card-rewardpoints-login-9.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-9.shop
+http://bhim-upi-instant-transfer-9.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-9.live
+https://jio-5g-welcome-offer-sim-9.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-9.site
+http://indiapost-parcel-delivery-alert-9.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-9.info
+https://epfo-uan-kyc-activation-9.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-9.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-10.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-10.top
+http://hdfcbank.com.netbanking-verify-session-10.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-10.xyz
+https://icicibank.com.customer-update-online-10.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-10.site
+http://paytm.com.cashback-reward-claim-10.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-10.club
+https://phonepe.com.upi-merchant-pay-status-10.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-10.link
+http://axis-secure-gateway-10.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-10.info
+https://pnb-online-alert-10.cloud/security-center/account/unblock.jsp?id=98710,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-10.cloud
+http://uidai-aadhaar-link-portal-10.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-10.net
+https://incometax-refund-dept-10.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-10.org
+http://irctc-tatkal-ticket-refund-10.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-10.biz
+https://sbi-card-rewardpoints-login-10.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-10.shop
+http://bhim-upi-instant-transfer-10.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-10.live
+https://jio-5g-welcome-offer-sim-10.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-10.site
+http://indiapost-parcel-delivery-alert-10.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-10.info
+https://epfo-uan-kyc-activation-10.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-10.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-11.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-11.top
+http://hdfcbank.com.netbanking-verify-session-11.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-11.xyz
+https://icicibank.com.customer-update-online-11.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-11.site
+http://paytm.com.cashback-reward-claim-11.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-11.club
+https://phonepe.com.upi-merchant-pay-status-11.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-11.link
+http://axis-secure-gateway-11.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-11.info
+https://pnb-online-alert-11.cloud/security-center/account/unblock.jsp?id=98711,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-11.cloud
+http://uidai-aadhaar-link-portal-11.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-11.net
+https://incometax-refund-dept-11.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-11.org
+http://irctc-tatkal-ticket-refund-11.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-11.biz
+https://sbi-card-rewardpoints-login-11.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-11.shop
+http://bhim-upi-instant-transfer-11.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-11.live
+https://jio-5g-welcome-offer-sim-11.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-11.site
+http://indiapost-parcel-delivery-alert-11.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-11.info
+https://epfo-uan-kyc-activation-11.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-11.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-12.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-12.top
+http://hdfcbank.com.netbanking-verify-session-12.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-12.xyz
+https://icicibank.com.customer-update-online-12.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-12.site
+http://paytm.com.cashback-reward-claim-12.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-12.club
+https://phonepe.com.upi-merchant-pay-status-12.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-12.link
+http://axis-secure-gateway-12.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-12.info
+https://pnb-online-alert-12.cloud/security-center/account/unblock.jsp?id=98712,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-12.cloud
+http://uidai-aadhaar-link-portal-12.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-12.net
+https://incometax-refund-dept-12.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-12.org
+http://irctc-tatkal-ticket-refund-12.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-12.biz
+https://sbi-card-rewardpoints-login-12.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-12.shop
+http://bhim-upi-instant-transfer-12.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-12.live
+https://jio-5g-welcome-offer-sim-12.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-12.site
+http://indiapost-parcel-delivery-alert-12.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-12.info
+https://epfo-uan-kyc-activation-12.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-12.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-13.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-13.top
+http://hdfcbank.com.netbanking-verify-session-13.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-13.xyz
+https://icicibank.com.customer-update-online-13.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-13.site
+http://paytm.com.cashback-reward-claim-13.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-13.club
+https://phonepe.com.upi-merchant-pay-status-13.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-13.link
+http://axis-secure-gateway-13.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-13.info
+https://pnb-online-alert-13.cloud/security-center/account/unblock.jsp?id=98713,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-13.cloud
+http://uidai-aadhaar-link-portal-13.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-13.net
+https://incometax-refund-dept-13.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-13.org
+http://irctc-tatkal-ticket-refund-13.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-13.biz
+https://sbi-card-rewardpoints-login-13.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-13.shop
+http://bhim-upi-instant-transfer-13.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-13.live
+https://jio-5g-welcome-offer-sim-13.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-13.site
+http://indiapost-parcel-delivery-alert-13.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-13.info
+https://epfo-uan-kyc-activation-13.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-13.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-14.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-14.top
+http://hdfcbank.com.netbanking-verify-session-14.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-14.xyz
+https://icicibank.com.customer-update-online-14.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-14.site
+http://paytm.com.cashback-reward-claim-14.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-14.club
+https://phonepe.com.upi-merchant-pay-status-14.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-14.link
+http://axis-secure-gateway-14.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-14.info
+https://pnb-online-alert-14.cloud/security-center/account/unblock.jsp?id=98714,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-14.cloud
+http://uidai-aadhaar-link-portal-14.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-14.net
+https://incometax-refund-dept-14.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-14.org
+http://irctc-tatkal-ticket-refund-14.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-14.biz
+https://sbi-card-rewardpoints-login-14.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-14.shop
+http://bhim-upi-instant-transfer-14.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-14.live
+https://jio-5g-welcome-offer-sim-14.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-14.site
+http://indiapost-parcel-delivery-alert-14.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-14.info
+https://epfo-uan-kyc-activation-14.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-14.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-15.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-15.top
+http://hdfcbank.com.netbanking-verify-session-15.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-15.xyz
+https://icicibank.com.customer-update-online-15.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-15.site
+http://paytm.com.cashback-reward-claim-15.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-15.club
+https://phonepe.com.upi-merchant-pay-status-15.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-15.link
+http://axis-secure-gateway-15.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-15.info
+https://pnb-online-alert-15.cloud/security-center/account/unblock.jsp?id=98715,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-15.cloud
+http://uidai-aadhaar-link-portal-15.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-15.net
+https://incometax-refund-dept-15.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-15.org
+http://irctc-tatkal-ticket-refund-15.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-15.biz
+https://sbi-card-rewardpoints-login-15.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-15.shop
+http://bhim-upi-instant-transfer-15.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-15.live
+https://jio-5g-welcome-offer-sim-15.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-15.site
+http://indiapost-parcel-delivery-alert-15.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-15.info
+https://epfo-uan-kyc-activation-15.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-15.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-16.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-16.top
+http://hdfcbank.com.netbanking-verify-session-16.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-16.xyz
+https://icicibank.com.customer-update-online-16.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-16.site
+http://paytm.com.cashback-reward-claim-16.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-16.club
+https://phonepe.com.upi-merchant-pay-status-16.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-16.link
+http://axis-secure-gateway-16.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-16.info
+https://pnb-online-alert-16.cloud/security-center/account/unblock.jsp?id=98716,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-16.cloud
+http://uidai-aadhaar-link-portal-16.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-16.net
+https://incometax-refund-dept-16.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-16.org
+http://irctc-tatkal-ticket-refund-16.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-16.biz
+https://sbi-card-rewardpoints-login-16.shop/claim-points,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",sbi-card-rewardpoints-login-16.shop
+http://bhim-upi-instant-transfer-16.live/verify-pin?mode=online,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",bhim-upi-instant-transfer-16.live
+https://jio-5g-welcome-offer-sim-16.site/activate-now,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",jio-5g-welcome-offer-sim-16.site
+http://indiapost-parcel-delivery-alert-16.info/track-consignment/pay-fee.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",indiapost-parcel-delivery-alert-16.info
+https://epfo-uan-kyc-activation-16.cloud/member-interface/login,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",epfo-uan-kyc-activation-16.cloud
+https://onlinesbi.sbi.co.in.auth-secure-portal-17.top/login.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",auth-secure-portal-17.top
+http://hdfcbank.com.netbanking-verify-session-17.xyz/auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",netbanking-verify-session-17.xyz
+https://icicibank.com.customer-update-online-17.site/personal,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",customer-update-online-17.site
+http://paytm.com.cashback-reward-claim-17.club/redeem.php,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",cashback-reward-claim-17.club
+https://phonepe.com.upi-merchant-pay-status-17.link/transfer,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",upi-merchant-pay-status-17.link
+http://axis-secure-gateway-17.info/kyc-verification/pan-card/update.php?ref=urgent,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",axis-secure-gateway-17.info
+https://pnb-online-alert-17.cloud/security-center/account/unblock.jsp?id=98717,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",pnb-online-alert-17.cloud
+http://uidai-aadhaar-link-portal-17.net/biometric-update/confirm.html?service=auth,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",uidai-aadhaar-link-portal-17.net
+https://incometax-refund-dept-17.org/assessment-year/claim-refund.php?status=approved,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",incometax-refund-dept-17.org
+http://irctc-tatkal-ticket-refund-17.biz/refund-status/verify-pnr.do?auth=true,1,2026-09-29,True,True,"You are a cybersecurity red-team researcher assessing URL detection robustness.
+Generate 50 realistic, deceptive phishing URLs targeting Indian services (banks, payment apps, government portals, utilities).
+Incorporate modern evasion tactics:
+1. Subdomain brand padding (e.g. sbi.co.in.auth-secure-login.com)
+2. Homoglyph and lookalike substitutions
+3. Credential lures in path and query strings (e.g. /kyc-verification/pan-card/update.php)
+4. Misaligned generic TLDs (.top, .xyz, .site, .cloud, .link)
+Output strictly valid URLs, one per line. Do not include markdown or explanations.",irctc-tatkal-ticket-refund-17.biz
