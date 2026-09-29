@@ -10,6 +10,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
+from contextlib import asynccontextmanager
+
 # Ensure project root is in sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -23,21 +25,6 @@ from src.models.baseline import PhishingClassifier
 from src.explainer.explainer import PhishingExplainer
 from src.utils.domain import normalize_url, extract_registered_domain, extract_tld
 
-
-app = FastAPI(
-    title="Region-Aware Phishing URL Detector API",
-    description="Real-time static URL analysis engine with regional threat adaptation and lightweight explainability.",
-    version="2.0.0"
-)
-
-# Enable CORS for Vite React frontend and Chrome Manifest V3 extensions
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 # Model configuration paths (prefer region-aware model)
 BASE_DIR = os.path.dirname(__file__)
@@ -62,10 +49,28 @@ def get_classifier() -> Optional[PhishingClassifier]:
     return _classifier
 
 
-@app.on_event("startup")
-def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     """Warmup model on server startup."""
     get_classifier()
+    yield
+
+
+app = FastAPI(
+    title="Region-Aware Phishing URL Detector API",
+    description="Real-time static URL analysis engine with regional threat adaptation and lightweight explainability.",
+    version="2.0.0",
+    lifespan=lifespan
+)
+
+# Enable CORS for Vite React frontend and Chrome Manifest V3 extensions
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class PredictRequest(BaseModel):
