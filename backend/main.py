@@ -146,6 +146,8 @@ def predict_url(payload: PredictRequest):
 
     if is_verified_official:
         risk_score = min(risk_score, 0.02)
+    elif feature_dict.get("has_homoglyph_or_punycode", 0.0) > 0.5:
+        risk_score = max(risk_score, 0.98)
 
     is_phish = bool(risk_score >= threshold)
     verdict = "phishing" if is_phish else "legitimate"

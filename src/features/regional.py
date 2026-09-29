@@ -118,6 +118,8 @@ def extract_regional_features(url: str, include_path_query: bool = True) -> dict
     registered_domain = extract_registered_domain(url_str)
     tld = extract_tld(url_str)
     search_context = f"{hostname} {path} {query}".lower()
+    norm_context = "".join(HOMOGLYPH_MAP.get(c, c) for c in search_context)
+    norm_hostname = "".join(HOMOGLYPH_MAP.get(c, c) for c in hostname)
 
     # 1. Regional TLD signal
     is_indian_tld = 1.0 if tld in INDIAN_TLDS else 0.0
@@ -125,9 +127,12 @@ def extract_regional_features(url: str, include_path_query: bool = True) -> dict
     # 2. Indian brand token matching (normalized to canonical entity)
     matched_canonical = set()
     for brand in INDIAN_BRANDS:
-        # Check boundary or delimiter match to avoid spurious substring matches
+        # Check boundary or delimiter match in both raw and homoglyph-normalized contexts
         pattern = r"(?:^|[^a-z0-9])" + re.escape(brand) + r"(?:[^a-z0-9]|$)"
-        if re.search(pattern, search_context) or brand in hostname:
+        if (
+            re.search(pattern, search_context) or brand in hostname
+            or re.search(pattern, norm_context) or brand in norm_hostname
+        ):
             canonical = BRAND_ALIAS_MAP.get(brand, brand)
             matched_canonical.add(canonical)
 

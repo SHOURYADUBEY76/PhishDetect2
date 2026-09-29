@@ -58,6 +58,10 @@ class PhishingExplainer:
             if features.get("has_ip", 0.0) > 0.5:
                 reasons.append("Raw IP Address: Hostname uses a direct IP instead of a registered domain, a common evasion tactic.")
 
+            # 3b. Check homoglyph or punycode
+            if features.get("has_homoglyph_or_punycode", 0.0) > 0.5:
+                reasons.append("Homoglyph Obfuscation: Uses deceptive non-ASCII character lookalikes or punycode in hostname to visually spoof a legitimate domain.")
+
             # 4. Check excessive subdomains
             if features.get("num_subdomains", 0.0) >= 3:
                 reasons.append(f"Subdomain Masking: Excessive subdomain depth ({int(features['num_subdomains'])} levels) used to conceal the actual destination domain.")
