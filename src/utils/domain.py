@@ -23,8 +23,8 @@ def extract_registered_domain(url: str) -> str:
         return ""
     try:
         extracted = _extractor(url)
-        if extracted.registered_domain:
-            return extracted.registered_domain.lower()
+        if extracted.domain and extracted.suffix:
+            return f"{extracted.domain}.{extracted.suffix}".lower()
         if extracted.domain:
             return extracted.domain.lower()
         # Fallback to netloc

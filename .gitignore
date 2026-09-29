@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Caches
+data/raw/phreshphish_cache/
+data/raw/tld_cache/
+data/raw/tranco_cache/
+data/processed/feature_cache/
+
+# Node / Frontend
+node_modules/
+dist/
+.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
