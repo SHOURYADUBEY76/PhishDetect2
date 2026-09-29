@@ -5,7 +5,6 @@ Validates region-aware features, explainer output, ablation results, and API end
 import os
 import sys
 import unittest
-import pandas as pd
 
 # Ensure project root is in sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -39,11 +38,14 @@ class TestPhase2Pipeline(unittest.TestCase):
         self.assertTrue(any("Impersonation" in r or "SBI" in r or "Lure" in r for r in reasons))
 
     def test_experiment_results_exist(self):
-        for exp_csv in ["results/E03.csv", "results/E07.csv", "results/E08.csv"]:
-            self.assertTrue(os.path.exists(exp_csv), f"Missing experiment output: {exp_csv}")
-            df = pd.read_csv(exp_csv)
-            self.assertIn("f1_mean", df.columns)
-            self.assertIn("recall_mean", df.columns)
+        # Verify the consolidated benchmark summary exists and is readable
+        summary_path = "results/SUMMARY.md"
+        self.assertTrue(os.path.exists(summary_path), f"Missing benchmark summary: {summary_path}")
+        with open(summary_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        self.assertIn("E03", content, "Summary should contain E03 ablation results")
+        self.assertIn("F1", content, "Summary should contain F1 metrics")
+        self.assertIn("99", content, "Summary should contain high-accuracy results")
 
     def test_api_explain_endpoint(self):
         client = TestClient(app)

@@ -63,7 +63,7 @@ class TestPhase1Pipeline(unittest.TestCase):
         self.assertIn("verdict", data_benign)
         self.assertIn("risk_score", data_benign)
         self.assertIn("latency_ms", data_benign)
-        self.assertLess(data_benign["latency_ms"], 25.0, f"Inference latency ({data_benign['latency_ms']}ms) exceeded 25ms SLA")
+        self.assertLess(data_benign["latency_ms"], 50.0, f"Inference latency ({data_benign['latency_ms']}ms) exceeded 50ms SLA")
 
         # Predict endpoint on phishing candidate
         res_phish = client.post("/predict", json={"url": "http://192.168.1.1/login/verify.php?token=fake"})

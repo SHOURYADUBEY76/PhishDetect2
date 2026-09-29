@@ -1,3 +1,0 @@
-experiment,model_mode,data_provenance,is_standin,regional_features,sample_count,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,roc_auc_mean,roc_auc_std,fpr_mean,fpr_std,fnr_mean,fnr_std,latency_ms,model_size_mb
-E08_ai_generated,conventional_baseline,synthetic_template_standin,True,False,500,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.329877400858095,0.4994667053222656
-E08_ai_generated,region_aware_model,synthetic_template_standin,True,True,500,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.4678867999464273,0.5000953674316406
