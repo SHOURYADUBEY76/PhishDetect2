@@ -17,6 +17,9 @@ An ultra-lightweight, zero-network phishing detection architecture designed to t
 - **Explainability Layer**: Converts numeric risk factors into plain-English threat summaries for non-technical end users.
 - **Production Delivery**: Includes a FastAPI REST API, a React 19 + Vite dashboard, and a Chrome Manifest V3 browser extension with inline link inspection and real-time intercept dialogs.
 
+> [!NOTE]
+> For an in-depth component-by-component architectural walkthrough and execution data flow, see [docs/COMPONENTS_AND_ARCHITECTURE.md](docs/COMPONENTS_AND_ARCHITECTURE.md).
+
 ---
 
 ## Experimental Benchmark Results (E01 - E09)
@@ -92,6 +95,8 @@ Static URL String
 ├── data/
 │   ├── raw/                  # Downloaded raw datasets & caches
 │   └── processed/            # Domain-isolated train/test splits
+├── docs/                     # Detailed architectural specifications & documentation
+│   └── COMPONENTS_AND_ARCHITECTURE.md # Full component guide and dataflow walkthrough
 ├── experiments/              # Benchmark reproduction scripts (E01 - E09)
 │   ├── E01_standard.py
 │   ├── E02_regional_transfer.py
