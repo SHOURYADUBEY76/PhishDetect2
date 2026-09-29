@@ -22,4 +22,5 @@ dist/
 # IDE
 .vscode/
 .idea/
-*.swp
+# Testing
+.pytest_cache/
