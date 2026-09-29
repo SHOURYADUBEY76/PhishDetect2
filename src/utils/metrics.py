@@ -75,12 +75,13 @@ def calculate_metrics(y_true, y_probs, threshold=0.5, latency_ms=0.0, model_size
     }
 
 
-def measure_inference_latency(model, X_sample, n_iterations=100) -> float:
-    """Measure single-sample inference latency in milliseconds (mean)."""
+def measure_inference_latency(model, X_sample, n_iterations=100, warmup_iterations=20) -> float:
+    """Measure single-sample model inference latency in milliseconds (mean across N runs)."""
     if len(X_sample) == 0:
         return 0.0
-    # Warmup
-    _ = model.predict_proba(X_sample[:min(5, len(X_sample))])
+    # Warmup CPU/cache
+    for _ in range(warmup_iterations):
+        _ = model.predict_proba(X_sample[:1])
     
     timings = []
     for _ in range(n_iterations):
@@ -90,12 +91,13 @@ def measure_inference_latency(model, X_sample, n_iterations=100) -> float:
     return float(np.mean(timings))
 
 
-def measure_detailed_latencies(model, X_sample, n_iterations=100) -> dict:
-    """Measure mean and P95 inference latency in milliseconds."""
+def measure_detailed_latencies(model, X_sample, n_iterations=100, warmup_iterations=20) -> dict:
+    """Measure single-sample inference latency (mean, median, P95, P99) in milliseconds."""
     if len(X_sample) == 0:
-        return {"latency_mean_ms": 0.0, "latency_p95_ms": 0.0}
+        return {"latency_mean_ms": 0.0, "latency_median_ms": 0.0, "latency_p95_ms": 0.0, "latency_p99_ms": 0.0}
     # Warmup
-    _ = model.predict_proba(X_sample[:min(5, len(X_sample))])
+    for _ in range(warmup_iterations):
+        _ = model.predict_proba(X_sample[:1])
     
     timings = []
     for _ in range(n_iterations):
@@ -104,7 +106,43 @@ def measure_detailed_latencies(model, X_sample, n_iterations=100) -> dict:
         timings.append((time.perf_counter() - t0) * 1000.0)
     return {
         "latency_mean_ms": float(np.mean(timings)),
-        "latency_p95_ms": float(np.percentile(timings, 95))
+        "latency_median_ms": float(np.median(timings)),
+        "latency_p95_ms": float(np.percentile(timings, 95)),
+        "latency_p99_ms": float(np.percentile(timings, 99))
+    }
+
+
+def measure_pipeline_latency(model, sample_url: str = "https://sbi-verification.xyz/login", n_iterations=100) -> dict:
+    """Measure full end-to-end pipeline latency: URL string -> feature extraction -> model inference."""
+    from src.features.extractor import extract_features_dict, get_feature_names
+    cols = get_feature_names(include_regional=True)
+    
+    # Warmup
+    for _ in range(10):
+        fd = extract_features_dict(sample_url, include_regional=True)
+        vec = np.array([[fd[c] for c in cols]])
+        _ = model.predict_proba(vec)
+        
+    feat_times = []
+    infer_times = []
+    total_times = []
+    for _ in range(n_iterations):
+        t0 = time.perf_counter()
+        fd = extract_features_dict(sample_url, include_regional=True)
+        vec = np.array([[fd[c] for c in cols]])
+        t1 = time.perf_counter()
+        _ = model.predict_proba(vec)
+        t2 = time.perf_counter()
+        
+        feat_times.append((t1 - t0) * 1000.0)
+        infer_times.append((t2 - t1) * 1000.0)
+        total_times.append((t2 - t0) * 1000.0)
+        
+    return {
+        "feature_extraction_ms": float(np.mean(feat_times)),
+        "model_inference_ms": float(np.mean(infer_times)),
+        "end_to_end_latency_ms": float(np.mean(total_times)),
+        "end_to_end_p95_ms": float(np.percentile(total_times, 95))
     }
 
 

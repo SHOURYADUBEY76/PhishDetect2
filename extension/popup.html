@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Region-Aware Phishing Detector</title>
+  <style>
+    body {
+      width: 360px;
+      margin: 0;
+      padding: 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-sizing: border-box;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
+    }
+    .header img {
+      width: 24px;
+      height: 24px;
+    }
+    .header h1 {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0;
+      color: #f1f5f9;
+    }
+    .url-box {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    input[type="text"] {
+      flex: 1;
+      padding: 8px 10px;
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 12px;
+    }
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+    button {
+      padding: 8px 12px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .tab-btn {
+      width: 100%;
+      background: #334155;
+      margin-bottom: 12px;
+      padding: 8px;
+    }
+    .tab-btn:hover {
+      background: #475569;
+    }
+    .verdict-card {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      display: none;
+    }
+    .verdict-card.phish {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+    }
+    .verdict-card.legit {
+      display: block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid #10b981;
+    }
+    .verdict-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .verdict-card.phish .verdict-header { color: #f87171; }
+    .verdict-card.legit .verdict-header { color: #34d399; }
+    .score-badge {
+      font-size: 16px;
+    }
+    .reasons-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: 8px 0 4px;
+      font-weight: 600;
+    }
+    .reasons-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 11.5px;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+    .reasons-list li {
+      margin-bottom: 4px;
+    }
+    .footer {
+      font-size: 10px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      border-top: 1px solid #1e293b;
+      padding-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="Shield">
+    <h1>Phishing Detector (Region-Aware)</h1>
+  </div>
+
+  <button id="scan-tab-btn" class="tab-btn">⚡ Scan Current Tab URL</button>
+
+  <div class="url-box">
+    <input type="text" id="url-input" placeholder="Paste candidate URL...">
+    <button id="scan-btn">Scan</button>
+  </div>
+
+  <div id="verdict-container" class="verdict-card">
+    <div class="verdict-header">
+      <span id="verdict-text">VERIFIED</span>
+      <span id="score-text" class="score-badge">0%</span>
+    </div>
+    <div id="reasons-wrapper">
+      <div class="reasons-title">Detection Signals:</div>
+      <ul id="reasons-list" class="reasons-list"></ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span id="engine-status">Engine: Connected</span>
+    <span id="latency-text">Latency: --</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

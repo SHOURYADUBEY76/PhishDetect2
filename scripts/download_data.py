@@ -267,10 +267,20 @@ def build_leakage_free_splits():
     df_phresh["registered_domain"] = df_phresh["url"].apply(extract_registered_domain)
     df_indian_phish["registered_domain"] = df_indian_phish["url"].apply(extract_registered_domain)
 
-    # 1. Global Benchmark (PhreshPhish)
+    # 1. Global Benchmark (PhreshPhish + Tranco Global Root Domains)
     df_phresh = df_phresh.drop_duplicates(subset=["url"]).copy()
     global_train = df_phresh[df_phresh["split"] == "train"].copy()
     global_test = df_phresh[df_phresh["split"] == "test"].copy()
+
+    # Balance bare root domains vs path URLs by adding non-overlapping global Tranco domains
+    indian_phish_doms = set(df_indian_phish["registered_domain"].unique())
+    indian_tranco_doms = set(df_tranco_in["registered_domain"].unique())
+    all_indian_doms = indian_phish_doms.union(indian_tranco_doms)
+
+    df_tranco_global_clean = df_tranco_global[~df_tranco_global["registered_domain"].isin(all_indian_doms)].copy()
+    df_tranco_global_clean["split"] = "train"
+    tranco_sample = df_tranco_global_clean.sample(n=min(5000, len(df_tranco_global_clean)), random_state=42)
+    global_train = pd.concat([global_train, tranco_sample], ignore_index=True)
 
     # Enforce strict domain isolation: remove any test domain that appears in train
     train_domains = set(global_train["registered_domain"].unique())

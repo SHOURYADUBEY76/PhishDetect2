@@ -1,3 +1,3 @@
 experiment,model_mode,data_provenance,is_standin,regional_features,sample_count,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,roc_auc_mean,roc_auc_std,fpr_mean,fpr_std,fnr_mean,fnr_std,latency_ms,model_size_mb
-E08_ai_generated,conventional_baseline,synthetic_template_standin,True,False,500,0.9405748248401912,0.004106069136475146,1.0,0.0,0.9693729145072563,0.002186011070383625,0.9999712000000001,5.759999999996879e-05,0.0632,0.004664761515876239,0.0,0.0,3.2226753993018065,0.4991340637207031
-E08_ai_generated,region_aware_model,synthetic_template_standin,True,True,500,0.9800453262348023,0.020130731853806448,1.0,0.0,0.9898167125954691,0.010367420507459552,1.0,0.0,0.0208,0.02137662274541982,0.0,0.0,3.1890209998528007,0.49971694946289064
+E08_ai_generated,conventional_baseline,synthetic_template_standin,True,False,500,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.329877400858095,0.4994667053222656
+E08_ai_generated,region_aware_model,synthetic_template_standin,True,True,500,1.0,0.0,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.4678867999464273,0.5000953674316406

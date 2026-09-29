@@ -35,9 +35,18 @@ def get_feature_matrix(
     suffix = f"reg_{int(include_regional)}_pq_{int(include_path_query)}"
     cache_path = os.path.join(FEATURE_CACHE_DIR, f"{cache_key}_{suffix}.parquet")
 
+    feat_df = None
     if os.path.exists(cache_path) and not force_recompute:
-        feat_df = pd.read_parquet(cache_path)
-    else:
+        try:
+            cached = pd.read_parquet(cache_path)
+            if len(cached) == len(df):
+                feat_df = cached
+            else:
+                print(f"  [Cache Invalidation] Cache length ({len(cached)}) != df length ({len(df)}) for {cache_key}. Recomputing...", flush=True)
+        except Exception:
+            feat_df = None
+
+    if feat_df is None:
         print(f"  Extracting features for {cache_key} ({len(df)} URLs)...", flush=True)
         feat_df = extract_features_df(
             df["url"].tolist(),
