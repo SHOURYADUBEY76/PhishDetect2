@@ -13,6 +13,8 @@ data/raw/phreshphish_cache/
 data/raw/tld_cache/
 data/raw/tranco_cache/
 data/processed/feature_cache/
+audit/results/*.parquet
+*.parquet
 
 # Node / Frontend
 node_modules/
