@@ -1,0 +1,42 @@
+{
+  "experiment": "A1_shortcut_sensitivity",
+  "evaluation_rows": 21094,
+  "unmasked_generic_lgb": {
+    "roc_auc": 0.9598364592829854,
+    "f1": 0.895195875295138,
+    "precision": 0.9101508916323731,
+    "recall": 0.880724376599981,
+    "fpr": 0.08694415473594387,
+    "threshold": 0.5136363636363637
+  },
+  "masked_generic_lgb": {
+    "roc_auc": 0.9317333513221945,
+    "f1": 0.8192835122780908,
+    "precision": 0.9322607959356477,
+    "recall": 0.7307291172845359,
+    "fpr": 0.053095667014316866,
+    "threshold": 0.65
+  },
+  "shortcut_only_lgb": {
+    "roc_auc": 0.9088183870491204,
+    "f1": 0.8270329987031078,
+    "precision": 0.8381035825545171,
+    "recall": 0.8162510666540248,
+    "fpr": 0.1576751682943017,
+    "threshold": 0.55
+  },
+  "paired_bootstrap_unmasked_vs_masked": {
+    "observed_metric_a": 0.9598364592829854,
+    "observed_metric_b": 0.9317333513221945,
+    "observed_delta": 0.028103107960790963,
+    "bootstrap_mean_delta": 0.028740460121902872,
+    "bootstrap_std": 0.004712035530652601,
+    "ci_lower": 0.020685057057765358,
+    "ci_upper": 0.03861424078599054,
+    "interval_width": 0.01792918372822518,
+    "p_value": 0.0,
+    "is_significant": true,
+    "n_invalid_replicates": 0,
+    "n_valid_replicates": 1000
+  }
+}

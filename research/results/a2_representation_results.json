@@ -1,0 +1,105 @@
+{
+  "experiment": "A2_representation_sensitivity",
+  "evaluated_domains": 50,
+  "mean_base_prob": 0.02214163893957071,
+  "mean_shifts": {
+    "delta_http_bare": 0.9198624623423516,
+    "delta_https_trailing_slash": 0.3257685606553727,
+    "delta_https_www_bare": 0.6158515835755436,
+    "delta_https_www_slash": 0.12551670689380323,
+    "delta_raw_bare": 0.9351458323079936
+  },
+  "max_shifts": {
+    "delta_http_bare": 0.9638201586181255,
+    "delta_https_trailing_slash": 0.6074785822864615,
+    "delta_https_www_bare": 0.8037955954395883,
+    "delta_https_www_slash": 0.36080991688033437,
+    "delta_raw_bare": 0.9654210300744266
+  },
+  "min_shifts": {
+    "delta_http_bare": 0.7216376886571865,
+    "delta_https_trailing_slash": 0.06806979698673643,
+    "delta_https_www_bare": 0.14821106699142586,
+    "delta_https_www_slash": -0.00023518778276614485,
+    "delta_raw_bare": 0.7350851406613049
+  },
+  "false_positive_flips": {
+    "www_flip_count": 39,
+    "slash_flip_count": 5,
+    "www_slash_flip_count": 0
+  },
+  "per_domain_sample": {
+    "http_bare": {
+      "adobe.com": 0.9596027829080777,
+      "airtel.in": 0.9350628802659209,
+      "amazon.com": 0.967558380560453,
+      "apple.com": 0.9718882061248043,
+      "bbc.com": 0.8691139720364006,
+      "bing.com": 0.8968194952465522,
+      "cnn.com": 0.8691139720364006,
+      "craigslist.org": 0.960053998621169,
+      "dropbox.com": 0.9557628840162194,
+      "ebay.com": 0.8968194952465522
+    },
+    "https_bare": {
+      "adobe.com": 0.019258554561629403,
+      "airtel.in": 0.014291934446837625,
+      "amazon.com": 0.0190551086636963,
+      "apple.com": 0.019258554561629403,
+      "bbc.com": 0.006823667101774184,
+      "bing.com": 0.009689635662844335,
+      "cnn.com": 0.006823667101774184,
+      "craigslist.org": 0.03712008143126979,
+      "dropbox.com": 0.015571842621875807,
+      "ebay.com": 0.009689635662844335
+    },
+    "https_trailing_slash": {
+      "adobe.com": 0.29165625672759066,
+      "airtel.in": 0.6217705167332991,
+      "amazon.com": 0.2805324483623163,
+      "apple.com": 0.29165625672759066,
+      "bbc.com": 0.15969191885827483,
+      "bing.com": 0.16918398726558878,
+      "cnn.com": 0.15969191885827483,
+      "craigslist.org": 0.3824087132927557,
+      "dropbox.com": 0.40010236604258204,
+      "ebay.com": 0.16918398726558878
+    },
+    "https_www_bare": {
+      "adobe.com": 0.7059136433967953,
+      "airtel.in": 0.6690419937349821,
+      "amazon.com": 0.7144337324974325,
+      "apple.com": 0.7007764222303967,
+      "bbc.com": 0.3100982149409087,
+      "bing.com": 0.47975447771565377,
+      "cnn.com": 0.3100982149409087,
+      "craigslist.org": 0.7147849422413949,
+      "dropbox.com": 0.7144337324974325,
+      "ebay.com": 0.47975447771565377
+    },
+    "https_www_slash": {
+      "adobe.com": 0.17197473406447897,
+      "airtel.in": 0.375101851327172,
+      "amazon.com": 0.1703699444982033,
+      "apple.com": 0.19001125415828352,
+      "bbc.com": 0.03334127711456421,
+      "bing.com": 0.06414935143166567,
+      "cnn.com": 0.03334127711456421,
+      "craigslist.org": 0.13907915223123787,
+      "dropbox.com": 0.15967059246734083,
+      "ebay.com": 0.06414935143166567
+    },
+    "raw_bare": {
+      "adobe.com": 0.9773485107118676,
+      "airtel.in": 0.9244473897069687,
+      "amazon.com": 0.9782962559573619,
+      "apple.com": 0.9773485107118676,
+      "bbc.com": 0.876696290253077,
+      "bing.com": 0.9446442225733057,
+      "cnn.com": 0.876696290253077,
+      "craigslist.org": 0.9799788612688546,
+      "dropbox.com": 0.9784251815699975,
+      "ebay.com": 0.9446442225733057
+    }
+  }
+}

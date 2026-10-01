@@ -67,9 +67,13 @@ def get_feature_matrix(
 
     feature_names = get_feature_names(include_regional=include_regional)
     X = feat_df[feature_names].values.astype(np.float32)
-    # Replace any potential NaN/Inf
     X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
-    y = df["label"].values.astype(int)
+    if "label" in df.columns:
+        y = df["label"].values.astype(int)
+    elif "label_num" in df.columns:
+        y = df["label_num"].values.astype(int)
+    else:
+        y = np.zeros(len(df), dtype=int)
 
     return X, y, feature_names
 
