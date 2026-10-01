@@ -214,22 +214,25 @@ INDIAN_HOSTING_TLDS: Set[str] = {
 
 def is_indian_hosting_tld(url_or_hostname: str) -> bool:
     """Determine whether the URL's hostname has an Indian top-level domain."""
-    u = str(url_or_hostname).strip().lower()
-    if "://" in u:
-        parsed = urlparse(u)
-        hostname = parsed.netloc.split(":")[0]
-    else:
-        hostname = u.split("/")[0].split(":")[0]
+    try:
+        u = str(url_or_hostname).strip().lower()
+        if "://" in u:
+            parsed = urlparse(u)
+            hostname = parsed.netloc.split(":")[0]
+        else:
+            hostname = u.split("/")[0].split(":")[0]
 
-    parts = hostname.split(".")
-    if len(parts) >= 2:
-        if parts[-1] == "in":
-            return True
-        if parts[-1] == "bharat":
-            return True
-        if len(parts) >= 3 and ".".join(parts[-2:]) in INDIAN_HOSTING_TLDS:
-            return True
-    return False
+        parts = hostname.split(".")
+        if len(parts) >= 2:
+            if parts[-1] == "in":
+                return True
+            if parts[-1] == "bharat":
+                return True
+            if len(parts) >= 3 and ".".join(parts[-2:]) in INDIAN_HOSTING_TLDS:
+                return True
+        return False
+    except Exception:
+        return False
 
 
 def match_independent_indian_target(
