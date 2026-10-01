@@ -1,15 +1,19 @@
-"""Region-aware feature extraction targeting the Indian phishing threat landscape.
+"""Region-aware feature extraction targeting the Indian threat landscape.
 Analyzes brand impersonation, regional TLD misalignment, lure actions, and homoglyphs.
+Hardened with strict token-boundary matching and configurable LexiconConfig architecture.
 """
 
+from dataclasses import dataclass, field
 import re
 from difflib import SequenceMatcher
+from typing import Dict, List, Optional, Set
 from urllib.parse import urlparse
-from src.utils.domain import extract_registered_domain, extract_tld, extract_subdomain
+
+from src.utils.domain import extract_registered_domain, extract_tld, has_idn_punycode
 
 
 # Indian high-value targets across banking, payments, telecom, and citizen services
-INDIAN_BRANDS = [
+DEFAULT_INDIAN_BRANDS = [
     "sbi", "onlinesbi", "statebank", "hdfc", "hdfcbank", "icici", "icicibank",
     "axis", "axisbank", "pnb", "punjabnational", "bob", "bankofbaroda",
     "canarabank", "kotak", "yesbank", "indusind", "unionbank", "rbi",
@@ -20,7 +24,7 @@ INDIAN_BRANDS = [
 ]
 
 # Canonical mapping of aliases to brand entity
-BRAND_ALIAS_MAP = {
+DEFAULT_BRAND_ALIAS_MAP = {
     "onlinesbi": "sbi",
     "statebank": "sbi",
     "hdfcbank": "hdfc",
@@ -37,8 +41,8 @@ BRAND_ALIAS_MAP = {
     "postinfo": "indiapost",
 }
 
-# Legitimate official registered domains for Indian entities
-OFFICIAL_DOMAINS = {
+# Legitimate official registered domains for Indian entities (scoped; no root google.com)
+DEFAULT_OFFICIAL_DOMAINS = {
     "sbi": {"sbi.co.in", "onlinesbi.sbi", "onlinesbi.com", "statebankofindia.com"},
     "hdfc": {"hdfcbank.com", "hdfc.com", "hdfcbank.net"},
     "icici": {"icicibank.com", "icici.com"},
@@ -49,7 +53,7 @@ OFFICIAL_DOMAINS = {
     "rbi": {"rbi.org.in"},
     "paytm": {"paytm.com", "paytmbank.com"},
     "phonepe": {"phonepe.com"},
-    "gpay": {"google.com", "pay.google.com"},
+    "gpay": {"pay.google.com"},  # Scoped specifically to payment domain; excluded root google.com
     "upi": {"npci.org.in", "bhimupi.org.in"},
     "bhim": {"bhimupi.org.in", "npci.org.in"},
     "aadhaar": {"uidai.gov.in"},
@@ -65,13 +69,13 @@ OFFICIAL_DOMAINS = {
 }
 
 # Regional top-level domains for India
-INDIAN_TLDS = {
+DEFAULT_INDIAN_TLDS = {
     "in", "co.in", "net.in", "org.in", "gov.in", "nic.in", "res.in", "ac.in",
     "edu.in", "mil.in", "ind.in", "gen.in", "firm.in", "bharat"
 }
 
 # Action lures prevalent in regional attacks
-INDIAN_LURES = [
+DEFAULT_INDIAN_LURES = [
     "kyc", "kycupdate", "kyc-verify", "panlink", "pan-update", "lottery",
     "recharge", "subsidy", "reward", "refund", "cashback", "electricity",
     "biometric", "block-card", "unblock", "yono", "rewards-point"
@@ -84,12 +88,32 @@ HOMOGLYPH_MAP = {
 }
 
 
+@dataclass
+class LexiconConfig:
+    """Configurable lexicon container supporting zero-knowledge evaluation."""
+    brands: List[str] = field(default_factory=lambda: list(DEFAULT_INDIAN_BRANDS))
+    alias_map: Dict[str, str] = field(default_factory=lambda: dict(DEFAULT_BRAND_ALIAS_MAP))
+    official_domains: Dict[str, Set[str]] = field(default_factory=lambda: {k: set(v) for k, v in DEFAULT_OFFICIAL_DOMAINS.items()})
+    tlds: Set[str] = field(default_factory=lambda: set(DEFAULT_INDIAN_TLDS))
+    lures: List[str] = field(default_factory=lambda: list(DEFAULT_INDIAN_LURES))
+
+
+DEFAULT_LEXICON_CONFIG = LexiconConfig()
+
+# Expose constants for backward-compatibility
+INDIAN_BRANDS = DEFAULT_INDIAN_BRANDS
+BRAND_ALIAS_MAP = DEFAULT_BRAND_ALIAS_MAP
+OFFICIAL_DOMAINS = DEFAULT_OFFICIAL_DOMAINS
+INDIAN_TLDS = DEFAULT_INDIAN_TLDS
+INDIAN_LURES = DEFAULT_INDIAN_LURES
+
+
 def detect_homoglyph_or_punycode(url_str: str) -> float:
-    """Detect punycode (xn--) or non-ASCII homoglyphs in hostname."""
-    if "xn--" in url_str.lower():
+    """Detect Punycode (xn--), Cyrillic homoglyphs, or non-ASCII characters in host."""
+    if has_idn_punycode(url_str):
         return 1.0
     for char in url_str:
-        if char in HOMOGLYPH_MAP or ord(char) > 127:
+        if char in HOMOGLYPH_MAP:
             return 1.0
     return 0.0
 
@@ -99,76 +123,107 @@ def string_similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, a, b).ratio()
 
 
-def extract_regional_features(url: str, include_path_query: bool = True) -> dict:
-    """Extract region-aware indicators for Indian threat landscape.
+def extract_regional_features(
+    url: str,
+    include_path_query: bool = True,
+    config: Optional[LexiconConfig] = None
+) -> dict:
+    """Extract region-aware indicators with strict token-boundary matching.
     
     Args:
         url: Static URL string.
         include_path_query: Whether to inspect path/query for lures.
+        config: Optional LexiconConfig to use for brand/domain matching.
         
     Returns:
         Dictionary of regional feature values.
     """
+    cfg = config or DEFAULT_LEXICON_CONFIG
     url_str = str(url).strip()
-    parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
-    hostname = (parsed.netloc or "").split(":")[0].lower()
-    path = parsed.path.lower() if include_path_query else ""
-    query = parsed.query.lower() if include_path_query else ""
-    
+    try:
+        parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
+        hostname = (parsed.netloc or "").split(":")[0].lower()
+        path = parsed.path.lower() if include_path_query else ""
+        query = parsed.query.lower() if include_path_query else ""
+    except Exception:
+        hostname = ""
+        path = ""
+        query = ""
+
     registered_domain = extract_registered_domain(url_str)
     tld = extract_tld(url_str)
+
     search_context = f"{hostname} {path} {query}".lower()
     norm_context = "".join(HOMOGLYPH_MAP.get(c, c) for c in search_context)
     norm_hostname = "".join(HOMOGLYPH_MAP.get(c, c) for c in hostname)
 
     # 1. Regional TLD signal
-    is_indian_tld = 1.0 if tld in INDIAN_TLDS else 0.0
+    is_indian_tld = 1.0 if tld in cfg.tlds else 0.0
 
-    # 2. Indian brand token matching (normalized to canonical entity)
+    # 2. Indian brand token matching (strict word-boundary matching)
     matched_canonical = set()
-    for brand in INDIAN_BRANDS:
-        # Check boundary or delimiter match in both raw and homoglyph-normalized contexts
-        pattern = r"(?:^|[^a-z0-9])" + re.escape(brand) + r"(?:[^a-z0-9]|$)"
-        if (
-            re.search(pattern, search_context) or brand in hostname
-            or re.search(pattern, norm_context) or brand in norm_hostname
-        ):
-            canonical = BRAND_ALIAS_MAP.get(brand, brand)
+    raw_tokens = set(re.findall(r"[a-z0-9]+", search_context))
+    norm_tokens = set(re.findall(r"[a-z0-9]+", norm_context))
+    host_tokens = set(re.findall(r"[a-z0-9]+", hostname))
+    norm_host_tokens = set(re.findall(r"[a-z0-9]+", norm_hostname))
+
+    for brand in cfg.brands:
+        # Require discrete word token match or explicit hyphen-delimited boundary
+        # Eliminates substring collisions like 'pan' in 'company' or 'axis' in 'coaxial'
+        is_matched = False
+        if brand in raw_tokens or brand in norm_tokens:
+            is_matched = True
+        elif brand in host_tokens or brand in norm_host_tokens:
+            is_matched = True
+        else:
+            # Check hyphen-delimited boundary in host/path (e.g. sbi-kyc)
+            boundary_pattern = r"(?:^|[\-._/])" + re.escape(brand) + r"(?:[\-._/]|$)"
+            if re.search(boundary_pattern, hostname) or re.search(boundary_pattern, norm_hostname):
+                is_matched = True
+
+        if is_matched:
+            canonical = cfg.alias_map.get(brand, brand)
             matched_canonical.add(canonical)
 
     has_indian_brand_token = 1.0 if len(matched_canonical) > 0 else 0.0
     brand_token_count = float(len(matched_canonical))
 
-    # 3. Indian lure keywords
-    matched_lures = [lure for lure in INDIAN_LURES if lure in search_context]
+    # 3. Indian lure keywords (matched via discrete tokens or boundary regex)
+    matched_lures = []
+    for lure in cfg.lures:
+        if "-" in lure or "_" in lure:
+            if lure in search_context:
+                matched_lures.append(lure)
+        else:
+            if lure in raw_tokens or lure in norm_tokens:
+                matched_lures.append(lure)
+
     has_indian_lure = 1.0 if len(matched_lures) > 0 else 0.0
     lure_token_count = float(len(matched_lures))
 
     # 4. Target vs TLD misalignment:
-    # High risk signal: Indian banking/gov brand token is present, but registered domain is NOT the official domain!
+    # High risk signal: Indian banking/gov brand token is present, but registered domain is NOT the official domain
     brand_tld_misalignment = 0.0
     for entity in matched_canonical:
-        official_domains = OFFICIAL_DOMAINS.get(entity, set())
+        official_domains = cfg.official_domains.get(entity, set())
         if official_domains:
             if registered_domain not in official_domains:
                 brand_tld_misalignment = 1.0
                 break
         else:
-            # Generic brand not in registry, check if domain ends with expected domain
             if entity in registered_domain and registered_domain not in {f"{entity}.com", f"{entity}.in", f"{entity}.co.in"}:
                 brand_tld_misalignment = 1.0
                 break
 
     # 5. Fuzzy similarity to nearest Indian brand in hostname tokens
-    host_tokens = re.split(r"[.\-_/]", hostname)
     max_similarity = 0.0
     for token in host_tokens:
         if len(token) >= 3:
-            for b in INDIAN_BRANDS:
+            for b in cfg.brands:
                 sim = string_similarity(token, b)
                 if sim > max_similarity and sim < 1.0:  # Exclude exact matches from typo-similarity
                     max_similarity = sim
-    
+
     # 6. Homoglyph / Punycode
     has_homoglyph = detect_homoglyph_or_punycode(hostname)
 

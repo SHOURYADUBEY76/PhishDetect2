@@ -1,5 +1,6 @@
 """Structural feature extraction from static URL strings.
 Extracts protocol, subdomain hierarchy, path depth, IP presence, and structural anomalies.
+Hardened with defensive parsing for out-of-range ports and malformed schemes.
 """
 
 import re
@@ -10,7 +11,7 @@ from src.utils.domain import extract_subdomain, extract_registered_domain, extra
 # Standard IPv4 pattern
 IPV4_PATTERN = re.compile(r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
 
-# Common phishing intent keywords
+# Common phishing intent keywords (matched as discrete tokens or bound words)
 SUSPICIOUS_KEYWORDS = [
     "login", "signin", "verify", "verification", "secure", "security",
     "account", "update", "banking", "wallet", "confirm", "confirmation",
@@ -34,7 +35,7 @@ def is_ip_address(hostname: str) -> bool:
 
 
 def extract_structural_features(url: str, include_path_query: bool = True) -> dict:
-    """Extract structural URL features.
+    """Extract structural URL features with hardened defensive parsing.
     
     Args:
         url: Static URL string.
@@ -44,10 +45,17 @@ def extract_structural_features(url: str, include_path_query: bool = True) -> di
         Dictionary of structural feature names and float values.
     """
     url_str = str(url).strip()
-    parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
-    hostname = (parsed.netloc or "").split(":")[0]
-    path = parsed.path if include_path_query else ""
-    query = parsed.query if include_path_query else ""
+    try:
+        parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
+        hostname = (parsed.netloc or "").split(":")[0]
+        scheme = (parsed.scheme or "").lower()
+    except Exception:
+        parsed = None
+        hostname = ""
+        scheme = ""
+
+    path = (parsed.path if parsed else "") if include_path_query else ""
+    query = (parsed.query if parsed else "") if include_path_query else ""
 
     subdomain = extract_subdomain(url_str)
     registered_domain = extract_registered_domain(url_str)
@@ -62,15 +70,22 @@ def extract_structural_features(url: str, include_path_query: bool = True) -> di
     has_ip = 1.0 if is_ip_address(hostname) else 0.0
 
     # Scheme
-    scheme = parsed.scheme.lower()
     is_https = 1.0 if scheme == "https" else 0.0
     is_http = 1.0 if scheme == "http" else 0.0
 
-    # Port
-    has_port = 1.0 if parsed.port is not None else 0.0
+    # Hardened Port Evaluation (prevents unhandled ValueError on malformed ports)
+    has_port = 0.0
     is_non_standard_port = 0.0
-    if parsed.port is not None:
-        if (scheme == "https" and parsed.port != 443) or (scheme == "http" and parsed.port != 80):
+    if parsed is not None:
+        try:
+            port = parsed.port
+            if port is not None:
+                has_port = 1.0
+                if (scheme == "https" and port != 443) or (scheme == "http" and port != 80):
+                    is_non_standard_port = 1.0
+        except ValueError:
+            # Out of range or non-integer port is an anomaly/malformed attempt
+            has_port = 1.0
             is_non_standard_port = 1.0
 
     # Path depth
@@ -81,9 +96,9 @@ def extract_structural_features(url: str, include_path_query: bool = True) -> di
     query_params = [q for q in query.split("&") if q]
     num_query_params = len(query_params)
 
-    # Suspicious keywords presence
-    search_target = f"{hostname} {path} {query}".lower()
-    keyword_count = sum(1 for kw in SUSPICIOUS_KEYWORDS if kw in search_target)
+    # Suspicious keywords presence (tokenized to avoid false substring matches)
+    search_tokens = set(re.findall(r"[a-z0-9]+", f"{hostname} {path} {query}".lower()))
+    keyword_count = sum(1 for kw in SUSPICIOUS_KEYWORDS if kw in search_tokens)
 
     # Redirection trick: double slash in path (e.g., http://legit.com//phish.com)
     has_double_slash_redirect = 1.0 if "//" in path else 0.0

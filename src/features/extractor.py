@@ -1,5 +1,5 @@
 """Unified feature extraction interface for training and real-time inference.
-Safe, zero-network, sub-millisecond execution.
+Safe, zero-network, sub-millisecond execution. Supports custom LexiconConfig.
 """
 
 from typing import Dict, List, Optional
@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from src.features.lexical import extract_lexical_features
 from src.features.structural import extract_structural_features
-from src.features.regional import extract_regional_features
+from src.features.regional import extract_regional_features, LexiconConfig
 
 
 # Canonical feature orders to maintain strict consistency across training and inference
@@ -45,14 +45,16 @@ def get_feature_names(include_regional: bool = True) -> List[str]:
 def extract_features_dict(
     url: str,
     include_regional: bool = True,
-    include_path_query: bool = True
+    include_path_query: bool = True,
+    lexicon_config: Optional[LexiconConfig] = None
 ) -> Dict[str, float]:
     """Extract full feature dictionary from a static URL string.
     
     Args:
         url: Static URL string.
         include_regional: Whether to include India-specific regional features.
-        include_path_query: Whether to include path/query components (used for source bias audit).
+        include_path_query: Whether to include path/query components.
+        lexicon_config: Optional LexiconConfig for zero-knowledge brand testing.
         
     Returns:
         Dictionary mapping feature name to numeric value.
@@ -61,20 +63,26 @@ def extract_features_dict(
     feats.update(extract_lexical_features(url, include_path_query=include_path_query))
     feats.update(extract_structural_features(url, include_path_query=include_path_query))
     if include_regional:
-        feats.update(extract_regional_features(url, include_path_query=include_path_query))
+        feats.update(extract_regional_features(
+            url,
+            include_path_query=include_path_query,
+            config=lexicon_config
+        ))
     return feats
 
 
 def extract_features_vector(
     url: str,
     include_regional: bool = True,
-    include_path_query: bool = True
+    include_path_query: bool = True,
+    lexicon_config: Optional[LexiconConfig] = None
 ) -> np.ndarray:
     """Extract features as a 1D NumPy array matching canonical order."""
     fdict = extract_features_dict(
         url,
         include_regional=include_regional,
-        include_path_query=include_path_query
+        include_path_query=include_path_query,
+        lexicon_config=lexicon_config
     )
     feature_names = get_feature_names(include_regional=include_regional)
     return np.array([fdict.get(col, 0.0) for col in feature_names], dtype=np.float32)
@@ -83,14 +91,16 @@ def extract_features_vector(
 def extract_features_df(
     urls: List[str],
     include_regional: bool = True,
-    include_path_query: bool = True
+    include_path_query: bool = True,
+    lexicon_config: Optional[LexiconConfig] = None
 ) -> pd.DataFrame:
     """Extract features for a list of URLs into a pandas DataFrame."""
     rows = [
         extract_features_dict(
             u,
             include_regional=include_regional,
-            include_path_query=include_path_query
+            include_path_query=include_path_query,
+            lexicon_config=lexicon_config
         )
         for u in urls
     ]
