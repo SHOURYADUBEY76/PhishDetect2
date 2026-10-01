@@ -1,0 +1,661 @@
+{
+  "census_version": "1.0.0",
+  "datasets": {
+    "data/processed/global_test.csv": {
+      "file": "data/processed/global_test.csv",
+      "total_rows": 7434,
+      "unique_urls": 7434,
+      "unique_domains": 5881,
+      "top_5_domains": {
+        "blogspot.li": 28,
+        "blogspot.cz": 26,
+        "kleinanzegien.de": 26,
+        "blogspot.hu": 26,
+        "blogspot.mx": 25
+      },
+      "top_1_domain_share": 0.003766478342749529,
+      "label_distribution": {
+        "1": 3892,
+        "0": 3542
+      },
+      "overall_path_query_ratio": 0.715496368038741,
+      "overall_https_ratio": 0.8925208501479688,
+      "mean_url_length": 60.033494753833736,
+      "path_by_class": {
+        "0": {
+          "count": 3542,
+          "has_path_query_ratio": 0.8404856013551666,
+          "https_ratio": 0.9785431959345002,
+          "mean_path_length": 30.076228119706382
+        },
+        "1": {
+          "count": 3892,
+          "has_path_query_ratio": 0.6017471736896197,
+          "https_ratio": 0.8142343268242549,
+          "mean_path_length": 16.605601233299076
+        }
+      },
+      "top_5_tlds": {
+        "com": 3137,
+        "org": 385,
+        "shop": 313,
+        "info": 254,
+        "de": 171
+      },
+      "indian_tld_ratio": 0.00712940543449018,
+      "repo_brand_match_count": 3,
+      "repo_brand_match_ratio": 0.0004035512510088781,
+      "independent_brand_match_count": 2,
+      "independent_brand_match_ratio": 0.0002690341673392521,
+      "date_info": {
+        "unique_dates": 62,
+        "min_date": "2025-09-08",
+        "max_date": "2025-12-16"
+      }
+    },
+    "data/processed/global_train.csv": {
+      "file": "data/processed/global_train.csv",
+      "total_rows": 40708,
+      "unique_urls": 40708,
+      "unique_domains": 20936,
+      "top_5_domains": {
+        "gitbook.io": 1440,
+        "webflow.io": 1413,
+        "google.com": 915,
+        "wikipedia.org": 744,
+        "weeblysite.com": 650
+      },
+      "top_1_domain_share": 0.03537388228358062,
+      "label_distribution": {
+        "0": 24739,
+        "1": 15969
+      },
+      "overall_path_query_ratio": 0.6689348531001278,
+      "overall_https_ratio": 0.9393485310012774,
+      "mean_url_length": 53.21035177360715,
+      "path_by_class": {
+        "0": {
+          "count": 24739,
+          "has_path_query_ratio": 0.7407332551841223,
+          "https_ratio": 0.9826185375318324,
+          "mean_path_length": 28.133513884958973
+        },
+        "1": {
+          "count": 15969,
+          "has_path_query_ratio": 0.5577055545118668,
+          "https_ratio": 0.8723151105266453,
+          "mean_path_length": 14.979147097501409
+        }
+      },
+      "top_5_tlds": {
+        "com": 21586,
+        "io": 3669,
+        "org": 2460,
+        "net": 1143,
+        "dev": 1044
+      },
+      "indian_tld_ratio": 0.001965215682421146,
+      "repo_brand_match_count": 16,
+      "repo_brand_match_ratio": 0.0003930431364842291,
+      "independent_brand_match_count": 5,
+      "independent_brand_match_ratio": 0.00012282598015132161,
+      "date_info": {
+        "unique_dates": 389,
+        "min_date": "2024-07-02",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/processed/indian_test.csv": {
+      "file": "data/processed/indian_test.csv",
+      "total_rows": 3082,
+      "unique_urls": 3082,
+      "unique_domains": 2393,
+      "top_5_domains": {
+        "civilcontractorsinmumbai.in": 233,
+        "cmdpgcollege.in": 44,
+        "sbi.mx": 25,
+        "malles.in": 21,
+        "mangalyavelneshwar.in": 14
+      },
+      "top_1_domain_share": 0.07560025957170668,
+      "label_distribution": {
+        "0": 1541,
+        "1": 1541
+      },
+      "overall_path_query_ratio": 0.49675535366645035,
+      "overall_https_ratio": 0.6440622972096042,
+      "mean_url_length": 60.75373134328358,
+      "path_by_class": {
+        "0": {
+          "count": 1541,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        },
+        "1": {
+          "count": 1541,
+          "has_path_query_ratio": 0.9935107073329007,
+          "https_ratio": 0.2881245944192083,
+          "mean_path_length": 41.54445165476963
+        }
+      },
+      "top_5_tlds": {
+        "in": 1661,
+        "gov.in": 273,
+        "co.in": 270,
+        "ac.in": 124,
+        "com": 121
+      },
+      "indian_tld_ratio": 0.8075924724205061,
+      "repo_brand_match_count": 357,
+      "repo_brand_match_ratio": 0.11583387410772227,
+      "independent_brand_match_count": 297,
+      "independent_brand_match_ratio": 0.0963659961064244,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/processed/indian_train.csv": {
+      "file": "data/processed/indian_train.csv",
+      "total_rows": 1284,
+      "unique_urls": 1284,
+      "unique_domains": 859,
+      "top_5_domains": {
+        "ayurvedajeevan.in": 146,
+        "djfreshtech.in": 92,
+        "anytimecourier.in": 37,
+        "jagjeetjuicer.in": 17,
+        "sc2k.in": 14
+      },
+      "top_1_domain_share": 0.11370716510903427,
+      "label_distribution": {
+        "0": 642,
+        "1": 642
+      },
+      "overall_path_query_ratio": 0.5,
+      "overall_https_ratio": 0.6261682242990654,
+      "mean_url_length": 59.873831775700936,
+      "path_by_class": {
+        "0": {
+          "count": 642,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        },
+        "1": {
+          "count": 642,
+          "has_path_query_ratio": 1.0,
+          "https_ratio": 0.2523364485981308,
+          "mean_path_length": 48.942367601246104
+        }
+      },
+      "top_5_tlds": {
+        "in": 855,
+        "co.in": 108,
+        "gov.in": 105,
+        "ac.in": 43,
+        "com": 34
+      },
+      "indian_tld_ratio": 0.9073208722741433,
+      "repo_brand_match_count": 68,
+      "repo_brand_match_ratio": 0.0529595015576324,
+      "independent_brand_match_count": 54,
+      "independent_brand_match_ratio": 0.04205607476635514,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/processed/phiusiil_test.csv": {
+      "file": "data/processed/phiusiil_test.csv",
+      "total_rows": 3520,
+      "unique_urls": 3520,
+      "unique_domains": 2838,
+      "top_5_domains": {
+        "weeblysite.com": 203,
+        "workers.dev": 108,
+        "pantheonsite.io": 68,
+        "webwave.dev": 40,
+        "tw1.ru": 26
+      },
+      "top_1_domain_share": 0.057670454545454546,
+      "label_distribution": {
+        "0": 1760,
+        "1": 1760
+      },
+      "overall_path_query_ratio": 0.1338068181818182,
+      "overall_https_ratio": 0.7264204545454546,
+      "mean_url_length": 36.497727272727275,
+      "path_by_class": {
+        "0": {
+          "count": 1760,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        },
+        "1": {
+          "count": 1760,
+          "has_path_query_ratio": 0.2676136363636364,
+          "https_ratio": 0.45284090909090907,
+          "mean_path_length": 8.436931818181819
+        }
+      },
+      "top_5_tlds": {
+        "com": 1701,
+        "org": 278,
+        "dev": 153,
+        "net": 99,
+        "io": 79
+      },
+      "indian_tld_ratio": 0.005965909090909091,
+      "repo_brand_match_count": 0,
+      "repo_brand_match_ratio": 0.0,
+      "independent_brand_match_count": 0,
+      "independent_brand_match_ratio": 0.0,
+      "date_info": {}
+    },
+    "data/processed/phiusiil_train.csv": {
+      "file": "data/processed/phiusiil_train.csv",
+      "total_rows": 9440,
+      "unique_urls": 9440,
+      "unique_domains": 7172,
+      "top_5_domains": {
+        "web.app": 376,
+        "firebaseapp.com": 376,
+        "repl.co": 236,
+        "ipfs.io": 122,
+        "square.site": 71
+      },
+      "top_1_domain_share": 0.03983050847457627,
+      "label_distribution": {
+        "1": 4720,
+        "0": 4720
+      },
+      "overall_path_query_ratio": 0.14639830508474577,
+      "overall_https_ratio": 0.7557203389830508,
+      "mean_url_length": 36.89544491525424,
+      "path_by_class": {
+        "0": {
+          "count": 4720,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        },
+        "1": {
+          "count": 4720,
+          "has_path_query_ratio": 0.29279661016949154,
+          "https_ratio": 0.5114406779661017,
+          "mean_path_length": 8.99936440677966
+        }
+      },
+      "top_5_tlds": {
+        "com": 4379,
+        "org": 664,
+        "app": 400,
+        "co": 301,
+        "net": 295
+      },
+      "indian_tld_ratio": 0.004766949152542373,
+      "repo_brand_match_count": 8,
+      "repo_brand_match_ratio": 0.000847457627118644,
+      "independent_brand_match_count": 6,
+      "independent_brand_match_ratio": 0.000635593220338983,
+      "date_info": {}
+    },
+    "data/raw/ai_generated_urls.csv": {
+      "file": "data/raw/ai_generated_urls.csv",
+      "total_rows": 250,
+      "unique_urls": 250,
+      "unique_domains": 250,
+      "top_5_domains": {
+        "auth-secure-portal-1.top": 1,
+        "netbanking-verify-session-1.xyz": 1,
+        "customer-update-online-1.site": 1,
+        "cashback-reward-claim-1.club": 1,
+        "upi-merchant-pay-status-1.link": 1
+      },
+      "top_1_domain_share": 0.004,
+      "label_distribution": {
+        "1": 250
+      },
+      "overall_path_query_ratio": 1.0,
+      "overall_https_ratio": 0.532,
+      "mean_url_length": 67.132,
+      "path_by_class": {
+        "1": {
+          "count": 250,
+          "has_path_query_ratio": 1.0,
+          "https_ratio": 0.532,
+          "mean_path_length": 19.904
+        }
+      },
+      "top_5_tlds": {
+        "site": 33,
+        "info": 33,
+        "cloud": 33,
+        "top": 17,
+        "club": 17
+      },
+      "indian_tld_ratio": 0.0,
+      "repo_brand_match_count": 250,
+      "repo_brand_match_ratio": 1.0,
+      "independent_brand_match_count": 217,
+      "independent_brand_match_ratio": 0.868,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/raw/ai_phishing_standin.csv": {
+      "file": "data/raw/ai_phishing_standin.csv",
+      "total_rows": 250,
+      "unique_urls": 250,
+      "unique_domains": 250,
+      "top_5_domains": {
+        "pmsuryaghar-gov-subsidy-claim-1.top": 1,
+        "pm-suryaghar-muftbijli-portal-1.xyz": 1,
+        "surya-ghar-yojana-beneficiary-1.site": 1,
+        "digiyatra-airport-fastpass-enroll-1.cloud": 1,
+        "digi-yatra-credential-verification-1.link": 1
+      },
+      "top_1_domain_share": 0.004,
+      "label_distribution": {
+        "1": 250
+      },
+      "overall_path_query_ratio": 1.0,
+      "overall_https_ratio": 0.5,
+      "mean_url_length": 73.496,
+      "path_by_class": {
+        "1": {
+          "count": 250,
+          "has_path_query_ratio": 1.0,
+          "https_ratio": 0.5,
+          "mean_path_length": 25.516
+        }
+      },
+      "top_5_tlds": {
+        "site": 47,
+        "top": 32,
+        "xyz": 31,
+        "link": 31,
+        "cloud": 16
+      },
+      "indian_tld_ratio": 0.0,
+      "repo_brand_match_count": 32,
+      "repo_brand_match_ratio": 0.128,
+      "independent_brand_match_count": 16,
+      "independent_brand_match_ratio": 0.064,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/raw/indian_phishing_raw.csv": {
+      "file": "data/raw/indian_phishing_raw.csv",
+      "total_rows": 3253,
+      "unique_urls": 3253,
+      "unique_domains": 1425,
+      "top_5_domains": {
+        "ayurvedajeevan.in": 300,
+        "civilcontractorsinmumbai.in": 271,
+        "djfreshtech.in": 183,
+        "anytimecourier.in": 87,
+        "cmdpgcollege.in": 50
+      },
+      "top_1_domain_share": 0.09222256378727328,
+      "label_distribution": {
+        "1": 3253
+      },
+      "overall_path_query_ratio": 0.9916999692591454,
+      "overall_https_ratio": 0.2815862280971411,
+      "mean_url_length": 102.49431294189978,
+      "path_by_class": {
+        "1": {
+          "count": 3253,
+          "has_path_query_ratio": 0.9916999692591454,
+          "https_ratio": 0.2815862280971411,
+          "mean_path_length": 44.78665846910544
+        }
+      },
+      "top_5_tlds": {
+        "in": 2031,
+        "co.in": 229,
+        "com": 183,
+        "site": 118,
+        "link": 63
+      },
+      "indian_tld_ratio": 0.7214878573624347,
+      "repo_brand_match_count": 549,
+      "repo_brand_match_ratio": 0.16876729173071012,
+      "independent_brand_match_count": 449,
+      "independent_brand_match_ratio": 0.13802643713495236,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/raw/phiusiil_raw.csv": {
+      "file": "data/raw/phiusiil_raw.csv",
+      "total_rows": 15000,
+      "unique_urls": 15000,
+      "unique_domains": 12033,
+      "top_5_domains": {
+        "firebaseapp.com": 376,
+        "web.app": 376,
+        "repl.co": 236,
+        "weeblysite.com": 203,
+        "ipfs.io": 122
+      },
+      "top_1_domain_share": 0.025066666666666668,
+      "label_distribution": {
+        "0": 8520,
+        "1": 6480
+      },
+      "overall_path_query_ratio": 0.12353333333333333,
+      "overall_https_ratio": 0.7820666666666667,
+      "mean_url_length": 35.488733333333336,
+      "path_by_class": {
+        "0": {
+          "count": 8520,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        },
+        "1": {
+          "count": 6480,
+          "has_path_query_ratio": 0.2859567901234568,
+          "https_ratio": 0.4955246913580247,
+          "mean_path_length": 8.846604938271605
+        }
+      },
+      "top_5_tlds": {
+        "com": 7147,
+        "org": 1189,
+        "net": 449,
+        "app": 410,
+        "co": 319
+      },
+      "indian_tld_ratio": 0.005066666666666666,
+      "repo_brand_match_count": 8,
+      "repo_brand_match_ratio": 0.0005333333333333334,
+      "independent_brand_match_count": 6,
+      "independent_brand_match_ratio": 0.0004,
+      "date_info": {}
+    },
+    "data/raw/phreshphish_raw.csv": {
+      "file": "data/raw/phreshphish_raw.csv",
+      "total_rows": 47703,
+      "unique_urls": 47703,
+      "unique_domains": 22476,
+      "top_5_domains": {
+        "gitbook.io": 1452,
+        "webflow.io": 1420,
+        "pages.dev": 1086,
+        "wikipedia.org": 1053,
+        "google.com": 940
+      },
+      "top_1_domain_share": 0.030438337211496132,
+      "label_distribution": {
+        "0": 26303,
+        "1": 21400
+      },
+      "overall_path_query_ratio": 0.758044567427625,
+      "overall_https_ratio": 0.929019139257489,
+      "mean_url_length": 58.49479068402407,
+      "path_by_class": {
+        "0": {
+          "count": 26303,
+          "has_path_query_ratio": 0.9227844732540015,
+          "https_ratio": 0.97772117248983,
+          "mean_path_length": 34.863589704596436
+        },
+        "1": {
+          "count": 21400,
+          "has_path_query_ratio": 0.5555607476635513,
+          "https_ratio": 0.8691588785046729,
+          "mean_path_length": 15.07733644859813
+        }
+      },
+      "top_5_tlds": {
+        "com": 24467,
+        "io": 3662,
+        "org": 3058,
+        "dev": 1691,
+        "shop": 1061
+      },
+      "indian_tld_ratio": 0.0028509737333081778,
+      "repo_brand_match_count": 22,
+      "repo_brand_match_ratio": 0.0004611869274469111,
+      "independent_brand_match_count": 8,
+      "independent_brand_match_ratio": 0.00016770433725342223,
+      "date_info": {
+        "unique_dates": 449,
+        "min_date": "2024-07-02",
+        "max_date": "2025-12-16"
+      }
+    },
+    "data/raw/tranco_global_legit.csv": {
+      "file": "data/raw/tranco_global_legit.csv",
+      "total_rows": 25000,
+      "unique_urls": 25000,
+      "unique_domains": 25000,
+      "top_5_domains": {
+        "historicengland.org.uk": 1,
+        "google.com": 1,
+        "cloudflare.com": 1,
+        "facebook.com": 1,
+        "gstatic.com": 1
+      },
+      "top_1_domain_share": 4e-05,
+      "label_distribution": {
+        "0": 25000
+      },
+      "overall_path_query_ratio": 0.0,
+      "overall_https_ratio": 1.0,
+      "mean_url_length": 20.03248,
+      "path_by_class": {
+        "0": {
+          "count": 25000,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        }
+      },
+      "top_5_tlds": {
+        "com": 12203,
+        "net": 1863,
+        "org": 1133,
+        "ru": 868,
+        "io": 531
+      },
+      "indian_tld_ratio": 0.0,
+      "repo_brand_match_count": 8,
+      "repo_brand_match_ratio": 0.00032,
+      "independent_brand_match_count": 4,
+      "independent_brand_match_ratio": 0.00016,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    },
+    "data/raw/tranco_indian_legit.csv": {
+      "file": "data/raw/tranco_indian_legit.csv",
+      "total_rows": 2204,
+      "unique_urls": 2204,
+      "unique_domains": 2204,
+      "top_5_domains": {
+        "vedicrishi.in": 1,
+        "amazon.in": 1,
+        "rajasthan.gov.in": 1,
+        "bihar.gov.in": 1,
+        "gst.gov.in": 1
+      },
+      "top_1_domain_share": 0.00045372050816696913,
+      "label_distribution": {
+        "0": 2204
+      },
+      "overall_path_query_ratio": 0.0,
+      "overall_https_ratio": 1.0,
+      "mean_url_length": 20.897005444646098,
+      "path_by_class": {
+        "0": {
+          "count": 2204,
+          "has_path_query_ratio": 0.0,
+          "https_ratio": 1.0,
+          "mean_path_length": 0.0
+        }
+      },
+      "top_5_tlds": {
+        "in": 1206,
+        "gov.in": 379,
+        "co.in": 212,
+        "ac.in": 156,
+        "nic.in": 72
+      },
+      "indian_tld_ratio": 0.9609800362976406,
+      "repo_brand_match_count": 27,
+      "repo_brand_match_ratio": 0.012250453720508167,
+      "independent_brand_match_count": 23,
+      "independent_brand_match_ratio": 0.010435571687840291,
+      "date_info": {
+        "unique_dates": 1,
+        "min_date": "2026-09-29",
+        "max_date": "2026-09-29"
+      }
+    }
+  },
+  "train_test_leakage_audit": {
+    "global_train_vs_global_test": {
+      "url_overlap": 0,
+      "registered_domain_overlap": 0,
+      "domain_overlap_ratio_of_test": 0.0
+    },
+    "indian_train_vs_indian_test": {
+      "url_overlap": 0,
+      "registered_domain_overlap": 0,
+      "domain_overlap_ratio_of_test": 0.0
+    },
+    "phiusiil_train_vs_phiusiil_test": {
+      "url_overlap": 0,
+      "registered_domain_overlap": 0,
+      "domain_overlap_ratio_of_test": 0.0
+    },
+    "global_train_vs_indian_test": {
+      "url_overlap": 0,
+      "registered_domain_overlap": 0,
+      "domain_overlap_ratio_of_test": 0.0
+    },
+    "global_train_vs_phiusiil_test": {
+      "url_overlap": 0,
+      "registered_domain_overlap": 77,
+      "domain_overlap_ratio_of_test": 0.027131782945736434
+    }
+  }
+}

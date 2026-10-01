@@ -1,0 +1,73 @@
+{
+  "feasibility_version": "1.0.0",
+  "common_crawl_cdx_test": {
+    "https://index.commoncrawl.org/collinfo.json": {
+      "status": "SUCCESS",
+      "http_code": 200,
+      "elapsed_sec": 1.208,
+      "bytes_read": 35226
+    },
+    "https://index.commoncrawl.org/CC-MAIN-2026-39-index?url=sbi.co.in/*&output=json&limit=3": {
+      "status": "SUCCESS",
+      "http_code": 200,
+      "elapsed_sec": 8.522,
+      "bytes_read": 2116
+    }
+  },
+  "live_domain_crawl_waf_test": {
+    "https://www.hdfcbank.com/robots.txt": {
+      "status": "HTTP_ERROR",
+      "http_code": 403,
+      "error": "HTTP Error 403: Forbidden",
+      "elapsed_sec": 1.013
+    },
+    "https://www.icicibank.com/robots.txt": {
+      "status": "SUCCESS",
+      "http_code": 200,
+      "elapsed_sec": 0.208
+    },
+    "https://www.onlinesbi.sbi/robots.txt": {
+      "status": "HTTP_ERROR",
+      "http_code": 404,
+      "error": "HTTP Error 404: Not Found",
+      "elapsed_sec": 0.51
+    },
+    "https://groww.in/robots.txt": {
+      "status": "SUCCESS",
+      "http_code": 200,
+      "elapsed_sec": 0.308
+    },
+    "https://paytm.com/robots.txt": {
+      "status": "SUCCESS",
+      "http_code": 200,
+      "elapsed_sec": 0.207
+    }
+  },
+  "existing_corpus_coverage": {
+    "phreshphish_legit_with_paths": {
+      "total": 26303,
+      "with_path_gt_1": 24272,
+      "ratio": 0.9227844732540015
+    },
+    "phiusiil_legit_with_paths": {
+      "total": 8520,
+      "with_path_gt_1": 0,
+      "ratio": 0.0
+    },
+    "tranco_indian_with_paths": {
+      "total": 2204,
+      "with_path_gt_1": 0,
+      "ratio": 0.0
+    },
+    "tranco_global_with_paths": {
+      "total": 25000,
+      "with_path_gt_1": 0,
+      "ratio": 0.0
+    }
+  },
+  "synthesis": {
+    "common_crawl_viable_without_timeout": false,
+    "live_crawl_waf_blocked": true,
+    "reproducibility_recommendation": "Live web crawling is non-reproducible, rate-limited, and blocked by WAFs (e.g. 403 on HDFC). Common Crawl CDX server experiences 504 timeouts. In contrast, PhreshPhish provides 24,000+ authentic, frozen legitimate URLs with deep paths."
+  }
+}

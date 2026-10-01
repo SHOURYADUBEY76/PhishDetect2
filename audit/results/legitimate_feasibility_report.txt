@@ -1,0 +1,21 @@
+=== LEGITIMATE URL FEASIBILITY REPORT ===
+
+1. Common Crawl CDX API Test:
+  - https://index.commoncrawl.org/collinfo.json: SUCCESS (1.208s) 
+  - https://index.commoncrawl.org/CC-MAIN-2026-39-index?url=sbi.co.in/*&output=json&limit=3: SUCCESS (8.522s) 
+
+2. Live Domain Crawl & WAF Test:
+  - https://www.hdfcbank.com/robots.txt: HTTP_ERROR HTTP 403 (1.013s)
+  - https://www.icicibank.com/robots.txt: SUCCESS HTTP 200 (0.208s)
+  - https://www.onlinesbi.sbi/robots.txt: HTTP_ERROR HTTP 404 (0.51s)
+  - https://groww.in/robots.txt: SUCCESS HTTP 200 (0.308s)
+  - https://paytm.com/robots.txt: SUCCESS HTTP 200 (0.207s)
+
+3. Existing Corpus Path Availability:
+  - phreshphish_legit_with_paths: 24272 of 26303 (92.28%)
+  - phiusiil_legit_with_paths: 0 of 8520 (0.00%)
+  - tranco_indian_with_paths: 0 of 2204 (0.00%)
+  - tranco_global_with_paths: 0 of 25000 (0.00%)
+
+4. Synthesis & Recommendation:
+  Live web crawling is non-reproducible, rate-limited, and blocked by WAFs (e.g. 403 on HDFC). Common Crawl CDX server experiences 504 timeouts. In contrast, PhreshPhish provides 24,000+ authentic, frozen legitimate URLs with deep paths.

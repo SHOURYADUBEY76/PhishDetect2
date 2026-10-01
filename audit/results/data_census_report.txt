@@ -1,0 +1,189 @@
+=======================================================
+             FULL DATA CENSUS REPORT                   
+=======================================================
+
+--- 1. DATASET SUMMARIES ---
+
+[DATASET] data/processed/global_test.csv
+  Rows: 7434, Unique URLs: 7434, Unique Domains: 5881
+  Labels: {1: 3892, 0: 3542}
+  Path/Query Ratio: 0.7155, HTTPS Ratio: 0.8925
+  Top 1 Domain Share: 0.3766%
+  Indian TLD Ratio: 0.7129%
+  Repo Brand Match Ratio: 0.0404%
+  Independent Brand Match Ratio: 0.0269%
+  Breakdown by Class:
+    Class 0: Count=3542, HasPath=0.8405, HTTPS=0.9785, MeanPathLen=30.1
+    Class 1: Count=3892, HasPath=0.6017, HTTPS=0.8142, MeanPathLen=16.6
+  Dates: Unique=62, Range=[2025-09-08 to 2025-12-16]
+
+[DATASET] data/processed/global_train.csv
+  Rows: 40708, Unique URLs: 40708, Unique Domains: 20936
+  Labels: {0: 24739, 1: 15969}
+  Path/Query Ratio: 0.6689, HTTPS Ratio: 0.9393
+  Top 1 Domain Share: 3.5374%
+  Indian TLD Ratio: 0.1965%
+  Repo Brand Match Ratio: 0.0393%
+  Independent Brand Match Ratio: 0.0123%
+  Breakdown by Class:
+    Class 0: Count=24739, HasPath=0.7407, HTTPS=0.9826, MeanPathLen=28.1
+    Class 1: Count=15969, HasPath=0.5577, HTTPS=0.8723, MeanPathLen=15.0
+  Dates: Unique=389, Range=[2024-07-02 to 2026-09-29]
+
+[DATASET] data/processed/indian_test.csv
+  Rows: 3082, Unique URLs: 3082, Unique Domains: 2393
+  Labels: {0: 1541, 1: 1541}
+  Path/Query Ratio: 0.4968, HTTPS Ratio: 0.6441
+  Top 1 Domain Share: 7.5600%
+  Indian TLD Ratio: 80.7592%
+  Repo Brand Match Ratio: 11.5834%
+  Independent Brand Match Ratio: 9.6366%
+  Breakdown by Class:
+    Class 0: Count=1541, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+    Class 1: Count=1541, HasPath=0.9935, HTTPS=0.2881, MeanPathLen=41.5
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/processed/indian_train.csv
+  Rows: 1284, Unique URLs: 1284, Unique Domains: 859
+  Labels: {0: 642, 1: 642}
+  Path/Query Ratio: 0.5000, HTTPS Ratio: 0.6262
+  Top 1 Domain Share: 11.3707%
+  Indian TLD Ratio: 90.7321%
+  Repo Brand Match Ratio: 5.2960%
+  Independent Brand Match Ratio: 4.2056%
+  Breakdown by Class:
+    Class 0: Count=642, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+    Class 1: Count=642, HasPath=1.0000, HTTPS=0.2523, MeanPathLen=48.9
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/processed/phiusiil_test.csv
+  Rows: 3520, Unique URLs: 3520, Unique Domains: 2838
+  Labels: {0: 1760, 1: 1760}
+  Path/Query Ratio: 0.1338, HTTPS Ratio: 0.7264
+  Top 1 Domain Share: 5.7670%
+  Indian TLD Ratio: 0.5966%
+  Repo Brand Match Ratio: 0.0000%
+  Independent Brand Match Ratio: 0.0000%
+  Breakdown by Class:
+    Class 0: Count=1760, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+    Class 1: Count=1760, HasPath=0.2676, HTTPS=0.4528, MeanPathLen=8.4
+
+[DATASET] data/processed/phiusiil_train.csv
+  Rows: 9440, Unique URLs: 9440, Unique Domains: 7172
+  Labels: {1: 4720, 0: 4720}
+  Path/Query Ratio: 0.1464, HTTPS Ratio: 0.7557
+  Top 1 Domain Share: 3.9831%
+  Indian TLD Ratio: 0.4767%
+  Repo Brand Match Ratio: 0.0847%
+  Independent Brand Match Ratio: 0.0636%
+  Breakdown by Class:
+    Class 0: Count=4720, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+    Class 1: Count=4720, HasPath=0.2928, HTTPS=0.5114, MeanPathLen=9.0
+
+[DATASET] data/raw/ai_generated_urls.csv
+  Rows: 250, Unique URLs: 250, Unique Domains: 250
+  Labels: {1: 250}
+  Path/Query Ratio: 1.0000, HTTPS Ratio: 0.5320
+  Top 1 Domain Share: 0.4000%
+  Indian TLD Ratio: 0.0000%
+  Repo Brand Match Ratio: 100.0000%
+  Independent Brand Match Ratio: 86.8000%
+  Breakdown by Class:
+    Class 1: Count=250, HasPath=1.0000, HTTPS=0.5320, MeanPathLen=19.9
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/raw/ai_phishing_standin.csv
+  Rows: 250, Unique URLs: 250, Unique Domains: 250
+  Labels: {1: 250}
+  Path/Query Ratio: 1.0000, HTTPS Ratio: 0.5000
+  Top 1 Domain Share: 0.4000%
+  Indian TLD Ratio: 0.0000%
+  Repo Brand Match Ratio: 12.8000%
+  Independent Brand Match Ratio: 6.4000%
+  Breakdown by Class:
+    Class 1: Count=250, HasPath=1.0000, HTTPS=0.5000, MeanPathLen=25.5
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/raw/indian_phishing_raw.csv
+  Rows: 3253, Unique URLs: 3253, Unique Domains: 1425
+  Labels: {1: 3253}
+  Path/Query Ratio: 0.9917, HTTPS Ratio: 0.2816
+  Top 1 Domain Share: 9.2223%
+  Indian TLD Ratio: 72.1488%
+  Repo Brand Match Ratio: 16.8767%
+  Independent Brand Match Ratio: 13.8026%
+  Breakdown by Class:
+    Class 1: Count=3253, HasPath=0.9917, HTTPS=0.2816, MeanPathLen=44.8
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/raw/phiusiil_raw.csv
+  Rows: 15000, Unique URLs: 15000, Unique Domains: 12033
+  Labels: {0: 8520, 1: 6480}
+  Path/Query Ratio: 0.1235, HTTPS Ratio: 0.7821
+  Top 1 Domain Share: 2.5067%
+  Indian TLD Ratio: 0.5067%
+  Repo Brand Match Ratio: 0.0533%
+  Independent Brand Match Ratio: 0.0400%
+  Breakdown by Class:
+    Class 0: Count=8520, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+    Class 1: Count=6480, HasPath=0.2860, HTTPS=0.4955, MeanPathLen=8.8
+
+[DATASET] data/raw/phreshphish_raw.csv
+  Rows: 47703, Unique URLs: 47703, Unique Domains: 22476
+  Labels: {0: 26303, 1: 21400}
+  Path/Query Ratio: 0.7580, HTTPS Ratio: 0.9290
+  Top 1 Domain Share: 3.0438%
+  Indian TLD Ratio: 0.2851%
+  Repo Brand Match Ratio: 0.0461%
+  Independent Brand Match Ratio: 0.0168%
+  Breakdown by Class:
+    Class 0: Count=26303, HasPath=0.9228, HTTPS=0.9777, MeanPathLen=34.9
+    Class 1: Count=21400, HasPath=0.5556, HTTPS=0.8692, MeanPathLen=15.1
+  Dates: Unique=449, Range=[2024-07-02 to 2025-12-16]
+
+[DATASET] data/raw/tranco_global_legit.csv
+  Rows: 25000, Unique URLs: 25000, Unique Domains: 25000
+  Labels: {0: 25000}
+  Path/Query Ratio: 0.0000, HTTPS Ratio: 1.0000
+  Top 1 Domain Share: 0.0040%
+  Indian TLD Ratio: 0.0000%
+  Repo Brand Match Ratio: 0.0320%
+  Independent Brand Match Ratio: 0.0160%
+  Breakdown by Class:
+    Class 0: Count=25000, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+[DATASET] data/raw/tranco_indian_legit.csv
+  Rows: 2204, Unique URLs: 2204, Unique Domains: 2204
+  Labels: {0: 2204}
+  Path/Query Ratio: 0.0000, HTTPS Ratio: 1.0000
+  Top 1 Domain Share: 0.0454%
+  Indian TLD Ratio: 96.0980%
+  Repo Brand Match Ratio: 1.2250%
+  Independent Brand Match Ratio: 1.0436%
+  Breakdown by Class:
+    Class 0: Count=2204, HasPath=0.0000, HTTPS=1.0000, MeanPathLen=0.0
+  Dates: Unique=1, Range=[2026-09-29 to 2026-09-29]
+
+
+--- 2. TRAIN / TEST LEAKAGE AUDIT ---
+
+[global_train_vs_global_test]
+  Exact URL overlap: 0
+  Registered domain overlap: 0 (0.0000% of test domains)
+
+[indian_train_vs_indian_test]
+  Exact URL overlap: 0
+  Registered domain overlap: 0 (0.0000% of test domains)
+
+[phiusiil_train_vs_phiusiil_test]
+  Exact URL overlap: 0
+  Registered domain overlap: 0 (0.0000% of test domains)
+
+[global_train_vs_indian_test]
+  Exact URL overlap: 0
+  Registered domain overlap: 0 (0.0000% of test domains)
+
+[global_train_vs_phiusiil_test]
+  Exact URL overlap: 0
+  Registered domain overlap: 77 (2.7132% of test domains)
