@@ -77,9 +77,9 @@ def inspect_results():
     census_boot = census.get("bootstrap_ci_auc", {})
     print("\n[A4: Cross-Distribution Transfer & Hosting Census]")
     print(f"  - In-Distribution (global_test): AUC = {in_dist.get('roc_auc', 0):.4f}, FPR = {in_dist.get('fpr', 0)*100:.2f}% (tau = {in_dist.get('threshold', 0):.4f})")
-    print(f"  - Primary Cross-Dist (PhiUSIIL): AUC = {pri.get('roc_auc', 0):.4f}, Delta AUC = +{a4.get('delta_auc_primary', 0):.4f} (> 0.05 operational criterion)")
+    print(f"  - Primary Cross-Dist (PhiUSIIL): AUC = {pri.get('roc_auc', 0):.4f}, Delta AUC = +{a4.get('delta_auc_primary', 0):.4f} (Drop > 0.05 operational criterion)")
     print(f"    * Severe Operating-Threshold Transfer Failure: FPR = {pri.get('fpr', 0)*100:.2f}% at in-distribution threshold")
-    print(f"  - Secondary Disjoint Diagnostic: AUC = {dis.get('roc_auc', 0):.4f}, Delta AUC = +{a4.get('delta_auc_disjoint', 0):.4f}")
+    print(f"  - Secondary Disjoint Diagnostic: AUC = {dis.get('roc_auc', 0):.4f}, Delta AUC = +{a4.get('delta_auc_disjoint', 0):.4f} (Drop > 0.05 operational criterion)")
     print(f"    * FPR = {dis.get('fpr', 0)*100:.2f}% at in-distribution threshold")
     print(f"  - Hosting Census (.in / .co.in, N = 1,682): AUC = {census.get('metrics', {}).get('roc_auc', 0):.4f} (95% CI: [{census_boot.get('ci_lower', 0):.4f}, {census_boot.get('ci_upper', 0):.4f}])")
     print("    * Candidate Feed-Target Breakdown (N_total = 1,682; N_phish = 1,205):")
@@ -87,7 +87,7 @@ def inspect_results():
         if cat == "Benign Reference":
             print(f"      - {cat}: {count} ({count/1682*100:.2f}% of census)")
         else:
-            print(f"      - {cat}: {count} ({count/1205*100:.2f}% of phish; {count/1682*100:.2f}% of census)")
+            print(f"      - Candidate {cat}: {count} ({count/1205*100:.2f}% of phish; {count/1682*100:.2f}% of census)")
 
     # A5 Table
     a5 = data.get("a5", {})
@@ -95,9 +95,10 @@ def inspect_results():
     out_time = a5.get("out_of_time_future_test", {})
     a5_boot = a5.get("test_bootstrap_ci_auc", {})
     print("\n[A5: Temporal Generalization (Chronological Splits)]")
-    print(f"  - In-Time Validation Split:     AUC = {in_time.get('roc_auc', 0):.4f}")
-    print(f"  - Out-of-Time Future Test Split: AUC = {out_time.get('roc_auc', 0):.4f} (95% CI: [{a5_boot.get('ci_lower', 0):.4f}, {a5_boot.get('ci_upper', 0):.4f}])")
-    print(f"  - Temporal Drop (Delta AUC):     +{a5.get('delta_auc_temporal_drop', 0):.4f}")
+    print("  Evaluation Sample: N = 9,339 URLs (5,201 benign, 4,138 phishing across 7,646 registered domains)")
+    print(f"  - In-Time Validation Split:      AUC = {in_time.get('roc_auc', 0):.4f}")
+    print(f"  - Out-of-Time Future Test Split:  AUC = {out_time.get('roc_auc', 0):.4f} (95% CI: [{a5_boot.get('ci_lower', 0):.4f}, {a5_boot.get('ci_upper', 0):.4f}])")
+    print(f"  - Temporal Drop (Delta AUC):      +{a5.get('delta_auc_temporal_drop', 0):.4f} (performance degradation)")
     print("  - Hypothesis Result: H5,0 Rejected. Significant temporal decay across chronological test set.")
 
     # E06 Appendix

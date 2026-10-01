@@ -157,9 +157,9 @@ Experiment A2 evaluates representation sensitivity specifically on a controlled 
 
 ### A. Experimental Design
 * **Splits**: Strict chronological splitting based on ingestion timestamps.
-  * In-Time Training Partition: $N = 14,756$ URLs.
-  * In-Time Validation Partition: $N = 4,342$ URLs.
-  * Out-of-Time Future Test Partition: $N = 5,789$ URLs (2,895 benign, 2,894 phishing across 3,678 unique registered domains).
+  * In-Time Training Partition (`data/benchmark/a5_temporal_train.csv`): $N = 25,000$ URLs (evaluated with domain-grouped validation split $N = 4,545$).
+  * Out-of-Time Future Test Partition (`data/benchmark/a5_temporal_test.csv`): $N = 9,339$ URLs (5,201 benign, 4,138 phishing across 7,646 unique registered domains).
+  * *Reconciliation of Sample Size*: Note that an earlier exploratory script (`experiments/E05_temporal.py`) evaluated an ad-hoc downsampled, balanced subset of $N = 5,789$. The confirmatory evaluation under Protocol Amendment 1 evaluated the full frozen benchmark of $N = 9,339$, which yielded the reported $\text{AUC} = 0.9160$ and $95\%\ \text{CI}: [0.8987, 0.9319]$.
 * **Hypotheses**:
   * $H_{5,0}$: Model discrimination is invariant across temporal epochs ($\Delta\text{AUC}_{A5} = \text{AUC}_{\text{in-time,val}} - \text{AUC}_{\text{out-of-time,test}} = 0$).
   * $H_{5,1}$: Temporal distribution shift causes performance decay ($\Delta\text{AUC}_{A5} > 0$).
@@ -215,10 +215,10 @@ All reported numerical values match the raw outputs stored in `research/results/
 | **A1** | Shortcut Sensitivity | `a1_path_matched` (21,094) | Unmasked LightGBM | Masked LightGBM | 0.9598 | 0.9317 | **+0.0281** [+0.0207, +0.0386] | $< 0.001$ | $H_{1,0}$ Rejected; path features aid AUC (+2.81 pts); Shortcut-only AUC = 0.9088 |
 | **A2** | Syntactic Fragility | 50 Benign Domains | `https_bare` | `https_www_bare` | 0.0221 prob | 0.6380 prob | **+0.6159** mean prob shift | — | Extreme fragility; 39/50 (78%) benign homepages flip to phishing |
 | **A3** | Unseen Brands | `a3_unseen_brands` (658) | ZK Regional Model | Generic LightGBM | 0.9480 | 0.9766 | **-0.0286** [-0.0427, -0.0186] | $< 0.001$ | $H_{3,0}$ Rejected; regional features degrade ZK AUC (-2.86 pts) |
-| **A4** | Cross-Dist Transfer | `phiusiil_test` (3,520) | `global_test` (In-Dist) | PhiUSIIL (Cross-Dist) | 0.9284 | 0.8661 | **+0.0623** ($> 0.05$ op. criterion) | — | Severe threshold failure: FPR explodes to 86.93% at fixed $\tau$ |
-| **A4** | Disjoint Diagnostic | `phiusiil_disjoint` (2,888) | `global_test` (In-Dist) | Disjoint PhiUSIIL | 0.9284 | 0.8303 | **+0.0982** ($> 0.05$ op. criterion) | — | Zero-shot domain transfer drops AUC to 0.8303; FPR = 86.95% |
+| **A4** | Cross-Dist Transfer | `phiusiil_test` (3,520) | `global_test` (In-Dist) | PhiUSIIL (Cross-Dist) | 0.9284 | 0.8661 | **+0.0623 drop** ($> 0.05$ op. criterion) | — | Severe threshold failure: FPR explodes to 86.93% at fixed $\tau$ |
+| **A4** | Disjoint Diagnostic | `phiusiil_disjoint` (2,888) | `global_test` (In-Dist) | Disjoint PhiUSIIL | 0.9284 | 0.8303 | **+0.0982 drop** ($> 0.05$ op. criterion) | — | Zero-shot domain transfer drops AUC to 0.8303; FPR = 86.95% |
 | **A4** | Hosting Census | `.in` Census (1,682) | LightGBM on `.in` | — | 0.9379 | — | 95% CI: [0.8978, 0.9630] | — | 59.17% foreign candidate targets, 34.19% ambiguous, 6.64% domestic Indian |
-| **A5** | Temporal Generalization | `a5_temporal_test` (5,789) | In-Time Validation | Out-of-Time Test | 0.9807 | 0.9160 | **+0.0647** temporal decay | $< 0.001$ | $H_{5,0}$ Rejected; 95% CI on test AUC: [0.8987, 0.9319] |
+| **A5** | Temporal Generalization | `a5_temporal_test` (9,339) | In-Time Validation | Out-of-Time Test | 0.9807 | 0.9160 | **+0.0647 temporal drop** | $< 0.001$ | $H_{5,0}$ Rejected; 95% CI on test AUC: [0.8987, 0.9319] |
 | **E06** | Adversarial Diagnostic | `global_test` Perturbed | Clean Baseline | Perturbed Phish | 0.7952 rec | 0.8592–0.9872 rec | **Paradoxical Recall Increase** | — | Lexical bias paradox: heuristic perturbations amplify phishing recall |
 
 ---

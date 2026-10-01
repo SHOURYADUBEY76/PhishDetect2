@@ -37,8 +37,8 @@ To address the **Lexical Illusion** in ML phishing detection and establish leak-
 | **A1** | Shortcut Reliance | `a1_path_matched` (21,094) | Unmasked vs Masked | $\Delta\text{AUC} = \mathbf{+0.0281}$ | [+0.0207, +0.0386] ($p < 0.001$) | Shortcut-only model achieves 0.9088 AUC using only 6 length/depth features. |
 | **A2** | Syntactic Fragility | 50 Benign Homepages | `https://bare` vs `https://www` | $\Delta\text{Prob} = \mathbf{+0.6159}$ | — | 78% (39/50) of benign homepages flip to phishing simply by adding `www.`. |
 | **A3** | Unseen Brands ZK | `a3_unseen_brands` (658) | Regional ZK vs Generic | $\Delta\text{AUC} = \mathbf{-0.0286}$ | [-0.0427, -0.0186] ($p < 0.001$) | Zero-knowledge regional features degrade discrimination due to out-of-vocabulary sparsity on multi-tenant hosts. |
-| **A4** | Cross-Dist Transfer | `phiusiil_test` (3,520) | In-Dist vs PhiUSIIL | $\Delta\text{AUC} = \mathbf{+0.0623}$ | Exceeds $>0.05$ op. criterion | Severe threshold transfer failure: FPR explodes to 86.93% at in-distribution threshold. |
-| **A5** | Temporal Drift | `a5_temporal_test` (5,789) | In-Time vs Out-of-Time | $\Delta\text{AUC} = \mathbf{+0.0647}$ | Test AUC: [0.8987, 0.9319] ($p < 0.001$) | Significant temporal degradation over chronological splits. |
+| **A4** | Cross-Dist Transfer | `phiusiil_test` (3,520) | In-Dist vs PhiUSIIL | $\Delta\text{AUC} = \mathbf{+0.0623}$ (Drop) | Exceeds $>0.05$ op. criterion | Severe threshold transfer failure: FPR explodes to 86.93% at in-distribution threshold. |
+| **A5** | Temporal Drift | `a5_temporal_test` (9,339) | In-Time vs Out-of-Time | $\Delta\text{AUC} = \mathbf{+0.0647}$ (Drop) | Test AUC: [0.8987, 0.9319] ($p < 0.001$) | Significant temporal degradation over chronological splits. |
 | **E06** | Adversarial Paradox | `global_test` Perturbed | Clean vs Subdomain Trick | $\text{Recall}: 79.5\% \to 98.7\%$ | — | Heuristic perturbations paradoxically amplify length/depth shortcuts, boosting recall. |
 
 ### CLI Reproduction Tool

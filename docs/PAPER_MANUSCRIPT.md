@@ -12,11 +12,11 @@
 Machine learning classifiers trained on Uniform Resource Locators (URLs) frequently report near-perfect phishing detection performance, with Area Under the Receiver Operating Characteristic curve (ROC-AUC) exceeding 0.98. However, deploying these classifiers into real-world networks reveals severe operational brittleness. In this work, we present a pre-registered confirmatory empirical study dissecting the fundamental failure modes of tree-based and sequence-based URL phishing detectors across six critical axes: structural shortcuts, syntactic representation fragility, zero-knowledge brand generalization, external cross-distribution transfer, temporal concept drift, and adversarial evasion dynamics. 
 
 Using paired domain-clustered bootstrap inference with zero train/test domain overlap, our findings demonstrate:
-1. **Structural Shortcut Reliance**: A model constrained solely to six superficial length and depth features achieves an ROC-AUC of **0.9088** without inspecting brand tokens or lexical semantics. Masking path and query parameters degrades discrimination by only $+0.0281$ AUC ($95\%\ \text{CI}: [0.0207, 0.0386]$, $p < 0.001$), proving that reported detection accuracy is largely driven by dataset-specific structural artifacts.
+1. **Structural Shortcut Reliance**: A model constrained solely to six superficial length and depth features achieves an ROC-AUC of **0.9088** without inspecting brand tokens or lexical semantics. Masking path and query parameters degrades discrimination by only $+0.0281$ AUC ($95\%\ \text{CI}: [0.0207, 0.0386]$, $p < 0.001$), demonstrating that reported detection accuracy is largely driven by dataset-specific structural artifacts.
 2. **Syntactic Representation Fragility**: On a controlled test sample of 50 canonical benign homepages, classifiers exhibit extreme sensitivity to superficial prefix conventions: prefixing `www.` to bare HTTPS domains shifts predicted phishing probability by $+0.6159$ on average, causing **78.0% (39/50)** of benign homepages to flip directly into phishing predictions.
 3. **The Zero-Knowledge Brand Dilemma**: When target brand lexicons are strictly purged from feature extraction to evaluate zero-knowledge generalization across $N=658$ URLs (spanning 6 verified Indian brands), regional feature augmentation fails to improve detection and instead degrades discrimination by $-0.0286$ AUC ($95\%\ \text{CI}: [-0.0427, -0.0186]$, $p < 0.001$) relative to a generic lexical baseline.
 4. **Operating-Threshold Transfer Failure**: When evaluated on an external benchmark (UCI PhiUSIIL, $N=3,520$), the model maintains moderate ranking discrimination ($\text{AUC} = 0.8661$), but the False Positive Rate under the fixed in-distribution operating threshold explodes to **86.93%**, demonstrating catastrophic calibration failure.
-5. **Temporal Decay**: Longitudinal chronological evaluation reveals a performance drop of $+0.0647$ AUC across consecutive time horizons.
+5. **Temporal Decay**: Longitudinal chronological evaluation on the frozen benchmark ($N = 9,339$) reveals a performance drop of $+0.0647$ AUC across consecutive time horizons.
 6. **The Adversarial Perturbation Paradox**: In an adversarial diagnostic, heuristic evasions (token padding, homoglyphs, subdomain tricks) paradoxically *increase* detection recall from $79.52\%$ to $98.72\%$ by inadvertently amplifying the exact length and complexity shortcuts favored by tree-based models.
 
 We conclude with actionable defensive engineering requirements: mandatory pre-inference canonicalization, distribution-specific threshold recalibration, and strict domain-clustered evaluation standards.
@@ -40,7 +40,7 @@ To evaluate these failure modes rigorously, we pre-registered a confirmatory exp
 2. **Empirical Demonstration of Syntactic Fragility (Experiment A2)**: We show that altering benign URLs with standard web conventions (such as adding `www.`) causes 78% of tested benign homepages to be flagged as phishing.
 3. **Rigorous Zero-Knowledge Brand Generalization (Experiment A3)**: We formulate and execute a leak-free brand holdout experiment, revealing that regional lexical features degrade performance ($\Delta\text{AUC} = -0.0286$) due to out-of-vocabulary sparsity on multi-tenant cloud hosts.
 4. **Dissection of Cross-Distribution Transfer vs. Calibration Collapse (Experiment A4)**: We disentangle threshold-independent ranking discrimination ($\text{AUC} = 0.8661$) from threshold-dependent operational collapse ($\text{FPR} = 86.93\%$), establishing that threshold transfer failure—not total loss of discrimination—is the primary driver of cross-feed deployment failure.
-5. **Longitudinal Degradation & The Adversarial Bias Paradox (Experiment A5 & Appendix E06)**: We document a 6.47 AUC point temporal decay and uncover the heuristic perturbation paradox, where attacks inadvertently amplify tree-based shortcut cues.
+5. **Longitudinal Degradation & The Adversarial Bias Paradox (Experiment A5 & Appendix E06)**: We document a 6.47 AUC point temporal decay across chronological horizons and uncover the heuristic perturbation paradox, where attacks inadvertently amplify tree-based shortcut cues.
 6. **Defensive Engineering Pipeline & Open Reproduction Engine**: We release an open-source reproduction suite (`python -m research.reproduce`) and define concrete engineering standards to harden URL-based defenses.
 
 ---
@@ -82,9 +82,9 @@ Because URLs sharing a registered domain exhibit strong feature correlation, tra
 | A1  | Shortcut Reliance     | Unmasked (0.9598)   | Masked (0.9317)   | +0.0281 [CI]     | < 0.001 |
 | A2  | Syntactic Fragility   | https://bare (0.02) | https://www (0.64)| +0.6159 prob     | --      |
 | A3  | Unseen Brand ZK       | Regional ZK (0.9480)| Generic (0.9766)  | -0.0286 [CI]     | < 0.001 |
-| A4  | Cross-Dist Transfer   | In-Dist (0.9284)    | PhiUSIIL (0.8661) | +0.0623 (>0.05)  | --      |
-| A4  | Disjoint Transfer     | In-Dist (0.9284)    | Disjoint (0.8303) | +0.0982 (>0.05)  | --      |
-| A5  | Temporal Drift        | In-Time Val (0.9807)| Out-Time (0.9160) | +0.0647 decay    | < 0.001 |
+| A4  | Cross-Dist Transfer   | In-Dist (0.9284)    | PhiUSIIL (0.8661) | +0.0623 (Drop)   | --      |
+| A4  | Disjoint Transfer     | In-Dist (0.9284)    | Disjoint (0.8303) | +0.0982 (Drop)   | --      |
+| A5  | Temporal Drift        | In-Time Val (0.9807)| Out-Time (0.9160) | +0.0647 (Drop)   | < 0.001 |
 | E06 | Adversarial Paradox   | Clean Recall (0.80) | Subdomain (0.99)  | Paradoxical Gain | --      |
 +-----+-----------------------+---------------------+-------------------+------------------+---------+
 ```
@@ -102,6 +102,7 @@ Evaluated on `a1_path_matched.csv` ($N = 21,094$; 10,547 benign, 10,547 phishing
 
 The paired bootstrap difference between unmasked and masked models is:
 $$\Delta\text{AUC}_{A1} = \text{AUC}_{\text{unmasked}} - \text{AUC}_{\text{masked}} = \mathbf{+0.0281} \quad (95\%\ \text{CI}: [+0.0207, +0.0386], p < 0.001)$$
+This positive value represents a performance drop of $2.81$ AUC points when path and query lexical features are masked out.
 
 **Finding**: While removing path/query features incurs a statistically significant loss ($2.81$ AUC points), the unmasked model's high performance is heavily mirrored by the shortcut-only baseline ($0.9088$ AUC). Tree-based classifiers derive over $94\%$ of their discriminative capacity from superficial URL length and structural ratios rather than fine-grained lexical tokens.
 
@@ -133,11 +134,13 @@ A central claim in regional phishing detection is that region-specific feature e
 
 $$\Delta\text{AUC}_{A3} = \text{AUC}_{\text{regional,zk}} - \text{AUC}_{\text{generic}} = \mathbf{-0.0286} \quad (95\%\ \text{CI}: [-0.0427, -0.0186], p < 0.001)$$
 
-**Analysis of Overlapping Domains**: Cross-referencing identified **12 overlapping registered domains** between the benchmark and training data, of which 7 are major multi-tenant hosting platforms (`netlify.app`, `vercel.app`, `wordpress.com`, `zendesk.com`, `weebly.com`, `blogspot.com`, `hostingersite.com`). 
-* On these multi-tenant hosts, generic structural features already capture baseline maliciousness.
-* Purging the brand lexicon leaves regional feature counters inactive ($0.0$), introducing feature noise that degrades split quality by $2.86$ AUC points.
+**Analysis of Overlapping Domains**: Cross-referencing identified **12 overlapping registered domains** between the benchmark and the global training partition (`global_train`):
+* 7 multi-tenant cloud application and hosting platforms: `blogspot.com`, `hostingersite.com`, `netlify.app`, `vercel.app`, `weebly.com`, `wordpress.com`, and `zendesk.com`.
+* 5 campaign/infrastructure domains: `boi-infinity.online`, `in.net`, `rbiorg-online.in`, `resortsdella.com`, and `sterling-hotel.com`.
 
-**Finding**: On this benchmark and GBDT architecture, regional lexical features provide no incremental value under strict zero-knowledge brand testing and slightly degrade discrimination. We restrict this claim to the tested lexical implementation; it does not rule out regional benefits in multi-modal or DOM-aware architectures.
+*Methodological Clarification*: These 12 overlaps occur strictly at the registered-domain infrastructure level (principally shared web hosts). The target brand entities themselves remained strictly held out and zero-knowledge throughout training and feature extraction; these overlaps do not constitute target-brand leakage. However, because multi-tenant platforms host diverse content across subdomains, generic structural features on these hosts already provide baseline signal to both models, while inactive zero-knowledge regional counters introduce feature noise.
+
+**Finding**: On this benchmark ($N = 658$), the specific lexical feature set, and tree-based LightGBM model, regional lexical features provide no incremental value under zero-knowledge brand testing and slightly degrade discrimination. We restrict this claim to the tested benchmark, feature engineering, and model architecture; it does not constitute a universal claim that regional features lack value across all possible architectures (e.g. computer vision, HTML DOM, or graph embeddings) or future threat landscapes.
 
 ---
 
@@ -149,12 +152,15 @@ To measure generalization across distinct data collections, we evaluated the in-
 Evaluation Partition        N (URLs)   ROC-AUC    Delta AUC vs In-Dist    Threshold tau    Recall (TPR)    Precision    FPR
 -------------------------------------------------------------------------------------------------------------------------
 In-Distribution (global)     21,094     0.9284             --                0.5136           79.52%         91.06%    8.58%
-Primary PhiUSIIL              3,520     0.8661          +0.0623              0.5136 (Fixed)   92.33%         51.51%   86.93%
-Secondary Disjoint PhiUSIIL   2,888     0.8303          +0.0982              0.5136 (Fixed)   90.06%         41.95%   86.95%
+Primary PhiUSIIL              3,520     0.8661       +0.0623 (Drop)          0.5136 (Fixed)   92.33%         51.51%   86.93%
+Secondary Disjoint PhiUSIIL   2,888     0.8303       +0.0982 (Drop)          0.5136 (Fixed)   90.06%         41.95%   86.95%
 ```
 
 **Dissecting Ranking Discrimination vs. Calibration Failure**:
-* **Discrimination**: The drop in ROC-AUC from $0.9284 \to 0.8661$ ($\Delta\text{AUC}_{\text{pri}} = +0.0623$) and $0.8303$ ($\Delta\text{AUC}_{\text{dis}} = +0.0982$) exceeds the post-preregistration operational criterion of $\Delta\text{AUC} > 0.05$, confirming distribution shift.
+* **Discrimination**: Performance drops under distribution shift. The drop in ROC-AUC relative to in-distribution performance is defined as:
+  $$\Delta\text{AUC}_{A4,\text{pri}} = \text{AUC}_{\text{in-dist}} - \text{AUC}_{\text{cross,pri}} = 0.9284 - 0.8661 = \mathbf{+0.0623} \quad (\text{performance drop})$$
+  $$\Delta\text{AUC}_{A4,\text{dis}} = \text{AUC}_{\text{in-dist}} - \text{AUC}_{\text{cross,dis}} = 0.9284 - 0.8303 = \mathbf{+0.0982} \quad (\text{performance drop})$$
+  Both positive values represent substantial degradation in ranking discrimination, exceeding the post-preregistration operational criterion of $\Delta\text{AUC} > 0.05$.
 * **Operating-Threshold Transfer Failure**: While ranking discrimination remains moderate, operating at the fixed in-distribution decision threshold ($\tau = 0.5136$) causes the False Positive Rate to explode to **86.93%** ($1,530 / 1,760$ benign URLs falsely flagged). Precision collapses to $51.51\%$.
 * **Implication**: The model does not suffer from complete blindness; rather, its predicted probabilities are severely miscalibrated relative to the external baseline. Cross-feed deployment without adaptive threshold recalibration results in total operational failure.
 
@@ -163,18 +169,19 @@ Evaluation on the decoupled census of $N=1,682$ URLs hosted on `.in` ccTLD infra
 * $\text{AUC} = 0.9379$ ($95\%\ \text{CI}: [0.8978, 0.9630]$), $\text{F1} = 0.9008$, $\text{Precision} = 0.9511$, $\text{Recall} = 0.8556$.
 * **Candidate Feed-Target Breakdown**:
   * Identified Foreign / Global Candidate Targets: **713 URLs (59.17% of phishing; 42.39% of census)** across 118 candidate targets (`google`, `facebook`, `whatsapp`, `canva`, `roblox`, etc.).
-  * Ambiguous / Unspecified Candidate Targets: **412 URLs (34.19% of phishing; 24.49% of census)** across generic labels (`other`: 370, `webmail`: 42).
+  * Ambiguous / Unspecified Candidate Targets: **412 URLs (34.19% of phishing; 24.49% of census)** across generic labels (`other`: 370, `genericwebmailphishing`: 30, `webmail`: 12).
   * Domestic Indian Candidate Targets: **80 URLs (6.64% of phishing; 4.76% of census)** across 19 domestic entities (`governmentofindia`: 29, `della adventure`: 8, `sterling holidays`: 7, `meesho`: 6, etc.).
   * Benign Reference: **477 URLs (28.36% of census)**.
-* **Interpretation**: Domestic Indian ccTLD infrastructure is overwhelmingly exploited to host phishing campaigns targeting foreign/global brands ($59.17\%$). Attackers register `.in` domains to evade global reputation filters while attacking global user bases.
+* **Descriptive Finding**: In this census of `.in` ccTLD URLs, 59.17% of phishing instances carry candidate feed-target classifications corresponding to foreign/global brands, 34.19% carry ambiguous or generic feed labels, and 6.64% correspond to domestic Indian candidate entities. These classifications reflect candidate feed labels assigned by upstream feeds, and ccTLD registration reflects DNS delegation under the `.in` registry. They do not establish physical server hosting locations (which may use global CDNs), verified victim identities, victim geographical locations, or attacker intent.
 
 ---
 
 ### 3.5 Experiment A5: Temporal Generalization & Drift
-Evaluating models trained on earlier chronological data ($N=14,756$) on an out-of-time future test split ($N=5,789$; 2,895 benign, 2,894 phishing across 3,678 registered domains):
+Evaluating models trained on earlier chronological data (`a5_temporal_train.csv`, $N=25,000$, with domain-grouped validation split $N=4,545$) on the frozen out-of-time future test split (`a5_temporal_test.csv`, $N=9,339$ URLs; 5,201 benign, 4,138 phishing across 7,646 registered domains):
 * **In-Time Validation Split**: $\text{AUC} = 0.9807$, $\text{F1} = 0.9228$.
 * **Out-of-Time Future Test Split**: $\text{AUC} = 0.9160$, $\text{F1} = 0.8513$ ($95\%\ \text{CI}: [0.8987, 0.9319]$).
-* **Temporal Decay**: $\Delta\text{AUC}_{A5} = 0.9807 - 0.9160 = \mathbf{+0.0647}$ ($p < 0.001$).
+* **Temporal Drop**: $\Delta\text{AUC}_{A5} = \text{AUC}_{\text{in-time,val}} - \text{AUC}_{\text{out-of-time,test}} = 0.9807 - 0.9160 = \mathbf{+0.0647}$ ($p < 0.001$).
+* **Reconciliation of Test Sample Size**: Note that an earlier exploratory script (`experiments/E05_temporal.py`) evaluated an ad-hoc downsampled, balanced subset of $N=5,789$. The confirmatory evaluation under Protocol Amendment 1 evaluated the full frozen benchmark of $N=9,339$, which yielded the reported $\text{AUC} = 0.9160$ and $95\%\ \text{CI}: [0.8987, 0.9319]$.
 
 Static lexical classifiers degrade by over $6.4$ AUC points across chronological horizons, emphasizing the requirement for continuous rolling retraining in production.
 
@@ -197,7 +204,7 @@ Subdomain Trick               0.9905     0.9560      0.9267             98.72%  
 
 **The Lexical Bias Paradox**: Rather than blinding the classifier, synthetic perturbations paradoxically **increased phishing detection recall from 79.52% to 98.72%**. 
 * **Mechanism**: Because tree-based models learn heavy feature splits on URL length, token count, and subdomain depth, an attacker attempting to disguise a URL by appending keywords or stacking subdomains inadvertently pushes the URL deeper into the high-risk region of the decision tree.
-* **Caution**: This robustness is an accidental byproduct of structural bias, not genuine adversarial resilience. Attackers who intentionally shorten URLs or strip subdomains can exploit the converse shortcut.
+* **Caution**: This robustness is an accidental byproduct of structural bias, not genuine adversarial resilience. Attackers who intentionally shorten URLs or strip subdomains can exploit the converse shortcut. Furthermore, these empirical results characterize model response exclusively to the specified 3 heuristic perturbation rules and do not constitute a universal claim of robustness across all adversarial evasion techniques.
 
 ---
 
