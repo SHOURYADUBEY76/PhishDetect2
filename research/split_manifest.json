@@ -31,33 +31,49 @@
   },
   "a3_unseen_brands.csv": {
     "path": "data/benchmark/a3_unseen_brands.csv",
-    "sha256": "08e409c9979fbbad095b9fb85dd8397f06e4046cc87d125fd514c0a32093a636",
-    "rows": 1660,
+    "sha256": "486a284e970521cf62ba4815978b59ece43495d61c4a97cb22e8657d912ee60f",
+    "rows": 658,
     "columns": [
       "url",
       "label_num",
       "date",
-      "registered_domain"
+      "registered_domain",
+      "brand_entity",
+      "is_sparse_stratum"
     ],
     "label_distribution": {
-      "0": 1355,
-      "1": 305
+      "0": 329,
+      "1": 329
     }
   },
   "a4_cross_distribution.csv": {
     "path": "data/benchmark/a4_cross_distribution.csv",
-    "sha256": "0b763a117a89b4635379b905e2de1d68ca0349e83ba8550905b272c3e213890d",
-    "rows": 20000,
+    "sha256": "a90b69894725b433140f69d2d7e66b9200df96dd9556289529e72521c7a81ed8",
+    "rows": 3520,
     "columns": [
       "url",
       "label_num",
       "registered_domain",
-      "is_indian_hosting",
       "date"
     ],
     "label_distribution": {
-      "0": 11092,
-      "1": 8908
+      "0": 1760,
+      "1": 1760
+    }
+  },
+  "a4_domain_disjoint.csv": {
+    "path": "data/benchmark/a4_domain_disjoint.csv",
+    "sha256": "dc1dca595e60ad281a8343cc5223d4371691addc64eebd9bf1ecc91933d5c94c",
+    "rows": 2888,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "date"
+    ],
+    "label_distribution": {
+      "0": 1701,
+      "1": 1187
     }
   },
   "a5_temporal_test.csv": {
@@ -88,6 +104,22 @@
     "label_distribution": {
       "0": 13669,
       "1": 11331
+    }
+  },
+  "hosting_infrastructure_census.csv": {
+    "path": "data/benchmark/hosting_infrastructure_census.csv",
+    "sha256": "4bdef74254d4df5448e9bcbc75ace9d256377474d7301e560424e562350cfbae",
+    "rows": 1682,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "target_category",
+      "date"
+    ],
+    "label_distribution": {
+      "1": 1205,
+      "0": 477
     }
   }
 }

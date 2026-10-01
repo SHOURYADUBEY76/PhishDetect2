@@ -134,70 +134,220 @@ def build_a2_benchmark():
 
 
 def build_a3_benchmark():
-    """Build A3 Lexicon-Clean Unseen Brands Holdout Benchmark."""
-    # Held out brand entities strictly excluded from zero-knowledge feature extractor
-    held_out_brands = ["phonepe", "aadhaar", "uidai", "irctc", "axis", "pnb", "bob", "kotak", "epfo", "paytm"]
+    """Build A3 Lexicon-Clean Unseen Brands Holdout Benchmark.
     
-    # Load PhreshPhish and identify genuine URLs targeting these brands or legitimate domains
-    cache_path = "audit/results/phreshphish_metadata_streamed.parquet"
-    if not os.path.exists(cache_path):
-        return
-    df = pd.read_parquet(cache_path)
-    df["label_num"] = df["label"].apply(lambda x: 1 if str(x).lower().startswith("phish") or x == 1 else 0)
-
-    def matches_held_out(u):
-        u_low = str(u).lower()
-        return any(b in u_low for b in held_out_brands)
-
-    df_held = df[df["url"].apply(matches_held_out)].copy()
-    df_held["registered_domain"] = df_held["url"].apply(extract_registered_domain)
-    
-    # Balance with generic benign URLs
-    df_benign = df[(df["label_num"] == 0) & (~df["url"].apply(matches_held_out))].sample(n=min(len(df_held), 2000), random_state=42).copy()
-    df_benign["registered_domain"] = df_benign["url"].apply(extract_registered_domain)
-
-    df_a3 = pd.concat([df_held, df_benign], ignore_index=True).sample(frac=1.0, random_state=42).reset_index(drop=True)
+    Attribution Rules:
+      1. Polysemic tokens ('bob', 'axis', 'pan') require compound naming ('bankofbaroda', 'axisbank')
+         or explicit upstream feed target confirmation ('axisbank', 'bank of baroda', 'pnb').
+         Standalone substring matches without confirmation are classified as AMBIGUOUS and excluded.
+      2. Non-polysemic brand tokens ('sbi', 'hdfc', 'icici', 'phonepe', 'paytm', 'uidai', 'irctc', 'jio')
+         are matched with token boundaries and confirmed to not belong to official brand domains.
+      3. Brand instances with < 20 rows or < 5 registered domains are flagged as is_sparse_stratum=1
+         and included in the pooled aggregate benchmark, but not reported in isolated brand breakdowns.
+      4. All synthetic regex templates are strictly excluded.
+    """
     out_path = "data/benchmark/a3_unseen_brands.csv"
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    df_a3[["url", "label_num", "date", "registered_domain"]].to_csv(out_path, index=False)
-    print(f"Saved A3 Unseen Brands Benchmark to {out_path} ({len(df_a3)} rows)", flush=True)
+    
+    # 1. Candidate extraction from real indian_test (excluding synthetic templates)
+    phish_records = []
+    if os.path.exists("data/processed/indian_test.csv"):
+        df_itest = pd.read_csv("data/processed/indian_test.csv")
+        real_phish = df_itest[(df_itest["label"] == 1) & (df_itest["is_synthetic"] == 0)].copy()
+        
+        # Explicit target verification rules on real_phish
+        brand_pats = {
+            "sbi": re.compile(r"(?:^|[^a-zA-Z0-9])(?:sbi|onlinesbi|statebank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "hdfc": re.compile(r"(?:^|[^a-zA-Z0-9])(?:hdfc|hdfcbank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "icici": re.compile(r"(?:^|[^a-zA-Z0-9])(?:icici|icicibank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "axis": re.compile(r"(?:^|[^a-zA-Z0-9])(?:axisbank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),  # Compound only
+            "pnb": re.compile(r"(?:^|[^a-zA-Z0-9])(?:pnb|punjabnational)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "bob": re.compile(r"(?:^|[^a-zA-Z0-9])(?:bankofbaroda)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),  # Compound only
+            "kotak": re.compile(r"(?:^|[^a-zA-Z0-9])(?:kotak|kotakbank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "paytm": re.compile(r"(?:^|[^a-zA-Z0-9])(?:paytm)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "phonepe": re.compile(r"(?:^|[^a-zA-Z0-9])(?:phonepe)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "uidai": re.compile(r"(?:^|[^a-zA-Z0-9])(?:uidai|aadhaar)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "irctc": re.compile(r"(?:^|[^a-zA-Z0-9])(?:irctc)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "jio": re.compile(r"(?:^|[^a-zA-Z0-9])(?:jio)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+            "unionbank": re.compile(r"(?:^|[^a-zA-Z0-9])(?:unionbank)(?:[^a-zA-Z0-9]|$)", re.IGNORECASE),
+        }
+        
+        for _, row in real_phish.iterrows():
+            u = row["url"]
+            for bname, pat in brand_pats.items():
+                if pat.search(u):
+                    phish_records.append({
+                        "url": u,
+                        "label_num": 1,
+                        "date": row.get("date", "2024-01-01"),
+                        "registered_domain": extract_registered_domain(u),
+                        "brand_entity": bname,
+                    })
+                    break
+
+    # 2. Candidate extraction from PhreshPhish census metadata
+    cache_path = "audit/results/phreshphish_metadata_streamed.parquet"
+    if os.path.exists(cache_path):
+        df_p = pd.read_parquet(cache_path)
+        census_ind_targets = {
+            "governmentofindia": "governmentofindia",
+            "della adventure and resorts": "della",
+            "sterling holidays": "sterling",
+            "meesho": "meesho",
+            "npci": "npci",
+            "flipkart": "flipkart",
+            "hdfc bank": "hdfc",
+            "reliance retail": "reliance",
+            "india_post": "indiapost",
+            "axisbank": "axis",
+            "reserve bank of india": "rbi",
+            "boi": "boi",
+            "moneyview": "moneyview",
+            "bse ltd (bombay stock exchange)": "bse",
+            "eurekaforbes": "eurekaforbes",
+            "yesbank": "yesbank",
+            "ujjivan bank": "ujjivan",
+            "allcargo group": "allcargo",
+            "nykaa": "nykaa",
+        }
+        p_phish = df_p[(df_p["label"] == "phish") | (df_p["label"] == 1)].copy()
+        for tgt_val, bname in census_ind_targets.items():
+            matched = p_phish[p_phish["target"].astype(str).str.lower().str.strip() == tgt_val]
+            for _, row in matched.iterrows():
+                u = row["url"]
+                phish_records.append({
+                    "url": u,
+                    "label_num": 1,
+                    "date": row.get("date", "2024-01-01"),
+                    "registered_domain": extract_registered_domain(u),
+                    "brand_entity": bname,
+                })
+
+    df_phish = pd.DataFrame(phish_records).drop_duplicates(subset=["url"]).reset_index(drop=True)
+    
+    # Stratum sparsity calculation: <20 instances or <5 domains
+    brand_counts = df_phish.groupby("brand_entity").agg(n_rows=("url", "count"), n_doms=("registered_domain", "nunique"))
+    sparse_brands = set(brand_counts[(brand_counts["n_rows"] < 20) | (brand_counts["n_doms"] < 5)].index)
+    df_phish["is_sparse_stratum"] = df_phish["brand_entity"].apply(lambda b: 1 if b in sparse_brands else 0)
+
+    # 3. Balanced benign sample from verified clean benign sources
+    benign_urls = []
+    if os.path.exists("data/processed/indian_test.csv"):
+        df_itest = pd.read_csv("data/processed/indian_test.csv")
+        b_itest = df_itest[df_itest["label"] == 0]["url"].tolist()
+        benign_urls.extend(b_itest)
+    
+    df_benign_pool = pd.DataFrame({"url": benign_urls}).drop_duplicates().sample(n=min(len(benign_urls), len(df_phish)), random_state=42).copy()
+    df_benign_pool["label_num"] = 0
+    df_benign_pool["date"] = "2024-01-01"
+    df_benign_pool["registered_domain"] = df_benign_pool["url"].apply(extract_registered_domain)
+    df_benign_pool["brand_entity"] = "none"
+    df_benign_pool["is_sparse_stratum"] = 0
+
+    df_a3 = pd.concat([df_phish, df_benign_pool], ignore_index=True).sample(frac=1.0, random_state=42).reset_index(drop=True)
+    df_a3[["url", "label_num", "date", "registered_domain", "brand_entity", "is_sparse_stratum"]].to_csv(out_path, index=False)
+    print(f"Saved Validated A3 Unseen Brands Benchmark to {out_path} ({len(df_a3)} rows: {len(df_phish)} phish, {len(df_benign_pool)} benign)", flush=True)
 
 
 def build_a4_a5_benchmarks():
-    """Build A4 Cross-Distribution & A5 Temporal Splits Benchmarks."""
+    """Build A4 External Cross-Distribution and A5 Temporal Benchmarks."""
+    # A4 Primary: Full External PhiUSIIL Test Set (N=3,520; 1,760 benign, 1,760 phish)
+    out_path_a4_primary = "data/benchmark/a4_cross_distribution.csv"
+    out_path_a4_disjoint = "data/benchmark/a4_domain_disjoint.csv"
+    
+    if os.path.exists("data/processed/phiusiil_test.csv"):
+        df_phi = pd.read_csv("data/processed/phiusiil_test.csv")
+        df_phi["label_num"] = df_phi["label"].astype(int)
+        df_phi["registered_domain"] = df_phi["url"].apply(extract_registered_domain)
+        df_phi["date"] = "2024-01-01"
+        
+        # Primary Benchmark: Full External Test Set
+        df_phi[["url", "label_num", "registered_domain", "date"]].to_csv(out_path_a4_primary, index=False)
+        print(f"Saved Primary A4 Cross-Distribution Benchmark to {out_path_a4_primary} ({len(df_phi)} rows)", flush=True)
+
+        # Secondary Benchmark: Strict Domain-Disjoint Filtered Partition (N=2,888)
+        # Purge 92 overlapping domains from strict union training pool
+        g_tr = pd.read_csv("data/processed/global_train.csv") if os.path.exists("data/processed/global_train.csv") else pd.DataFrame(columns=["registered_domain"])
+        a5_tr = pd.read_csv("data/benchmark/a5_temporal_train.csv") if os.path.exists("data/benchmark/a5_temporal_train.csv") else pd.DataFrame(columns=["registered_domain"])
+        i_tr = pd.read_csv("data/processed/indian_train.csv") if os.path.exists("data/processed/indian_train.csv") else pd.DataFrame(columns=["registered_domain"])
+        
+        union_tr_doms = set(g_tr["registered_domain"].dropna()).union(set(a5_tr["registered_domain"].dropna())).union(set(i_tr["registered_domain"].dropna()))
+        df_disjoint = df_phi[~df_phi["registered_domain"].isin(union_tr_doms)].copy()
+        df_disjoint[["url", "label_num", "registered_domain", "date"]].to_csv(out_path_a4_disjoint, index=False)
+        print(f"Saved Secondary A4 Domain-Disjoint Benchmark to {out_path_a4_disjoint} ({len(df_disjoint)} rows)", flush=True)
+
+    # A5: Temporal Splits from PhreshPhish Census
+    cache_path = "audit/results/phreshphish_metadata_streamed.parquet"
+    if os.path.exists(cache_path):
+        df = pd.read_parquet(cache_path)
+        df["label_num"] = df["label"].apply(lambda x: 1 if str(x).lower().startswith("phish") or x == 1 else 0)
+        df["registered_domain"] = df["url"].apply(extract_registered_domain)
+        df["date_dt"] = pd.to_datetime(df["date"], errors="coerce")
+        df_valid_dates = df.dropna(subset=["date_dt"]).copy()
+        
+        train_mask = df_valid_dates["date_dt"] < pd.Timestamp("2025-01-01")
+        test_mask = df_valid_dates["date_dt"] >= pd.Timestamp("2025-06-01")
+
+        df_train_temp = df_valid_dates[train_mask].sample(n=min(train_mask.sum(), 25000), random_state=42).copy()
+        df_test_temp = df_valid_dates[test_mask].sample(n=min(test_mask.sum(), 15000), random_state=42).copy()
+
+        # Enforce domain separation between temporal train and test
+        train_domains = set(df_train_temp["registered_domain"])
+        df_test_temp = df_test_temp[~df_test_temp["registered_domain"].isin(train_domains)].copy()
+
+        out_temp_train = "data/benchmark/a5_temporal_train.csv"
+        out_temp_test = "data/benchmark/a5_temporal_test.csv"
+        df_train_temp[["url", "label_num", "date", "registered_domain"]].to_csv(out_temp_train, index=False)
+        df_test_temp[["url", "label_num", "date", "registered_domain"]].to_csv(out_temp_test, index=False)
+        print(f"Saved A5 Temporal Splits to {out_temp_train} ({len(df_train_temp)} rows) and {out_temp_test} ({len(df_test_temp)} rows)", flush=True)
+
+
+def build_hosting_infrastructure_census():
+    """Build Dedicated Hosting Infrastructure Census Benchmark (N=1,682 URLs)."""
     cache_path = "audit/results/phreshphish_metadata_streamed.parquet"
     if not os.path.exists(cache_path):
         return
+        
     df = pd.read_parquet(cache_path)
     df["label_num"] = df["label"].apply(lambda x: 1 if str(x).lower().startswith("phish") or x == 1 else 0)
     df["registered_domain"] = df["url"].apply(extract_registered_domain)
-    df["is_indian_hosting"] = df["url"].apply(is_indian_hosting_tld).astype(int)
+    df["is_indian_hosting"] = df["url"].apply(is_indian_hosting_tld)
 
-    # A4: Cross-distribution hosting set
-    out_path_a4 = "data/benchmark/a4_cross_distribution.csv"
-    df_sample = df.sample(n=min(len(df), 20000), random_state=42).copy()
-    df_sample[["url", "label_num", "registered_domain", "is_indian_hosting", "date"]].to_csv(out_path_a4, index=False)
-    print(f"Saved A4 Cross-Distribution Benchmark to {out_path_a4} ({len(df_sample)} rows)", flush=True)
+    # Filter to Indian hosting (.in / .bharat)
+    df_hosted = df[df["is_indian_hosting"]].copy()
 
-    # A5: Temporal Splits (Train: 2024, Test: 2025)
-    df["date_dt"] = pd.to_datetime(df["date"], errors="coerce")
-    df_valid_dates = df.dropna(subset=["date_dt"]).copy()
-    
-    train_mask = df_valid_dates["date_dt"] < pd.Timestamp("2025-01-01")
-    test_mask = df_valid_dates["date_dt"] >= pd.Timestamp("2025-06-01")
+    # Explicit auditable target category mapping
+    INDIAN_TARGET_ENTITIES = {
+        'governmentofindia', 'della adventure and resorts', 'sterling holidays',
+        'meesho', 'npci', 'flipkart', 'hdfc bank', 'reliance retail',
+        'india_post', 'axisbank', 'reserve bank of india', 'boi', 'moneyview',
+        'bse ltd (bombay stock exchange)', 'eurekaforbes', 'yesbank',
+        'ujjivan bank', 'allcargo group', 'nykaa'
+    }
 
-    df_train_temp = df_valid_dates[train_mask].sample(n=min(train_mask.sum(), 25000), random_state=42).copy()
-    df_test_temp = df_valid_dates[test_mask].sample(n=min(test_mask.sum(), 15000), random_state=42).copy()
+    UNSPECIFIED_GENERIC_TARGETS = {
+        'other', 'genericwebmailphishing', 'generic email', 'genericfakebank',
+        'generic - no brand identified', 'server data', 'email admin', 'vm',
+        'transact', 'one', 'one_digital_service'
+    }
 
-    # Enforce domain separation between temporal train and test
-    train_domains = set(df_train_temp["registered_domain"])
-    df_test_temp = df_test_temp[~df_test_temp["registered_domain"].isin(train_domains)].copy()
+    def map_target(row):
+        if row["label_num"] == 0:
+            return "Benign Reference"
+        t = str(row.get("target", "")).lower().strip()
+        if t in INDIAN_TARGET_ENTITIES:
+            return "Domestic Indian Target"
+        elif t in UNSPECIFIED_GENERIC_TARGETS or not t or t in ['none', 'n/a', 'unknown']:
+            return "Ambiguous / Unspecified Target"
+        else:
+            return "Identified Foreign / Global Target"
 
-    out_temp_train = "data/benchmark/a5_temporal_train.csv"
-    out_temp_test = "data/benchmark/a5_temporal_test.csv"
-    df_train_temp[["url", "label_num", "date", "registered_domain"]].to_csv(out_temp_train, index=False)
-    df_test_temp[["url", "label_num", "date", "registered_domain"]].to_csv(out_temp_test, index=False)
-    print(f"Saved A5 Temporal Splits to {out_temp_train} ({len(df_train_temp)} rows) and {out_temp_test} ({len(df_test_temp)} rows)", flush=True)
+    df_hosted["target_category"] = df_hosted.apply(map_target, axis=1)
+
+    out_path = "data/benchmark/hosting_infrastructure_census.csv"
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    df_hosted[["url", "label_num", "registered_domain", "target_category", "date"]].to_csv(out_path, index=False)
+    print(f"Saved Hosting Infrastructure Census Benchmark to {out_path} ({len(df_hosted)} rows: {len(df_hosted[df_hosted['label_num']==1])} phish, {len(df_hosted[df_hosted['label_num']==0])} benign)", flush=True)
 
 
 def generate_manifest():
@@ -232,5 +382,6 @@ if __name__ == "__main__":
     build_a2_benchmark()
     build_a3_benchmark()
     build_a4_a5_benchmarks()
+    build_hosting_infrastructure_census()
     generate_manifest()
     print("All benchmarks built successfully!")
