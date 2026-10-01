@@ -1,0 +1,93 @@
+{
+  "a1_path_matched.csv": {
+    "path": "data/benchmark/a1_path_matched.csv",
+    "sha256": "ae74e098bb87c06bf16aa4702bbe01645a13d0cc36bde9d9a0291cd9d319b670",
+    "rows": 21094,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain",
+      "has_path_query",
+      "path_depth",
+      "is_https",
+      "stratum"
+    ],
+    "label_distribution": {
+      "0": 10547,
+      "1": 10547
+    }
+  },
+  "a2_representation.csv": {
+    "path": "data/benchmark/a2_representation.csv",
+    "sha256": "57cb32cf152988376d454c5613ed07309bcb4412829d4aac560fcd325a98e5dc",
+    "rows": 300,
+    "columns": [
+      "domain",
+      "url",
+      "variant_type"
+    ],
+    "label_distribution": "N/A"
+  },
+  "a3_unseen_brands.csv": {
+    "path": "data/benchmark/a3_unseen_brands.csv",
+    "sha256": "08e409c9979fbbad095b9fb85dd8397f06e4046cc87d125fd514c0a32093a636",
+    "rows": 1660,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain"
+    ],
+    "label_distribution": {
+      "0": 1355,
+      "1": 305
+    }
+  },
+  "a4_cross_distribution.csv": {
+    "path": "data/benchmark/a4_cross_distribution.csv",
+    "sha256": "0b763a117a89b4635379b905e2de1d68ca0349e83ba8550905b272c3e213890d",
+    "rows": 20000,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "is_indian_hosting",
+      "date"
+    ],
+    "label_distribution": {
+      "0": 11092,
+      "1": 8908
+    }
+  },
+  "a5_temporal_test.csv": {
+    "path": "data/benchmark/a5_temporal_test.csv",
+    "sha256": "28a98158068a39d955886bf0c6534f1e4ab7ddc2934f501039cbb55e0a03b747",
+    "rows": 9339,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain"
+    ],
+    "label_distribution": {
+      "0": 5201,
+      "1": 4138
+    }
+  },
+  "a5_temporal_train.csv": {
+    "path": "data/benchmark/a5_temporal_train.csv",
+    "sha256": "e9f50f9112c3f118aba4c61663c9555f0f6c31684c9f9c5536f546908d916a75",
+    "rows": 25000,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain"
+    ],
+    "label_distribution": {
+      "0": 13669,
+      "1": 11331
+    }
+  }
+}
