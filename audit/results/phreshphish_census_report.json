@@ -1,0 +1,220 @@
+{
+  "train000_baseline": {
+    "shard": "train-000.parquet",
+    "rows": 1000,
+    "target_non_null": 406,
+    "target_distribution": {
+      "other": 232,
+      "facebook": 37,
+      "meta": 32,
+      "at&t": 12,
+      "booking": 10,
+      "naver": 8,
+      "robinhood": 6,
+      "usps": 6,
+      "whatsapp": 5,
+      "netflix": 5
+    },
+    "lang_non_null": 977,
+    "lang_distribution": {
+      "en": 845,
+      "ja": 60,
+      "fr": 19,
+      "de": 12,
+      "it": 7
+    },
+    "distinct_registered_domains": 709
+  },
+  "full_phreshphish_census": {
+    "total_shards": 77,
+    "total_rows": 666315,
+    "unique_urls": 666315,
+    "unique_registered_domains": 186663,
+    "class_balance_raw": {
+      "benign": 367989,
+      "phish": 298326
+    },
+    "class_balance_num": {
+      "0": 367989,
+      "1": 298326
+    },
+    "sha256_duplicates": 0,
+    "monthly_counts": {
+      "2024-07": 53556,
+      "2024-08": 99991,
+      "2024-09": 104004,
+      "2024-10": 39086,
+      "2024-11": 15585,
+      "2024-12": 7868,
+      "2025-01": 23004,
+      "2025-02": 9324,
+      "2025-03": 5678,
+      "2025-04": 2800,
+      "2025-06": 11485,
+      "2025-07": 58372,
+      "2025-08": 55348,
+      "2025-09": 43846,
+      "2025-10": 114043,
+      "2025-11": 21308,
+      "2025-12": 1017
+    },
+    "target_non_null": 298411,
+    "top_20_targets": {
+      "other": 134725,
+      "facebook": 19677,
+      "meta": 16267,
+      "google": 9157,
+      "robinhood": 8227,
+      "betwinner": 6316,
+      "naver": 5432,
+      "usps": 5151,
+      "trezor": 4406,
+      "grandlisboamacau": 3832,
+      "instagram": 3784,
+      "whatsapp": 3720,
+      "at&t": 3473,
+      "booking": 3370,
+      "ledger": 3320,
+      "microsoft": 2674,
+      "roblox": 2531,
+      "kleinanzeigen": 1816,
+      "rakuten": 1663,
+      "netflix": 1526
+    },
+    "lang_non_null": 650341,
+    "top_15_languages": {
+      "en": 549071,
+      "ja": 42823,
+      "fr": 12405,
+      "it": 7978,
+      "es": 7813,
+      "de": 7428,
+      "pt": 3807,
+      "nl": 2648,
+      "ru": 1653,
+      "sv": 1559,
+      "da": 1402,
+      "tr": 1378,
+      "ko": 1369,
+      "pl": 1366,
+      "th": 842
+    }
+  },
+  "regional_subpopulations": {
+    "a_indian_targeted_phishing_independent": {
+      "count": 89,
+      "distinct_registered_domains": 78,
+      "months_covered": 12,
+      "matched_entities_sample": {
+        "india_post": 25,
+        "hdfc_bank": 16,
+        "npci_upi": 12,
+        "bharti_airtel": 9,
+        "axis_bank": 5
+      }
+    },
+    "b_phishing_hosted_on_indian_tlds": {
+      "count": 1205,
+      "distinct_registered_domains": 496,
+      "top_5_hosting_domains": {
+        "blogspot.in": 263,
+        "vivekint.in": 164,
+        "chatbotpage.org.in": 42,
+        "sovplyrn.in": 27,
+        "flashdownload.in": 22
+      }
+    },
+    "c_benign_urls_with_paths_on_indian_tlds": {
+      "count": 430,
+      "distinct_registered_domains": 230,
+      "months_covered": 10,
+      "top_5_domains": {
+        "amazon.in": 18,
+        "cleartax.in": 16,
+        "groww.in": 15,
+        "bajajfinserv.in": 15,
+        "brainly.in": 12
+      }
+    }
+  },
+  "phreshphish_matching_and_shortcut_baseline": {
+    "evaluated_sample_size": 100000,
+    "unmatched_shortcut_only_auc": 0.846,
+    "matched_surviving_total_rows": 53148,
+    "matched_class_distribution": {
+      "0": 26574,
+      "1": 26574
+    },
+    "matched_shortcut_only_auc": 0.7596,
+    "strata_summary": {
+      "False_0_False": {
+        "raw_legit": 143,
+        "raw_phish": 2459,
+        "matched_per_class": 143
+      },
+      "False_0_True": {
+        "raw_legit": 3284,
+        "raw_phish": 8169,
+        "matched_per_class": 3284
+      },
+      "False_1_False": {
+        "raw_legit": 7,
+        "raw_phish": 594,
+        "matched_per_class": 7
+      },
+      "False_1_True": {
+        "raw_legit": 563,
+        "raw_phish": 5846,
+        "matched_per_class": 563
+      },
+      "False_2_False": {
+        "raw_legit": 1,
+        "raw_phish": 195,
+        "matched_per_class": 1
+      },
+      "False_2_True": {
+        "raw_legit": 78,
+        "raw_phish": 1880,
+        "matched_per_class": 78
+      },
+      "False_3_True": {
+        "raw_legit": 5,
+        "raw_phish": 328,
+        "matched_per_class": 5
+      },
+      "True_0_False": {
+        "raw_legit": 256,
+        "raw_phish": 476,
+        "matched_per_class": 256
+      }
+    }
+  },
+  "study_specific_feasibility_criteria": {
+    "c1_sample_size_check": {
+      "passed": false,
+      "ind_phish_count": 89,
+      "req_phish": 500,
+      "ind_benign_count": 430,
+      "req_benign": 500,
+      "ind_phish_domains": 78,
+      "req_phish_dom": 100,
+      "ind_benign_domains": 230,
+      "req_benign_dom": 100
+    },
+    "c2_temporal_span_check": {
+      "passed": true,
+      "phish_months": 12,
+      "benign_months": 10,
+      "req_months": 3
+    },
+    "c3_matching_survival_check": {
+      "passed": false,
+      "surviving_pairs": 50,
+      "req_pairs": 250,
+      "surviving_doms_legit": 38,
+      "surviving_doms_phish": 48,
+      "req_doms": 50
+    },
+    "final_track_decision": "Track A ONLY (Track A+R Unfeasible)"
+  }
+}

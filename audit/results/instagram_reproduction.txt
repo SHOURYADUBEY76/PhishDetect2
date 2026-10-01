@@ -1,0 +1,136 @@
+=== INSTAGRAM & BENIGN HOMEPAGE SENSITIVITY AUDIT ===
+
+1. Instagram URL Variants:
+  URL: https://www.instagram.com      -> Norm: https://www.instagram.com     
+    Parsed: scheme=https, netloc=www.instagram.com, path=''
+    Prob: 0.7368 | Threshold: 0.4409 | Verdict: PHISHING
+    Single Feature Flips:
+      path_length    : 0.0 -> 1.0 => Prob: 0.1314 (delta: -0.6054)
+      is_https       : 1.0 -> 0.0 => Prob: 0.9035 (delta: +0.1667)
+      is_http        : 0.0 -> 1.0 => Prob: 0.7368 (delta: +0.0000)
+      num_slashes    : 2.0 -> 3.0 => Prob: 0.7078 (delta: -0.0290)
+      path_depth     : 0.0 -> 1.0 => Prob: 0.7368 (delta: +0.0000)
+
+  URL: http://www.instagram.com       -> Norm: http://www.instagram.com      
+    Parsed: scheme=http, netloc=www.instagram.com, path=''
+    Prob: 0.9036 | Threshold: 0.4409 | Verdict: PHISHING
+    Single Feature Flips:
+      path_length    : 0.0 -> 1.0 => Prob: 0.5781 (delta: -0.3256)
+      is_https       : 0.0 -> 1.0 => Prob: 0.7644 (delta: -0.1392)
+      is_http        : 1.0 -> 0.0 => Prob: 0.9036 (delta: +0.0000)
+      num_slashes    : 2.0 -> 3.0 => Prob: 0.8965 (delta: -0.0071)
+      path_depth     : 0.0 -> 1.0 => Prob: 0.9036 (delta: +0.0000)
+
+  URL: instagram.com                  -> Norm: http://instagram.com          
+    Parsed: scheme=http, netloc=instagram.com, path=''
+    Prob: 0.9621 | Threshold: 0.4409 | Verdict: PHISHING
+    Single Feature Flips:
+      path_length    : 0.0 -> 1.0 => Prob: 0.9120 (delta: -0.0501)
+      is_https       : 0.0 -> 1.0 => Prob: 0.0323 (delta: -0.9298)
+      is_http        : 1.0 -> 0.0 => Prob: 0.9621 (delta: +0.0000)
+      num_slashes    : 2.0 -> 3.0 => Prob: 0.9660 (delta: +0.0039)
+      path_depth     : 0.0 -> 1.0 => Prob: 0.9621 (delta: +0.0000)
+
+  URL: https://www.instagram.com/     -> Norm: https://www.instagram.com/    
+    Parsed: scheme=https, netloc=www.instagram.com, path='/'
+    Prob: 0.1167 | Threshold: 0.4409 | Verdict: LEGITIMATE
+    Single Feature Flips:
+      path_length    : 1.0 -> 0.0 => Prob: 0.7229 (delta: +0.6062)
+      is_https       : 1.0 -> 0.0 => Prob: 0.4777 (delta: +0.3610)
+      is_http        : 0.0 -> 1.0 => Prob: 0.1167 (delta: +0.0000)
+      num_slashes    : 3.0 -> 2.0 => Prob: 0.1458 (delta: +0.0291)
+      path_depth     : 0.0 -> 1.0 => Prob: 0.1167 (delta: +0.0000)
+
+
+2. Differing Features across Instagram Variants:
+  url_length:
+    https://www.instagram.com     : 25.0
+    http://www.instagram.com      : 24.0
+    instagram.com                 : 20.0
+    https://www.instagram.com/    : 26.0
+  hostname_length:
+    https://www.instagram.com     : 17.0
+    http://www.instagram.com      : 17.0
+    instagram.com                 : 13.0
+    https://www.instagram.com/    : 17.0
+  path_length:
+    https://www.instagram.com     : 0.0
+    http://www.instagram.com      : 0.0
+    instagram.com                 : 0.0
+    https://www.instagram.com/    : 1.0
+  num_dots:
+    https://www.instagram.com     : 2.0
+    http://www.instagram.com      : 2.0
+    instagram.com                 : 1.0
+    https://www.instagram.com/    : 2.0
+  host_num_dots:
+    https://www.instagram.com     : 2.0
+    http://www.instagram.com      : 2.0
+    instagram.com                 : 1.0
+    https://www.instagram.com/    : 2.0
+  num_slashes:
+    https://www.instagram.com     : 2.0
+    http://www.instagram.com      : 2.0
+    instagram.com                 : 2.0
+    https://www.instagram.com/    : 3.0
+  special_char_ratio:
+    https://www.instagram.com     : 0.16
+    http://www.instagram.com      : 0.16666666666666666
+    instagram.com                 : 0.15
+    https://www.instagram.com/    : 0.19230769230769232
+  url_entropy:
+    https://www.instagram.com     : 3.863465189601647
+    http://www.instagram.com      : 3.8553885422075336
+    instagram.com                 : 3.784183719779189
+    https://www.instagram.com/    : 3.8441065448145384
+  host_entropy:
+    https://www.instagram.com     : 3.4548223999466057
+    http://www.instagram.com      : 3.4548223999466057
+    instagram.com                 : 3.3927474104487847
+    https://www.instagram.com/    : 3.4548223999466057
+  num_subdomains:
+    https://www.instagram.com     : 1.0
+    http://www.instagram.com      : 1.0
+    instagram.com                 : 0.0
+    https://www.instagram.com/    : 1.0
+  is_https:
+    https://www.instagram.com     : 1.0
+    http://www.instagram.com      : 0.0
+    instagram.com                 : 0.0
+    https://www.instagram.com/    : 1.0
+  is_http:
+    https://www.instagram.com     : 0.0
+    http://www.instagram.com      : 1.0
+    instagram.com                 : 1.0
+    https://www.instagram.com/    : 0.0
+  subdomain_length:
+    https://www.instagram.com     : 3.0
+    http://www.instagram.com      : 3.0
+    instagram.com                 : 0.0
+    https://www.instagram.com/    : 3.0
+
+3. 20 Independent Benign Homepages Evaluation:
+  wikipedia.org       : https=0.0349 (LEGITIMATE) | https+/=0.3301 (LEGITIMATE) | raw=0.9620 (PHISHING) | Delta=-0.2952
+  github.com          : https=0.0224 (LEGITIMATE) | https+/=0.3295 (LEGITIMATE) | raw=0.9671 (PHISHING) | Delta=-0.3071
+  apple.com           : https=0.0215 (LEGITIMATE) | https+/=0.3013 (LEGITIMATE) | raw=0.9657 (PHISHING) | Delta=-0.2798
+  amazon.com          : https=0.0205 (LEGITIMATE) | https+/=0.3041 (LEGITIMATE) | raw=0.9651 (PHISHING) | Delta=-0.2836
+  microsoft.com       : https=0.0311 (LEGITIMATE) | https+/=0.3240 (LEGITIMATE) | raw=0.9611 (PHISHING) | Delta=-0.2929
+  linkedin.com        : https=0.0295 (LEGITIMATE) | https+/=0.4629 (PHISHING) | raw=0.9566 (PHISHING) | Delta=-0.4334
+  reddit.com          : https=0.0154 (LEGITIMATE) | https+/=0.3025 (LEGITIMATE) | raw=0.9609 (PHISHING) | Delta=-0.2871
+  netflix.com         : https=0.0230 (LEGITIMATE) | https+/=0.4293 (LEGITIMATE) | raw=0.9694 (PHISHING) | Delta=-0.4063
+  spotify.com         : https=0.0134 (LEGITIMATE) | https+/=0.4845 (PHISHING) | raw=0.9618 (PHISHING) | Delta=-0.4711
+  nytimes.com         : https=0.0212 (LEGITIMATE) | https+/=0.4108 (LEGITIMATE) | raw=0.9629 (PHISHING) | Delta=-0.3896
+  bbc.com             : https=0.0021 (LEGITIMATE) | https+/=0.0787 (LEGITIMATE) | raw=0.7125 (PHISHING) | Delta=-0.0766
+  cnn.com             : https=0.0038 (LEGITIMATE) | https+/=0.1030 (LEGITIMATE) | raw=0.7513 (PHISHING) | Delta=-0.0992
+  stackoverflow.com   : https=0.0517 (LEGITIMATE) | https+/=0.3229 (LEGITIMATE) | raw=0.9747 (PHISHING) | Delta=-0.2712
+  medium.com          : https=0.0205 (LEGITIMATE) | https+/=0.3041 (LEGITIMATE) | raw=0.9630 (PHISHING) | Delta=-0.2836
+  dropbox.com         : https=0.0187 (LEGITIMATE) | https+/=0.3941 (LEGITIMATE) | raw=0.9626 (PHISHING) | Delta=-0.3754
+  quora.com           : https=0.0215 (LEGITIMATE) | https+/=0.3013 (LEGITIMATE) | raw=0.9598 (PHISHING) | Delta=-0.2798
+  salesforce.com      : https=0.0367 (LEGITIMATE) | https+/=0.3436 (LEGITIMATE) | raw=0.9637 (PHISHING) | Delta=-0.3069
+  adobe.com           : https=0.0215 (LEGITIMATE) | https+/=0.3013 (LEGITIMATE) | raw=0.9598 (PHISHING) | Delta=-0.2798
+  zoom.us             : https=0.0027 (LEGITIMATE) | https+/=0.6474 (PHISHING) | raw=0.6752 (PHISHING) | Delta=-0.6447
+  x.com               : https=0.0024 (LEGITIMATE) | https+/=0.0247 (LEGITIMATE) | raw=0.6566 (PHISHING) | Delta=-0.0223
+
+4. Summary Statistics:
+  Slash flips verdict count in 20 homepages: 3 of 20
+  Mean probability drop caused solely by adding trailing slash: -0.3043
