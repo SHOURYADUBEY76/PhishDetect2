@@ -89,6 +89,8 @@ Because URLs sharing a registered domain exhibit strong feature correlation, tra
 +-----+-----------------------+---------------------+-------------------+------------------+---------+
 ```
 
+*Figure 1 (`research/figures/fig1_track_a_forest_plot.png`) summarizes the effect sizes and 95% paired domain-clustered bootstrap confidence intervals across the confirmatory experiments.*
+
 ### 3.1 Experiment A1: Shortcut Reliance & Lexical Masking
 We trained three LightGBM classifiers on identical domain-isolated training splits:
 1. **Unmasked Model**: 39 host, path, and query lexical features.
@@ -122,7 +124,7 @@ http://example.com                    0.9420                  +0.9199           
 example.com                           0.9573                  +0.9351                       50 / 50 (100.0%)
 ```
 
-**Finding**: Prefixing `www.` to a bare HTTPS domain increases predicted phishing risk by $+0.6159$ on average, flipping **78.0%** of legitimate enterprise domains (`adobe.com`, `amazon.com`, `apple.com`, `craigslist.org`, `dropbox.com`) directly into phishing alerts. When the URL parser processes `www.adobe.com` without a trailing slash, the missing slash short-circuits path parsing, causing the length of the hostname to inflate path-depth features. This demonstrates that without strict canonicalization, lexical classifiers are vulnerable to catastrophic false-alarm cascades from trivial client formatting variations.
+**Finding**: Prefixing `www.` to a bare HTTPS domain increases predicted phishing risk by $+0.6159$ on average, flipping **78.0%** of legitimate enterprise domains (`adobe.com`, `amazon.com`, `apple.com`, `craigslist.org`, `dropbox.com`) directly into phishing alerts. When the URL parser processes `www.adobe.com` without a trailing slash, the missing slash short-circuits path parsing, causing the length of the hostname to inflate path-depth features. This demonstrates that without strict canonicalization, lexical classifiers are vulnerable to catastrophic false-alarm cascades from trivial client formatting variations. *Figure 2 (`research/figures/fig2_a2_syntactic_shifts.png`) illustrates the distribution of malicious probability shifts across canonical domains under each representation.*
 
 ---
 
@@ -146,33 +148,37 @@ $$\Delta\text{AUC}_{A3} = \text{AUC}_{\text{regional,zk}} - \text{AUC}_{\text{ge
 
 ### 3.4 Experiment A4: Cross-Distribution Transfer & Calibration Collapse
 
-To measure generalization across distinct data collections, we evaluated the in-distribution model (`global_test`, $N=21,094$) on the external UCI PhiUSIIL dataset ($N=3,520$ primary; $N=2,888$ domain-disjoint).
+To measure generalization across distinct data collections, we evaluated the in-distribution model (`global_test`, $N=7,434$ across 5,881 registered domains) on the external UCI PhiUSIIL dataset ($N=3,520$ primary; $N=2,888$ domain-disjoint).
 
 ```
 Evaluation Partition        N (URLs)   ROC-AUC    Delta AUC vs In-Dist    Threshold tau    Recall (TPR)    Precision    FPR
 -------------------------------------------------------------------------------------------------------------------------
-In-Distribution (global)     21,094     0.9284             --                0.5136           79.52%         91.06%    8.58%
+In-Distribution (global)      7,434     0.9284             --                0.5136           79.52%         91.06%    8.58%
 Primary PhiUSIIL              3,520     0.8661       +0.0623 (Drop)          0.5136 (Fixed)   92.33%         51.51%   86.93%
 Secondary Disjoint PhiUSIIL   2,888     0.8303       +0.0982 (Drop)          0.5136 (Fixed)   90.06%         41.95%   86.95%
 ```
 
-**Dissecting Ranking Discrimination vs. Calibration Failure**:
+* **Dissecting Ranking Discrimination vs. Calibration Failure**:
 * **Discrimination**: Performance drops under distribution shift. The drop in ROC-AUC relative to in-distribution performance is defined as:
   $$\Delta\text{AUC}_{A4,\text{pri}} = \text{AUC}_{\text{in-dist}} - \text{AUC}_{\text{cross,pri}} = 0.9284 - 0.8661 = \mathbf{+0.0623} \quad (\text{performance drop})$$
   $$\Delta\text{AUC}_{A4,\text{dis}} = \text{AUC}_{\text{in-dist}} - \text{AUC}_{\text{cross,dis}} = 0.9284 - 0.8303 = \mathbf{+0.0982} \quad (\text{performance drop})$$
   Both positive values represent substantial degradation in ranking discrimination, exceeding the post-preregistration operational criterion of $\Delta\text{AUC} > 0.05$.
-* **Operating-Threshold Transfer Failure**: While ranking discrimination remains moderate, operating at the fixed in-distribution decision threshold ($\tau = 0.5136$) causes the False Positive Rate to explode to **86.93%** ($1,530 / 1,760$ benign URLs falsely flagged). Precision collapses to $51.51\%$.
-* **Implication**: The model does not suffer from complete blindness; rather, its predicted probabilities are severely miscalibrated relative to the external baseline. Cross-feed deployment without adaptive threshold recalibration results in total operational failure.
+* **Calibration Collapse**: Beyond ranking degradation, the model's output probabilities suffer severe calibration collapse:
+  * In-Distribution: $\text{Brier Score} = 0.1113$, $\text{ECE} = 0.0570$ ($10$ equal-width bins).
+  * PhiUSIIL External: $\text{Brier Score} = 0.2750$, $\text{ECE} = 0.3147$ ($5.5\times$ inflation in Expected Calibration Error).
+* **Operating-Threshold Transfer Failure**: While ranking discrimination remains moderate ($\text{AUC} = 0.8661$), operating at the fixed in-distribution decision threshold ($\tau = 0.5136$) causes the False Positive Rate to explode to **86.93%** ($1,530 / 1,760$ benign URLs falsely flagged). Precision collapses to $51.51\%$.
+* **Implication**: The model does not suffer from complete blindness; rather, its predicted probabilities are severely miscalibrated relative to the external baseline. Cross-feed deployment without adaptive threshold recalibration results in total operational failure. *Figure 3 (`research/figures/fig3_a4_calibration_and_transfer.png`) shows the calibration curves and threshold-transfer performance breakdown.*
 
 #### Dedicated Hosting Infrastructure Census (`.in` / `.co.in`)
-Evaluation on the decoupled census of $N=1,682$ URLs hosted on `.in` ccTLD infrastructure yielded:
+Evaluation on the decoupled census of $N=1,682$ URLs hosted on Indian national infrastructure yielded:
 * $\text{AUC} = 0.9379$ ($95\%\ \text{CI}: [0.8978, 0.9630]$), $\text{F1} = 0.9008$, $\text{Precision} = 0.9511$, $\text{Recall} = 0.8556$.
+* **TLD Distribution Truth**: All 1,682 evaluated census URLs reside strictly under the `.in` ccTLD namespace (1,374 under `.in`, 153 under `.co.in`, 71 under `.org.in`, 53 under `.gov.in`, 23 under `.net.in`, and 8 under `.edu.in`). Exactly zero URLs were observed under the internationalized domain `.bharat` in the collected threat feeds.
 * **Candidate Feed-Target Breakdown**:
   * Identified Foreign / Global Candidate Targets: **713 URLs (59.17% of phishing; 42.39% of census)** across 118 candidate targets (`google`, `facebook`, `whatsapp`, `canva`, `roblox`, etc.).
   * Ambiguous / Unspecified Candidate Targets: **412 URLs (34.19% of phishing; 24.49% of census)** across generic labels (`other`: 370, `genericwebmailphishing`: 30, `webmail`: 12).
   * Domestic Indian Candidate Targets: **80 URLs (6.64% of phishing; 4.76% of census)** across 19 domestic entities (`governmentofindia`: 29, `della adventure`: 8, `sterling holidays`: 7, `meesho`: 6, etc.).
   * Benign Reference: **477 URLs (28.36% of census)**.
-* **Descriptive Finding**: In this census of `.in` ccTLD URLs, 59.17% of phishing instances carry candidate feed-target classifications corresponding to foreign/global brands, 34.19% carry ambiguous or generic feed labels, and 6.64% correspond to domestic Indian candidate entities. These classifications reflect candidate feed labels assigned by upstream feeds, and ccTLD registration reflects DNS delegation under the `.in` registry. They do not establish physical server hosting locations (which may use global CDNs), verified victim identities, victim geographical locations, or attacker intent.
+* **Descriptive Finding**: In this census of `.in` ccTLD URLs, 59.17% of phishing instances carry candidate feed-target classifications corresponding to foreign/global brands, 34.19% carry ambiguous or generic feed labels, and 6.64% correspond to domestic Indian candidate entities. These classifications reflect candidate feed labels assigned by upstream feeds, and ccTLD registration reflects DNS delegation under the `.in` registry. They do not establish physical server hosting locations (which may use global CDNs), verified victim identities, victim geographical locations, or attacker intent. *Figure 4 (`research/figures/fig4_hosting_infrastructure_census.png`) depicts the target distribution and domestic-vs-foreign phishing proportions.*
 
 ---
 
@@ -183,7 +189,7 @@ Evaluating models trained on earlier chronological data (`a5_temporal_train.csv`
 * **Temporal Drop**: $\Delta\text{AUC}_{A5} = \text{AUC}_{\text{in-time,val}} - \text{AUC}_{\text{out-of-time,test}} = 0.9807 - 0.9160 = \mathbf{+0.0647}$ ($p < 0.001$).
 * **Reconciliation of Test Sample Size**: Note that an earlier exploratory script (`experiments/E05_temporal.py`) evaluated an ad-hoc downsampled, balanced subset of $N=5,789$. The confirmatory evaluation under Protocol Amendment 1 evaluated the full frozen benchmark of $N=9,339$, which yielded the reported $\text{AUC} = 0.9160$ and $95\%\ \text{CI}: [0.8987, 0.9319]$.
 
-Static lexical classifiers degrade by over $6.4$ AUC points across chronological horizons, emphasizing the requirement for continuous rolling retraining in production.
+Static lexical classifiers degrade by over $6.4$ AUC points across chronological horizons, emphasizing the requirement for continuous rolling retraining in production. *Figure 5 (`research/figures/fig5_a5_temporal_decay.png`) demonstrates the metric decay from in-time validation to chronological test holdout.*
 
 ---
 
@@ -220,6 +226,12 @@ Academic benchmarks emphasize threshold-independent metrics like ROC-AUC. Howeve
 
 ### 4.3 Multi-Tenant Infrastructure Blind Spot
 Over $60\%$ of contemporary phishing attacks are hosted on legitimate multi-tenant platforms (`workers.dev`, `vercel.app`, `firebaseapp.com`). On these platforms, domain reputation is useless, and URL lexical tokens are dominated by user-generated slugs. Zero-knowledge regional lexicons fail on these platforms because brand tokens are frequently obfuscated or absent from the path.
+
+### 4.4 Tabular Decision Trees vs. Character-Level Deep Learning (BiLSTM)
+A natural hypothesis is that end-to-end deep learning architectures operating directly on raw character sequences can bypass the shortcut reliance and syntactic fragility of tabular lexical features. To evaluate this hypothesis, we implemented and trained a character-level Bidirectional LSTM (BiLSTM) utilizing the Lion optimizer (`learning_rate=1e-4`, `weight_decay=1e-2`, `batch_size=256`, 4 epochs) and compared it against the LightGBM baseline on an identical domain-stratified train split ($N=10,161$) and held-out test split ($N=7,434$ URLs across 5,881 registered domains):
+* **BiLSTM (Lion)**: $\text{AUC} = 0.7874$, $\text{F1} = 0.7262$, $\text{Precision} = 0.7097$, $\text{Recall} = 0.7436$, $\text{Specificity} = 0.6657$, $\text{Brier} = 0.2775$, $\text{ECE} = 0.1903$, Inference Latency = $0.405\text{ ms/URL}$. Decision threshold $\tau = 0.3318$ was calibrated strictly on the validation partition ($N=1,839$ domain-grouped URLs) to prevent test-set label contamination, then frozen and applied once to the test set.
+* **LightGBM Baseline**: $\text{AUC} = 0.9238$, $\text{F1} = 0.8267$, $\text{Precision} = 0.9208$, $\text{Recall} = 0.7500$, $\text{Specificity} = 0.9291$, $\text{Brier} = 0.1147$, $\text{ECE} = 0.0599$, Inference Latency = $0.008\text{ ms/URL}$ (decision threshold $\tau = 0.6500$).
+* **Comparative Insight**: The tabular LightGBM model outperforms the character-level BiLSTM by $+0.1364$ in ROC-AUC and $+0.1005$ in F1-score, while executing $50\times$ faster during line-rate inference. While character sequence models demonstrate steady training dynamics under the sign-momentum Lion optimizer (validation AUC reached $0.8892$), their generalized discriminative power on held-out registered domains remains lower than tree ensembles armed with structured lexical ratios, while incurring substantially higher per-URL latency overhead. Note that while Lion successfully converged the network, an Adam-versus-Lion comparative ablation was not performed, and the optimizer is not claimed as an independent experimental contribution. *Figure 6 (`research/figures/fig6_bilstm_vs_lightgbm.png`) details the training trajectories and metric comparisons between BiLSTM (Lion) and LightGBM.*
 
 ---
 

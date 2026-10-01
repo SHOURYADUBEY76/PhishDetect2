@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-10-01T18:38:39Z",
+  "dataset": {
+    "train_total_urls": 10161,
+    "train_phishing_urls": 3551,
+    "val_total_urls": 1839,
+    "val_phishing_urls": 749,
+    "test_total_urls": 7434,
+    "test_phishing_urls": 3892,
+    "test_benign_urls": 3542
+  },
+  "bilstm_lion": {
+    "model_type": "BiLSTM",
+    "optimizer": "Lion",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "embedding_dim": 32,
+    "lstm_units": 64,
+    "epochs_run": 4,
+    "training_time_sec": 45.98,
+    "optimal_threshold": 0.3318,
+    "test_metrics": {
+      "auc": 0.7874,
+      "f1": 0.7262,
+      "precision": 0.7097,
+      "recall": 0.7436,
+      "specificity": 0.6657,
+      "brier_score": 0.2775,
+      "ece": 0.1903,
+      "latency_ms_per_url": 0.4054,
+      "confusion_matrix": {
+        "tn": 2358,
+        "fp": 1184,
+        "fn": 998,
+        "tp": 2894
+      }
+    },
+    "history": {
+      "accuracy": [
+        0.64846,
+        0.65053,
+        0.65053,
+        0.65053
+      ],
+      "auc": [
+        0.52788,
+        0.53342,
+        0.54687,
+        0.59047
+      ],
+      "loss": [
+        0.68118,
+        0.65872,
+        0.64427,
+        0.63948
+      ],
+      "val_accuracy": [
+        0.59271,
+        0.59271,
+        0.59271,
+        0.59271
+      ],
+      "val_auc": [
+        0.52372,
+        0.77571,
+        0.86091,
+        0.88923
+      ],
+      "val_loss": [
+        0.6805,
+        0.67304,
+        0.68807,
+        0.65654
+      ]
+    }
+  },
+  "lightgbm_baseline": {
+    "model_type": "LightGBM",
+    "training_time_sec": 0.73,
+    "optimal_threshold": 0.65,
+    "test_metrics": {
+      "auc": 0.9238,
+      "f1": 0.8267,
+      "precision": 0.9208,
+      "recall": 0.75,
+      "specificity": 0.9291,
+      "brier_score": 0.1147,
+      "ece": 0.0599,
+      "latency_ms_per_url": 0.0081,
+      "confusion_matrix": {
+        "tn": 3291,
+        "fp": 251,
+        "fn": 973,
+        "tp": 2919
+      }
+    }
+  },
+  "comparison_delta": {
+    "delta_auc_lgbm_minus_bilstm": 0.1364,
+    "delta_f1_lgbm_minus_bilstm": 0.1005,
+    "latency_ratio_bilstm_to_lgbm": 50.33
+  }
+}
