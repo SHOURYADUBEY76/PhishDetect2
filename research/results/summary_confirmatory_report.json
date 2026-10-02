@@ -1,0 +1,306 @@
+{
+  "a1": {
+    "experiment": "A1_shortcut_sensitivity",
+    "evaluation_rows": 21094,
+    "unmasked_generic_lgb": {
+      "roc_auc": 0.9598364592829854,
+      "f1": 0.895195875295138,
+      "precision": 0.9101508916323731,
+      "recall": 0.880724376599981,
+      "fpr": 0.08694415473594387,
+      "threshold": 0.5136363636363637
+    },
+    "masked_generic_lgb": {
+      "roc_auc": 0.9317333513221945,
+      "f1": 0.8192835122780908,
+      "precision": 0.9322607959356477,
+      "recall": 0.7307291172845359,
+      "fpr": 0.053095667014316866,
+      "threshold": 0.65
+    },
+    "shortcut_only_lgb": {
+      "roc_auc": 0.9088183870491204,
+      "f1": 0.8270329987031078,
+      "precision": 0.8381035825545171,
+      "recall": 0.8162510666540248,
+      "fpr": 0.1576751682943017,
+      "threshold": 0.55
+    },
+    "paired_bootstrap_unmasked_vs_masked": {
+      "observed_metric_a": 0.9598364592829854,
+      "observed_metric_b": 0.9317333513221945,
+      "observed_delta": 0.028103107960790963,
+      "bootstrap_mean_delta": 0.028740460121902872,
+      "bootstrap_std": 0.004712035530652601,
+      "ci_lower": 0.020685057057765358,
+      "ci_upper": 0.03861424078599054,
+      "interval_width": 0.01792918372822518,
+      "p_value": 0.0,
+      "is_significant": true,
+      "n_invalid_replicates": 0,
+      "n_valid_replicates": 1000
+    }
+  },
+  "a2": {
+    "experiment": "A2_representation_sensitivity",
+    "evaluated_domains": 50,
+    "mean_base_prob": 0.02214163893957071,
+    "mean_shifts": {
+      "delta_http_bare": 0.9198624623423516,
+      "delta_https_trailing_slash": 0.3257685606553727,
+      "delta_https_www_bare": 0.6158515835755436,
+      "delta_https_www_slash": 0.12551670689380323,
+      "delta_raw_bare": 0.9351458323079936
+    },
+    "max_shifts": {
+      "delta_http_bare": 0.9638201586181255,
+      "delta_https_trailing_slash": 0.6074785822864615,
+      "delta_https_www_bare": 0.8037955954395883,
+      "delta_https_www_slash": 0.36080991688033437,
+      "delta_raw_bare": 0.9654210300744266
+    },
+    "min_shifts": {
+      "delta_http_bare": 0.7216376886571865,
+      "delta_https_trailing_slash": 0.06806979698673643,
+      "delta_https_www_bare": 0.14821106699142586,
+      "delta_https_www_slash": -0.00023518778276614485,
+      "delta_raw_bare": 0.7350851406613049
+    },
+    "false_positive_flips": {
+      "www_flip_count": 39,
+      "slash_flip_count": 5,
+      "www_slash_flip_count": 0
+    },
+    "per_domain_sample": {
+      "http_bare": {
+        "adobe.com": 0.9596027829080777,
+        "airtel.in": 0.9350628802659209,
+        "amazon.com": 0.967558380560453,
+        "apple.com": 0.9718882061248043,
+        "bbc.com": 0.8691139720364006,
+        "bing.com": 0.8968194952465522,
+        "cnn.com": 0.8691139720364006,
+        "craigslist.org": 0.960053998621169,
+        "dropbox.com": 0.9557628840162194,
+        "ebay.com": 0.8968194952465522
+      },
+      "https_bare": {
+        "adobe.com": 0.019258554561629403,
+        "airtel.in": 0.014291934446837625,
+        "amazon.com": 0.0190551086636963,
+        "apple.com": 0.019258554561629403,
+        "bbc.com": 0.006823667101774184,
+        "bing.com": 0.009689635662844335,
+        "cnn.com": 0.006823667101774184,
+        "craigslist.org": 0.03712008143126979,
+        "dropbox.com": 0.015571842621875807,
+        "ebay.com": 0.009689635662844335
+      },
+      "https_trailing_slash": {
+        "adobe.com": 0.29165625672759066,
+        "airtel.in": 0.6217705167332991,
+        "amazon.com": 0.2805324483623163,
+        "apple.com": 0.29165625672759066,
+        "bbc.com": 0.15969191885827483,
+        "bing.com": 0.16918398726558878,
+        "cnn.com": 0.15969191885827483,
+        "craigslist.org": 0.3824087132927557,
+        "dropbox.com": 0.40010236604258204,
+        "ebay.com": 0.16918398726558878
+      },
+      "https_www_bare": {
+        "adobe.com": 0.7059136433967953,
+        "airtel.in": 0.6690419937349821,
+        "amazon.com": 0.7144337324974325,
+        "apple.com": 0.7007764222303967,
+        "bbc.com": 0.3100982149409087,
+        "bing.com": 0.47975447771565377,
+        "cnn.com": 0.3100982149409087,
+        "craigslist.org": 0.7147849422413949,
+        "dropbox.com": 0.7144337324974325,
+        "ebay.com": 0.47975447771565377
+      },
+      "https_www_slash": {
+        "adobe.com": 0.17197473406447897,
+        "airtel.in": 0.375101851327172,
+        "amazon.com": 0.1703699444982033,
+        "apple.com": 0.19001125415828352,
+        "bbc.com": 0.03334127711456421,
+        "bing.com": 0.06414935143166567,
+        "cnn.com": 0.03334127711456421,
+        "craigslist.org": 0.13907915223123787,
+        "dropbox.com": 0.15967059246734083,
+        "ebay.com": 0.06414935143166567
+      },
+      "raw_bare": {
+        "adobe.com": 0.9773485107118676,
+        "airtel.in": 0.9244473897069687,
+        "amazon.com": 0.9782962559573619,
+        "apple.com": 0.9773485107118676,
+        "bbc.com": 0.876696290253077,
+        "bing.com": 0.9446442225733057,
+        "cnn.com": 0.876696290253077,
+        "craigslist.org": 0.9799788612688546,
+        "dropbox.com": 0.9784251815699975,
+        "ebay.com": 0.9446442225733057
+      }
+    }
+  },
+  "a3": {
+    "experiment": "A3_unseen_brand_generalization",
+    "evaluation_rows": 658,
+    "generic_baseline": {
+      "roc_auc": 0.9766169935606656,
+      "f1": 0.8353982300884956,
+      "precision": 1.0,
+      "recall": 0.7173252279635258,
+      "fpr": 0.0,
+      "threshold": 0.5136363636363637
+    },
+    "zero_knowledge_regional": {
+      "roc_auc": 0.9480187729233839,
+      "f1": 0.8541666666666666,
+      "precision": 0.9959514170040485,
+      "recall": 0.7477203647416414,
+      "fpr": 0.00303951367781155,
+      "threshold": 0.48636363636363633
+    },
+    "paired_bootstrap_zk_vs_gen": {
+      "observed_metric_a": 0.9480187729233839,
+      "observed_metric_b": 0.9766169935606656,
+      "observed_delta": -0.02859822063728168,
+      "bootstrap_mean_delta": -0.029013226066813027,
+      "bootstrap_std": 0.005847977471306978,
+      "ci_lower": -0.04265581427636707,
+      "ci_upper": -0.018579282895520615,
+      "interval_width": 0.024076531380846453,
+      "p_value": 0.0,
+      "is_significant": true,
+      "n_invalid_replicates": 0,
+      "n_valid_replicates": 1000
+    }
+  },
+  "a4": {
+    "experiment": "A4_cross_distribution_transfer",
+    "in_distribution": {
+      "roc_auc": 0.9284458615248642,
+      "f1": 0.8489919078315732,
+      "precision": 0.9105619299794057,
+      "recall": 0.7952209660842754,
+      "fpr": 0.08582721626199886,
+      "threshold": 0.5136363636363637
+    },
+    "cross_distribution_primary_phiusiil": {
+      "roc_auc": 0.8661297456095041,
+      "f1": 0.6612410986775178,
+      "precision": 0.5150554675118859,
+      "recall": 0.9232954545454546,
+      "fpr": 0.8693181818181818,
+      "threshold": 0.5136363636363637
+    },
+    "cross_distribution_secondary_disjoint": {
+      "roc_auc": 0.8302913643641904,
+      "f1": 0.5724230254350736,
+      "precision": 0.4195447409733124,
+      "recall": 0.9005897219882055,
+      "fpr": 0.8694885361552028,
+      "threshold": 0.5136363636363637
+    },
+    "delta_auc_primary": 0.062316115915360126,
+    "delta_auc_disjoint": 0.09815449716067381,
+    "exceeds_operational_threshold_0_05": true,
+    "hosting_infrastructure_census": {
+      "metrics": {
+        "roc_auc": 0.9378863401097802,
+        "f1": 0.9008300567933596,
+        "precision": 0.9511070110701108,
+        "recall": 0.8556016597510373,
+        "fpr": 0.1111111111111111,
+        "threshold": 0.5136363636363637
+      },
+      "bootstrap_ci_auc": {
+        "point_estimate": 0.9378863401097802,
+        "bootstrap_mean": 0.9348576090921986,
+        "bootstrap_std": 0.01710556607011181,
+        "ci_lower": 0.897798733641411,
+        "ci_upper": 0.9629814304026876,
+        "interval_width": 0.06518269676127653,
+        "n_invalid_replicates": 0,
+        "n_valid_replicates": 1000
+      },
+      "target_category_breakdown": {
+        "Identified Foreign / Global Target": 713,
+        "Benign Reference": 477,
+        "Ambiguous / Unspecified Target": 412,
+        "Domestic Indian Target": 80
+      }
+    }
+  },
+  "a5": {
+    "experiment": "A5_temporal_generalization",
+    "in_time_validation": {
+      "roc_auc": 0.9806815494794411,
+      "f1": 0.9228121927236972,
+      "precision": 0.9422690763052208,
+      "recall": 0.9041425818882466,
+      "fpr": 0.04657756176589713,
+      "threshold": 0.39545454545454545
+    },
+    "out_of_time_future_test": {
+      "roc_auc": 0.9159555329592806,
+      "f1": 0.851295009475679,
+      "precision": 0.891977760127085,
+      "recall": 0.8141614306428226,
+      "fpr": 0.07844645260526822,
+      "threshold": 0.39545454545454545
+    },
+    "delta_auc_temporal_drop": 0.06472601652016052,
+    "test_bootstrap_ci_auc": {
+      "point_estimate": 0.9159555329592806,
+      "bootstrap_mean": 0.9161233060137286,
+      "bootstrap_std": 0.00891891663305225,
+      "ci_lower": 0.8986759915995717,
+      "ci_upper": 0.9318927493319736,
+      "interval_width": 0.03321675773240196,
+      "n_invalid_replicates": 0,
+      "n_valid_replicates": 1000
+    }
+  },
+  "e06_appendix": {
+    "appendix": "E06_adversarial_perturbation_diagnostic",
+    "clean_baseline": {
+      "roc_auc": 0.9284458615248642,
+      "f1": 0.8489919078315732,
+      "precision": 0.9105619299794057,
+      "recall": 0.7952209660842754,
+      "fpr": 0.08582721626199886,
+      "threshold": 0.5136363636363637
+    },
+    "perturbation_evaluations": {
+      "homoglyph": {
+        "roc_auc": 0.9504276751221431,
+        "f1": 0.8870026525198939,
+        "precision": 0.9166666666666666,
+        "recall": 0.8591983556012333,
+        "fpr": 0.08582721626199886,
+        "threshold": 0.5136363636363637
+      },
+      "token_padding": {
+        "roc_auc": 0.9886747373900509,
+        "f1": 0.9365099480420732,
+        "precision": 0.9239809952488122,
+        "recall": 0.9493833504624871,
+        "fpr": 0.08582721626199886,
+        "threshold": 0.5136363636363637
+      },
+      "subdomain_trick": {
+        "roc_auc": 0.9904742415634324,
+        "f1": 0.9559591938293108,
+        "precision": 0.9266763145200193,
+        "recall": 0.987153134635149,
+        "fpr": 0.08582721626199886,
+        "threshold": 0.5136363636363637
+      }
+    }
+  }
+}

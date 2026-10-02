@@ -1,5 +1,6 @@
 """Lexical feature extraction from static URL strings.
 Calculates statistical, character-level, and entropy distributions.
+Supports true lexical masking when include_path_query=False for source bias audit.
 """
 
 import math
@@ -21,35 +22,50 @@ def extract_lexical_features(url: str, include_path_query: bool = True) -> dict:
     
     Args:
         url: Static URL string.
-        include_path_query: Whether to include path/query features (used for source bias audit).
+        include_path_query: Whether to include path/query features.
+            When False, true lexical masking is applied: the URL is sanitized
+            to scheme + authority only so that path/query length, character counts,
+            slashes, and entropy do NOT leak into features.
         
     Returns:
         Dictionary of lexical feature names and float values.
     """
     url_str = str(url).strip()
-    parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
-    hostname = parsed.netloc.split(":")[0] if parsed.netloc else ""
-    path = parsed.path if include_path_query else ""
-    query = parsed.query if include_path_query else ""
+    try:
+        parsed = urlparse(url_str if "://" in url_str else f"http://{url_str}")
+        hostname = (parsed.netloc or "").split(":")[0]
+    except Exception:
+        hostname = ""
+        parsed = None
 
-    url_len = len(url_str)
+    if not include_path_query and parsed and parsed.netloc:
+        scheme = parsed.scheme if parsed.scheme else "http"
+        effective_url_str = f"{scheme}://{parsed.netloc}"
+        path = ""
+        query = ""
+    else:
+        effective_url_str = url_str
+        path = parsed.path if parsed else ""
+        query = parsed.query if parsed else ""
+
+    url_len = len(effective_url_str)
     host_len = len(hostname)
-    path_len = len(path)
-    query_len = len(query)
+    path_len = len(path) if include_path_query else 0
+    query_len = len(query) if include_path_query else 0
 
-    # Character counts in full URL
-    num_digits = sum(c.isdigit() for c in url_str)
-    num_alpha = sum(c.isalpha() for c in url_str)
-    num_dots = url_str.count(".")
-    num_hyphens = url_str.count("-")
-    num_underscores = url_str.count("_")
-    num_slashes = url_str.count("/")
-    num_questions = url_str.count("?") if include_path_query else 0
-    num_equals = url_str.count("=") if include_path_query else 0
-    num_ats = url_str.count("@")
-    num_percents = url_str.count("%")
-    num_ampersands = url_str.count("&") if include_path_query else 0
-    num_tildes = url_str.count("~")
+    # Character counts computed strictly on the effective URL string
+    num_digits = sum(c.isdigit() for c in effective_url_str)
+    num_alpha = sum(c.isalpha() for c in effective_url_str)
+    num_dots = effective_url_str.count(".")
+    num_hyphens = effective_url_str.count("-")
+    num_underscores = effective_url_str.count("_")
+    num_slashes = effective_url_str.count("/")
+    num_questions = effective_url_str.count("?") if include_path_query else 0
+    num_equals = effective_url_str.count("=") if include_path_query else 0
+    num_ats = effective_url_str.count("@")
+    num_percents = effective_url_str.count("%")
+    num_ampersands = effective_url_str.count("&") if include_path_query else 0
+    num_tildes = effective_url_str.count("~")
 
     # Hostname character counts
     host_digits = sum(c.isdigit() for c in hostname)
@@ -66,7 +82,7 @@ def extract_lexical_features(url: str, include_path_query: bool = True) -> dict:
     special_char_ratio = special_char_count / url_len if url_len > 0 else 0.0
 
     # Entropies
-    url_entropy = calculate_entropy(url_str)
+    url_entropy = calculate_entropy(effective_url_str)
     host_entropy = calculate_entropy(hostname)
     path_entropy = calculate_entropy(path) if include_path_query and path else 0.0
 

@@ -5,7 +5,10 @@ Supports domain-grouped validation splitting for strict leakage-free threshold c
 import os
 import pandas as pd
 import numpy as np
+import hashlib
+from typing import Optional
 from src.features.extractor import extract_features_df, get_feature_names
+from src.features.regional import LexiconConfig
 from src.utils.domain import extract_registered_domain
 
 
@@ -17,6 +20,7 @@ def get_feature_matrix(
     cache_key: str,
     include_regional: bool = True,
     include_path_query: bool = True,
+    lexicon_config: Optional[LexiconConfig] = None,
     force_recompute: bool = False
 ) -> tuple[np.ndarray, np.ndarray, list[str]]:
     """Extract or load cached feature matrix from a dataframe of URLs.
@@ -26,6 +30,7 @@ def get_feature_matrix(
         cache_key: Unique identifier for the dataset split.
         include_regional: Whether regional features are included.
         include_path_query: Whether path/query features are included.
+        lexicon_config: Optional LexiconConfig for zero-knowledge brand testing.
         force_recompute: Bypass cache if True.
         
     Returns:
@@ -33,6 +38,10 @@ def get_feature_matrix(
     """
     os.makedirs(FEATURE_CACHE_DIR, exist_ok=True)
     suffix = f"reg_{int(include_regional)}_pq_{int(include_path_query)}"
+    if lexicon_config is not None:
+        lex_repr = repr(sorted(lexicon_config.brands)) + repr(sorted(lexicon_config.official_domains.keys()))
+        lex_hash = hashlib.md5(lex_repr.encode("utf-8")).hexdigest()[:8]
+        suffix = f"{suffix}_lex_{lex_hash}"
     cache_path = os.path.join(FEATURE_CACHE_DIR, f"{cache_key}_{suffix}.parquet")
 
     feat_df = None
@@ -51,15 +60,20 @@ def get_feature_matrix(
         feat_df = extract_features_df(
             df["url"].tolist(),
             include_regional=include_regional,
-            include_path_query=include_path_query
+            include_path_query=include_path_query,
+            lexicon_config=lexicon_config
         )
         feat_df.to_parquet(cache_path, index=False)
 
     feature_names = get_feature_names(include_regional=include_regional)
     X = feat_df[feature_names].values.astype(np.float32)
-    # Replace any potential NaN/Inf
     X = np.nan_to_num(X, nan=0.0, posinf=0.0, neginf=0.0)
-    y = df["label"].values.astype(int)
+    if "label" in df.columns:
+        y = df["label"].values.astype(int)
+    elif "label_num" in df.columns:
+        y = df["label_num"].values.astype(int)
+    else:
+        y = np.zeros(len(df), dtype=int)
 
     return X, y, feature_names
 

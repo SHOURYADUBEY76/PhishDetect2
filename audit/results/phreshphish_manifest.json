@@ -1,0 +1,21 @@
+{
+  "dataset_name": "PhreshPhish Upstream Metadata",
+  "source_repository": "https://huggingface.co/datasets/phreshphish/phreshphish",
+  "shards_streamed": 77,
+  "train_shards": 56,
+  "test_shards": 21,
+  "total_rows": 666315,
+  "columns": [
+    "url",
+    "label",
+    "target",
+    "lang",
+    "lang_score",
+    "date",
+    "sha256",
+    "shard"
+  ],
+  "sha256": "49c053c808952b86fe02e3db508939955d7d7958d14bb718be9203e2714a36f3",
+  "local_cache_filename": "phreshphish_metadata_streamed.parquet",
+  "provenance_note": "Parquet cached locally for zero-network reproducible audit execution; excluded from Git tracking in compliance with repository size and provenance rules."
+}

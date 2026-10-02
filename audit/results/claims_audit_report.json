@@ -1,0 +1,207 @@
+{
+  "audit_version": "1.0.0",
+  "claim_1_path_rule_shortcut": {
+    "status": "CONFIRMED",
+    "indian_test_metrics": {
+      "accuracy": 0.9967553536664504,
+      "precision": 1.0,
+      "recall": 0.9935107073329007,
+      "f1": 0.9967447916666666,
+      "roc_auc": 0.9967553536664504
+    },
+    "indian_test_samples": {
+      "legit_total": 1541,
+      "legit_with_path_gt_1": 0,
+      "legit_https_ratio": 1.0,
+      "phish_total": 1541,
+      "phish_with_path_gt_1": 1531,
+      "phish_https_ratio": 0.2881245944192083
+    },
+    "phiusiil_test_samples": {
+      "legit_total": 1760,
+      "legit_with_path_gt_1": 0,
+      "phish_total": 1760,
+      "phish_with_path_gt_1": 471
+    }
+  },
+  "claim_2_hosting_vs_target_conflation": {
+    "status": "CONFIRMED",
+    "total_rows": 3253,
+    "unique_hostnames": 1486,
+    "top_1_domain": {
+      "domain": "ayurvedajeevan.in",
+      "count": 300,
+      "share": 0.09222256378727328
+    },
+    "top_2_domain": {
+      "domain": "civilcontractorsinmumbai.in",
+      "count": 271,
+      "share": 0.08330771595450354
+    },
+    "top_2_combined_share": 0.17553027974177682,
+    "rows_matching_whole_token_indian_brand": 549,
+    "brand_match_ratio": 0.16876729173071012
+  },
+  "claim_3_incomplete_feature_masking": {
+    "status": "PARTIAL",
+    "test_url": "https://example.com/very/long/suspicious/path/with/digits12345/and-symbols?token=abcdef",
+    "features_checked": {
+      "url_length": {
+        "with_path_query": 87.0,
+        "masked_path_query": 87.0,
+        "is_identical": true
+      },
+      "num_digits": {
+        "with_path_query": 5.0,
+        "masked_path_query": 5.0,
+        "is_identical": true
+      },
+      "num_slashes": {
+        "with_path_query": 9.0,
+        "masked_path_query": 9.0,
+        "is_identical": true
+      },
+      "special_char_ratio": {
+        "with_path_query": 0.14942528735632185,
+        "masked_path_query": 0.12643678160919541,
+        "is_identical": false
+      },
+      "url_entropy": {
+        "with_path_query": 4.706750037136059,
+        "masked_path_query": 4.706750037136059,
+        "is_identical": true
+      }
+    }
+  },
+  "claim_4_unseen_brands_leakage": {
+    "status": "CONFIRMED",
+    "held_out_brands": [
+      "phonepe",
+      "aadhaar",
+      "uidai",
+      "irctc",
+      "axis",
+      "pnb",
+      "bob",
+      "kotak",
+      "epfo",
+      "paytm",
+      "hdfc",
+      "icici"
+    ],
+    "all_present_in_INDIAN_BRANDS": true,
+    "presence_in_INDIAN_BRANDS": {
+      "phonepe": true,
+      "aadhaar": true,
+      "uidai": true,
+      "irctc": true,
+      "axis": true,
+      "pnb": true,
+      "bob": true,
+      "kotak": true,
+      "epfo": true,
+      "paytm": true,
+      "hdfc": true,
+      "icici": true
+    },
+    "presence_in_OFFICIAL_DOMAINS": {
+      "phonepe": true,
+      "aadhaar": true,
+      "uidai": false,
+      "irctc": true,
+      "axis": true,
+      "pnb": true,
+      "bob": true,
+      "kotak": true,
+      "epfo": true,
+      "paytm": true,
+      "hdfc": true,
+      "icici": true
+    },
+    "presence_in_BRAND_ALIAS_MAP": {
+      "phonepe": false,
+      "aadhaar": false,
+      "uidai": true,
+      "irctc": false,
+      "axis": false,
+      "pnb": false,
+      "bob": false,
+      "kotak": false,
+      "epfo": false,
+      "paytm": false,
+      "hdfc": false,
+      "icici": false
+    }
+  },
+  "claim_5_ai_url_provenance": {
+    "status": "CONFIRMED",
+    "ai_phishing_llm_csv_exists": false,
+    "ai_phishing_standin_csv_exists": true,
+    "ai_generated_urls_csv_exists": true,
+    "standin_rows": 250,
+    "verified_handwritten_template_generation": true
+  },
+  "claim_6_test_set_model_checkpointing": {
+    "status": "CONFIRMED",
+    "e01_saves_on_X_test_f1": true,
+    "e03_saves_on_X_te_sub_f1": true
+  },
+  "claim_7_regional_feature_attribution": {
+    "status": "CONFIRMED",
+    "top_5_features": [
+      [
+        "host_entropy",
+        346
+      ],
+      [
+        "url_entropy",
+        310
+      ],
+      [
+        "subdomain_length",
+        286
+      ],
+      [
+        "path_length",
+        275
+      ],
+      [
+        "special_char_ratio",
+        254
+      ]
+    ],
+    "regional_feature_importances": {
+      "is_indian_tld": 48,
+      "has_indian_brand_token": 3,
+      "brand_token_count": 0,
+      "has_indian_lure": 0,
+      "lure_token_count": 0,
+      "brand_tld_misalignment": 2,
+      "max_brand_similarity": 253,
+      "has_homoglyph_or_punycode": 0
+    },
+    "zero_importance_regional_features": [
+      "brand_token_count",
+      "has_indian_lure",
+      "lure_token_count",
+      "has_homoglyph_or_punycode"
+    ]
+  },
+  "claim_8_knowledge_base_collisions": {
+    "status": "CONFIRMED",
+    "gpay_official_domains": [
+      "pay.google.com",
+      "google.com"
+    ],
+    "contains_root_google_com": true
+  },
+  "claim_9_malformed_url_vulnerabilities": {
+    "status": "CONFIRMED",
+    "crash_results": {
+      "http://foo.bar:999999999/test": "ValueError: Port out of range 0-65535",
+      "javascript:alert(1)": "ValueError: Port could not be cast to integer value as 'alert(1)'",
+      "http://[invalid-ipv6/test": "ValueError: Invalid IPv6 URL",
+      "http://example.com:abc/path": "ValueError: Port could not be cast to integer value as 'abc'"
+    }
+  }
+}

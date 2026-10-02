@@ -1,0 +1,713 @@
+{
+  "instagram_variants": {
+    "https://www.instagram.com": {
+      "raw_input": "https://www.instagram.com",
+      "normalized_url": "https://www.instagram.com",
+      "parsed_components": {
+        "scheme": "https",
+        "netloc": "www.instagram.com",
+        "path": "",
+        "query": ""
+      },
+      "probability": 0.7368,
+      "calibrated_threshold": 0.4409,
+      "verdict": "PHISHING",
+      "single_feature_flips": {
+        "path_length": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.13137768735337466,
+          "delta": -0.6054
+        },
+        "is_https": {
+          "orig_val": 1.0,
+          "flipped_val": 0.0,
+          "new_prob": 0.9034881695044261,
+          "delta": 0.1667
+        },
+        "is_http": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.7368010278542355,
+          "delta": 0.0
+        },
+        "num_slashes": {
+          "orig_val": 2.0,
+          "flipped_val": 3.0,
+          "new_prob": 0.7078158928004676,
+          "delta": -0.029
+        },
+        "path_depth": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.7368010278542355,
+          "delta": 0.0
+        }
+      }
+    },
+    "http://www.instagram.com": {
+      "raw_input": "http://www.instagram.com",
+      "normalized_url": "http://www.instagram.com",
+      "parsed_components": {
+        "scheme": "http",
+        "netloc": "www.instagram.com",
+        "path": "",
+        "query": ""
+      },
+      "probability": 0.9036,
+      "calibrated_threshold": 0.4409,
+      "verdict": "PHISHING",
+      "single_feature_flips": {
+        "path_length": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.578067326562275,
+          "delta": -0.3256
+        },
+        "is_https": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.7644439280616894,
+          "delta": -0.1392
+        },
+        "is_http": {
+          "orig_val": 1.0,
+          "flipped_val": 0.0,
+          "new_prob": 0.9036482850666181,
+          "delta": 0.0
+        },
+        "num_slashes": {
+          "orig_val": 2.0,
+          "flipped_val": 3.0,
+          "new_prob": 0.8965158949663422,
+          "delta": -0.0071
+        },
+        "path_depth": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.9036482850666181,
+          "delta": 0.0
+        }
+      }
+    },
+    "instagram.com": {
+      "raw_input": "instagram.com",
+      "normalized_url": "http://instagram.com",
+      "parsed_components": {
+        "scheme": "http",
+        "netloc": "instagram.com",
+        "path": "",
+        "query": ""
+      },
+      "probability": 0.9621,
+      "calibrated_threshold": 0.4409,
+      "verdict": "PHISHING",
+      "single_feature_flips": {
+        "path_length": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.9119886038788256,
+          "delta": -0.0501
+        },
+        "is_https": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.032334980619483866,
+          "delta": -0.9298
+        },
+        "is_http": {
+          "orig_val": 1.0,
+          "flipped_val": 0.0,
+          "new_prob": 0.9621382641566548,
+          "delta": 0.0
+        },
+        "num_slashes": {
+          "orig_val": 2.0,
+          "flipped_val": 3.0,
+          "new_prob": 0.966037816034654,
+          "delta": 0.0039
+        },
+        "path_depth": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.9621382641566548,
+          "delta": 0.0
+        }
+      }
+    },
+    "https://www.instagram.com/": {
+      "raw_input": "https://www.instagram.com/",
+      "normalized_url": "https://www.instagram.com/",
+      "parsed_components": {
+        "scheme": "https",
+        "netloc": "www.instagram.com",
+        "path": "/",
+        "query": ""
+      },
+      "probability": 0.1167,
+      "calibrated_threshold": 0.4409,
+      "verdict": "LEGITIMATE",
+      "single_feature_flips": {
+        "path_length": {
+          "orig_val": 1.0,
+          "flipped_val": 0.0,
+          "new_prob": 0.7229411979781649,
+          "delta": 0.6062
+        },
+        "is_https": {
+          "orig_val": 1.0,
+          "flipped_val": 0.0,
+          "new_prob": 0.4776916535245471,
+          "delta": 0.361
+        },
+        "is_http": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.11673756393829046,
+          "delta": 0.0
+        },
+        "num_slashes": {
+          "orig_val": 3.0,
+          "flipped_val": 2.0,
+          "new_prob": 0.14584737068418416,
+          "delta": 0.0291
+        },
+        "path_depth": {
+          "orig_val": 0.0,
+          "flipped_val": 1.0,
+          "new_prob": 0.11673756393829046,
+          "delta": 0.0
+        }
+      }
+    }
+  },
+  "differing_features_across_instagram_variants": {
+    "url_length": {
+      "https://www.instagram.com": 25.0,
+      "http://www.instagram.com": 24.0,
+      "instagram.com": 20.0,
+      "https://www.instagram.com/": 26.0
+    },
+    "hostname_length": {
+      "https://www.instagram.com": 17.0,
+      "http://www.instagram.com": 17.0,
+      "instagram.com": 13.0,
+      "https://www.instagram.com/": 17.0
+    },
+    "path_length": {
+      "https://www.instagram.com": 0.0,
+      "http://www.instagram.com": 0.0,
+      "instagram.com": 0.0,
+      "https://www.instagram.com/": 1.0
+    },
+    "num_dots": {
+      "https://www.instagram.com": 2.0,
+      "http://www.instagram.com": 2.0,
+      "instagram.com": 1.0,
+      "https://www.instagram.com/": 2.0
+    },
+    "host_num_dots": {
+      "https://www.instagram.com": 2.0,
+      "http://www.instagram.com": 2.0,
+      "instagram.com": 1.0,
+      "https://www.instagram.com/": 2.0
+    },
+    "num_slashes": {
+      "https://www.instagram.com": 2.0,
+      "http://www.instagram.com": 2.0,
+      "instagram.com": 2.0,
+      "https://www.instagram.com/": 3.0
+    },
+    "special_char_ratio": {
+      "https://www.instagram.com": 0.16,
+      "http://www.instagram.com": 0.16666666666666666,
+      "instagram.com": 0.15,
+      "https://www.instagram.com/": 0.19230769230769232
+    },
+    "url_entropy": {
+      "https://www.instagram.com": 3.863465189601647,
+      "http://www.instagram.com": 3.8553885422075336,
+      "instagram.com": 3.784183719779189,
+      "https://www.instagram.com/": 3.8441065448145384
+    },
+    "host_entropy": {
+      "https://www.instagram.com": 3.4548223999466057,
+      "http://www.instagram.com": 3.4548223999466057,
+      "instagram.com": 3.3927474104487847,
+      "https://www.instagram.com/": 3.4548223999466057
+    },
+    "num_subdomains": {
+      "https://www.instagram.com": 1.0,
+      "http://www.instagram.com": 1.0,
+      "instagram.com": 0.0,
+      "https://www.instagram.com/": 1.0
+    },
+    "is_https": {
+      "https://www.instagram.com": 1.0,
+      "http://www.instagram.com": 0.0,
+      "instagram.com": 0.0,
+      "https://www.instagram.com/": 1.0
+    },
+    "is_http": {
+      "https://www.instagram.com": 0.0,
+      "http://www.instagram.com": 1.0,
+      "instagram.com": 1.0,
+      "https://www.instagram.com/": 0.0
+    },
+    "subdomain_length": {
+      "https://www.instagram.com": 3.0,
+      "http://www.instagram.com": 3.0,
+      "instagram.com": 0.0,
+      "https://www.instagram.com/": 3.0
+    }
+  },
+  "twenty_independent_benign_homepages": [
+    {
+      "domain": "wikipedia.org",
+      "evaluations": {
+        "https://wikipedia.org": {
+          "norm": "https://wikipedia.org",
+          "prob": 0.0349,
+          "verdict": "LEGITIMATE"
+        },
+        "https://wikipedia.org/": {
+          "norm": "https://wikipedia.org/",
+          "prob": 0.3301,
+          "verdict": "LEGITIMATE"
+        },
+        "wikipedia.org": {
+          "norm": "http://wikipedia.org",
+          "prob": 0.962,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2952
+    },
+    {
+      "domain": "github.com",
+      "evaluations": {
+        "https://github.com": {
+          "norm": "https://github.com",
+          "prob": 0.0224,
+          "verdict": "LEGITIMATE"
+        },
+        "https://github.com/": {
+          "norm": "https://github.com/",
+          "prob": 0.3295,
+          "verdict": "LEGITIMATE"
+        },
+        "github.com": {
+          "norm": "http://github.com",
+          "prob": 0.9671,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.3071
+    },
+    {
+      "domain": "apple.com",
+      "evaluations": {
+        "https://apple.com": {
+          "norm": "https://apple.com",
+          "prob": 0.0215,
+          "verdict": "LEGITIMATE"
+        },
+        "https://apple.com/": {
+          "norm": "https://apple.com/",
+          "prob": 0.3013,
+          "verdict": "LEGITIMATE"
+        },
+        "apple.com": {
+          "norm": "http://apple.com",
+          "prob": 0.9657,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2798
+    },
+    {
+      "domain": "amazon.com",
+      "evaluations": {
+        "https://amazon.com": {
+          "norm": "https://amazon.com",
+          "prob": 0.0205,
+          "verdict": "LEGITIMATE"
+        },
+        "https://amazon.com/": {
+          "norm": "https://amazon.com/",
+          "prob": 0.3041,
+          "verdict": "LEGITIMATE"
+        },
+        "amazon.com": {
+          "norm": "http://amazon.com",
+          "prob": 0.9651,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2836
+    },
+    {
+      "domain": "microsoft.com",
+      "evaluations": {
+        "https://microsoft.com": {
+          "norm": "https://microsoft.com",
+          "prob": 0.0311,
+          "verdict": "LEGITIMATE"
+        },
+        "https://microsoft.com/": {
+          "norm": "https://microsoft.com/",
+          "prob": 0.324,
+          "verdict": "LEGITIMATE"
+        },
+        "microsoft.com": {
+          "norm": "http://microsoft.com",
+          "prob": 0.9611,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2929
+    },
+    {
+      "domain": "linkedin.com",
+      "evaluations": {
+        "https://linkedin.com": {
+          "norm": "https://linkedin.com",
+          "prob": 0.0295,
+          "verdict": "LEGITIMATE"
+        },
+        "https://linkedin.com/": {
+          "norm": "https://linkedin.com/",
+          "prob": 0.4629,
+          "verdict": "PHISHING"
+        },
+        "linkedin.com": {
+          "norm": "http://linkedin.com",
+          "prob": 0.9566,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": true,
+      "prob_drop_with_slash": -0.4334
+    },
+    {
+      "domain": "reddit.com",
+      "evaluations": {
+        "https://reddit.com": {
+          "norm": "https://reddit.com",
+          "prob": 0.0154,
+          "verdict": "LEGITIMATE"
+        },
+        "https://reddit.com/": {
+          "norm": "https://reddit.com/",
+          "prob": 0.3025,
+          "verdict": "LEGITIMATE"
+        },
+        "reddit.com": {
+          "norm": "http://reddit.com",
+          "prob": 0.9609,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2871
+    },
+    {
+      "domain": "netflix.com",
+      "evaluations": {
+        "https://netflix.com": {
+          "norm": "https://netflix.com",
+          "prob": 0.023,
+          "verdict": "LEGITIMATE"
+        },
+        "https://netflix.com/": {
+          "norm": "https://netflix.com/",
+          "prob": 0.4293,
+          "verdict": "LEGITIMATE"
+        },
+        "netflix.com": {
+          "norm": "http://netflix.com",
+          "prob": 0.9694,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.4063
+    },
+    {
+      "domain": "spotify.com",
+      "evaluations": {
+        "https://spotify.com": {
+          "norm": "https://spotify.com",
+          "prob": 0.0134,
+          "verdict": "LEGITIMATE"
+        },
+        "https://spotify.com/": {
+          "norm": "https://spotify.com/",
+          "prob": 0.4845,
+          "verdict": "PHISHING"
+        },
+        "spotify.com": {
+          "norm": "http://spotify.com",
+          "prob": 0.9618,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": true,
+      "prob_drop_with_slash": -0.4711
+    },
+    {
+      "domain": "nytimes.com",
+      "evaluations": {
+        "https://nytimes.com": {
+          "norm": "https://nytimes.com",
+          "prob": 0.0212,
+          "verdict": "LEGITIMATE"
+        },
+        "https://nytimes.com/": {
+          "norm": "https://nytimes.com/",
+          "prob": 0.4108,
+          "verdict": "LEGITIMATE"
+        },
+        "nytimes.com": {
+          "norm": "http://nytimes.com",
+          "prob": 0.9629,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.3896
+    },
+    {
+      "domain": "bbc.com",
+      "evaluations": {
+        "https://bbc.com": {
+          "norm": "https://bbc.com",
+          "prob": 0.0021,
+          "verdict": "LEGITIMATE"
+        },
+        "https://bbc.com/": {
+          "norm": "https://bbc.com/",
+          "prob": 0.0787,
+          "verdict": "LEGITIMATE"
+        },
+        "bbc.com": {
+          "norm": "http://bbc.com",
+          "prob": 0.7125,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.0766
+    },
+    {
+      "domain": "cnn.com",
+      "evaluations": {
+        "https://cnn.com": {
+          "norm": "https://cnn.com",
+          "prob": 0.0038,
+          "verdict": "LEGITIMATE"
+        },
+        "https://cnn.com/": {
+          "norm": "https://cnn.com/",
+          "prob": 0.103,
+          "verdict": "LEGITIMATE"
+        },
+        "cnn.com": {
+          "norm": "http://cnn.com",
+          "prob": 0.7513,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.0992
+    },
+    {
+      "domain": "stackoverflow.com",
+      "evaluations": {
+        "https://stackoverflow.com": {
+          "norm": "https://stackoverflow.com",
+          "prob": 0.0517,
+          "verdict": "LEGITIMATE"
+        },
+        "https://stackoverflow.com/": {
+          "norm": "https://stackoverflow.com/",
+          "prob": 0.3229,
+          "verdict": "LEGITIMATE"
+        },
+        "stackoverflow.com": {
+          "norm": "http://stackoverflow.com",
+          "prob": 0.9747,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2712
+    },
+    {
+      "domain": "medium.com",
+      "evaluations": {
+        "https://medium.com": {
+          "norm": "https://medium.com",
+          "prob": 0.0205,
+          "verdict": "LEGITIMATE"
+        },
+        "https://medium.com/": {
+          "norm": "https://medium.com/",
+          "prob": 0.3041,
+          "verdict": "LEGITIMATE"
+        },
+        "medium.com": {
+          "norm": "http://medium.com",
+          "prob": 0.963,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2836
+    },
+    {
+      "domain": "dropbox.com",
+      "evaluations": {
+        "https://dropbox.com": {
+          "norm": "https://dropbox.com",
+          "prob": 0.0187,
+          "verdict": "LEGITIMATE"
+        },
+        "https://dropbox.com/": {
+          "norm": "https://dropbox.com/",
+          "prob": 0.3941,
+          "verdict": "LEGITIMATE"
+        },
+        "dropbox.com": {
+          "norm": "http://dropbox.com",
+          "prob": 0.9626,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.3754
+    },
+    {
+      "domain": "quora.com",
+      "evaluations": {
+        "https://quora.com": {
+          "norm": "https://quora.com",
+          "prob": 0.0215,
+          "verdict": "LEGITIMATE"
+        },
+        "https://quora.com/": {
+          "norm": "https://quora.com/",
+          "prob": 0.3013,
+          "verdict": "LEGITIMATE"
+        },
+        "quora.com": {
+          "norm": "http://quora.com",
+          "prob": 0.9598,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2798
+    },
+    {
+      "domain": "salesforce.com",
+      "evaluations": {
+        "https://salesforce.com": {
+          "norm": "https://salesforce.com",
+          "prob": 0.0367,
+          "verdict": "LEGITIMATE"
+        },
+        "https://salesforce.com/": {
+          "norm": "https://salesforce.com/",
+          "prob": 0.3436,
+          "verdict": "LEGITIMATE"
+        },
+        "salesforce.com": {
+          "norm": "http://salesforce.com",
+          "prob": 0.9637,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.3069
+    },
+    {
+      "domain": "adobe.com",
+      "evaluations": {
+        "https://adobe.com": {
+          "norm": "https://adobe.com",
+          "prob": 0.0215,
+          "verdict": "LEGITIMATE"
+        },
+        "https://adobe.com/": {
+          "norm": "https://adobe.com/",
+          "prob": 0.3013,
+          "verdict": "LEGITIMATE"
+        },
+        "adobe.com": {
+          "norm": "http://adobe.com",
+          "prob": 0.9598,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.2798
+    },
+    {
+      "domain": "zoom.us",
+      "evaluations": {
+        "https://zoom.us": {
+          "norm": "https://zoom.us",
+          "prob": 0.0027,
+          "verdict": "LEGITIMATE"
+        },
+        "https://zoom.us/": {
+          "norm": "https://zoom.us/",
+          "prob": 0.6474,
+          "verdict": "PHISHING"
+        },
+        "zoom.us": {
+          "norm": "http://zoom.us",
+          "prob": 0.6752,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": true,
+      "prob_drop_with_slash": -0.6447
+    },
+    {
+      "domain": "x.com",
+      "evaluations": {
+        "https://x.com": {
+          "norm": "https://x.com",
+          "prob": 0.0024,
+          "verdict": "LEGITIMATE"
+        },
+        "https://x.com/": {
+          "norm": "https://x.com/",
+          "prob": 0.0247,
+          "verdict": "LEGITIMATE"
+        },
+        "x.com": {
+          "norm": "http://x.com",
+          "prob": 0.6566,
+          "verdict": "PHISHING"
+        }
+      },
+      "slash_flips_verdict": false,
+      "prob_drop_with_slash": -0.0223
+    }
+  ],
+  "summary": {
+    "instagram_bare_https_verdict": "PHISHING",
+    "instagram_with_slash_verdict": "LEGITIMATE",
+    "instagram_raw_verdict": "PHISHING",
+    "slash_flip_count_in_20_homepages": 3,
+    "mean_slash_prob_drop_in_20_homepages": -0.3043
+  }
+}

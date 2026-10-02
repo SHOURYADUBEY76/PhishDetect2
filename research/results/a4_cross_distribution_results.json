@@ -1,0 +1,56 @@
+{
+  "experiment": "A4_cross_distribution_transfer",
+  "in_distribution": {
+    "roc_auc": 0.9284458615248642,
+    "f1": 0.8489919078315732,
+    "precision": 0.9105619299794057,
+    "recall": 0.7952209660842754,
+    "fpr": 0.08582721626199886,
+    "threshold": 0.5136363636363637
+  },
+  "cross_distribution_primary_phiusiil": {
+    "roc_auc": 0.8661297456095041,
+    "f1": 0.6612410986775178,
+    "precision": 0.5150554675118859,
+    "recall": 0.9232954545454546,
+    "fpr": 0.8693181818181818,
+    "threshold": 0.5136363636363637
+  },
+  "cross_distribution_secondary_disjoint": {
+    "roc_auc": 0.8302913643641904,
+    "f1": 0.5724230254350736,
+    "precision": 0.4195447409733124,
+    "recall": 0.9005897219882055,
+    "fpr": 0.8694885361552028,
+    "threshold": 0.5136363636363637
+  },
+  "delta_auc_primary": 0.062316115915360126,
+  "delta_auc_disjoint": 0.09815449716067381,
+  "exceeds_operational_threshold_0_05": true,
+  "hosting_infrastructure_census": {
+    "metrics": {
+      "roc_auc": 0.9378863401097802,
+      "f1": 0.9008300567933596,
+      "precision": 0.9511070110701108,
+      "recall": 0.8556016597510373,
+      "fpr": 0.1111111111111111,
+      "threshold": 0.5136363636363637
+    },
+    "bootstrap_ci_auc": {
+      "point_estimate": 0.9378863401097802,
+      "bootstrap_mean": 0.9348576090921986,
+      "bootstrap_std": 0.01710556607011181,
+      "ci_lower": 0.897798733641411,
+      "ci_upper": 0.9629814304026876,
+      "interval_width": 0.06518269676127653,
+      "n_invalid_replicates": 0,
+      "n_valid_replicates": 1000
+    },
+    "target_category_breakdown": {
+      "Identified Foreign / Global Target": 713,
+      "Benign Reference": 477,
+      "Ambiguous / Unspecified Target": 412,
+      "Domestic Indian Target": 80
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "a1_path_matched.csv": {
+    "path": "data/benchmark/a1_path_matched.csv",
+    "sha256": "ae74e098bb87c06bf16aa4702bbe01645a13d0cc36bde9d9a0291cd9d319b670",
+    "rows": 21094,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain",
+      "has_path_query",
+      "path_depth",
+      "is_https",
+      "stratum"
+    ],
+    "label_distribution": {
+      "0": 10547,
+      "1": 10547
+    }
+  },
+  "a2_representation.csv": {
+    "path": "data/benchmark/a2_representation.csv",
+    "sha256": "57cb32cf152988376d454c5613ed07309bcb4412829d4aac560fcd325a98e5dc",
+    "rows": 300,
+    "columns": [
+      "domain",
+      "url",
+      "variant_type"
+    ],
+    "label_distribution": "N/A"
+  },
+  "a3_unseen_brands.csv": {
+    "path": "data/benchmark/a3_unseen_brands.csv",
+    "sha256": "486a284e970521cf62ba4815978b59ece43495d61c4a97cb22e8657d912ee60f",
+    "rows": 658,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain",
+      "brand_entity",
+      "is_sparse_stratum"
+    ],
+    "label_distribution": {
+      "0": 329,
+      "1": 329
+    }
+  },
+  "a4_cross_distribution.csv": {
+    "path": "data/benchmark/a4_cross_distribution.csv",
+    "sha256": "a90b69894725b433140f69d2d7e66b9200df96dd9556289529e72521c7a81ed8",
+    "rows": 3520,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "date"
+    ],
+    "label_distribution": {
+      "0": 1760,
+      "1": 1760
+    }
+  },
+  "a4_domain_disjoint.csv": {
+    "path": "data/benchmark/a4_domain_disjoint.csv",
+    "sha256": "dc1dca595e60ad281a8343cc5223d4371691addc64eebd9bf1ecc91933d5c94c",
+    "rows": 2888,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "date"
+    ],
+    "label_distribution": {
+      "0": 1701,
+      "1": 1187
+    }
+  },
+  "a5_temporal_test.csv": {
+    "path": "data/benchmark/a5_temporal_test.csv",
+    "sha256": "28a98158068a39d955886bf0c6534f1e4ab7ddc2934f501039cbb55e0a03b747",
+    "rows": 9339,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain"
+    ],
+    "label_distribution": {
+      "0": 5201,
+      "1": 4138
+    }
+  },
+  "a5_temporal_train.csv": {
+    "path": "data/benchmark/a5_temporal_train.csv",
+    "sha256": "e9f50f9112c3f118aba4c61663c9555f0f6c31684c9f9c5536f546908d916a75",
+    "rows": 25000,
+    "columns": [
+      "url",
+      "label_num",
+      "date",
+      "registered_domain"
+    ],
+    "label_distribution": {
+      "0": 13669,
+      "1": 11331
+    }
+  },
+  "hosting_infrastructure_census.csv": {
+    "path": "data/benchmark/hosting_infrastructure_census.csv",
+    "sha256": "4bdef74254d4df5448e9bcbc75ace9d256377474d7301e560424e562350cfbae",
+    "rows": 1682,
+    "columns": [
+      "url",
+      "label_num",
+      "registered_domain",
+      "target_category",
+      "date"
+    ],
+    "label_distribution": {
+      "1": 1205,
+      "0": 477
+    }
+  }
+}

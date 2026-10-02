@@ -22,6 +22,42 @@ An ultra-lightweight, zero-network phishing detection architecture designed to t
 
 ---
 
+## Pre-Registered Confirmatory Study (Track A: A1–A5, E06 Appendix)
+
+To address the **Lexical Illusion** in ML phishing detection and establish leak-free empirical rigor, a confirmatory study was pre-registered under tag `prereg-v2` (`b4a5d2a`) and executed with domain-clustered bootstrap statistics. 
+
+- **Full Confirmatory Report**: [`research/CONFIRMATORY_REPORT.md`](research/CONFIRMATORY_REPORT.md)
+- **Academic Manuscript Draft**: [`docs/PAPER_MANUSCRIPT.md`](docs/PAPER_MANUSCRIPT.md)
+- **Protocol Amendments**: [`research/EXPERIMENT_PROTOCOL_AMENDMENT_1.md`](research/EXPERIMENT_PROTOCOL_AMENDMENT_1.md)
+
+### Confirmatory Findings at a Glance
+
+| Exp | Focus | Benchmark ($N$) | Minuend vs. Subtrahend | Metric Value | 95% Bootstrap CI | Key Empirical Takeaway |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **A1** | Shortcut Reliance | `a1_path_matched` (21,094) | Unmasked vs Masked | $\Delta\text{AUC} = \mathbf{+0.0281}$ | [+0.0207, +0.0386] ($p < 0.001$) | Shortcut-only model achieves 0.9088 AUC using only 6 length/depth features. |
+| **A2** | Syntactic Fragility | 50 Benign Homepages | `https://bare` vs `https://www` | $\Delta\text{Prob} = \mathbf{+0.6159}$ | — | 78% (39/50) of benign homepages flip to phishing simply by adding `www.`. |
+| **A3** | Unseen Brands ZK | `a3_unseen_brands` (658) | Regional ZK vs Generic | $\Delta\text{AUC} = \mathbf{-0.0286}$ | [-0.0427, -0.0186] ($p < 0.001$) | Zero-knowledge regional features degrade discrimination due to out-of-vocabulary sparsity on multi-tenant hosts. |
+| **A4** | Cross-Dist Transfer | `phiusiil_test` (3,520) | In-Dist vs PhiUSIIL | $\Delta\text{AUC} = \mathbf{+0.0623}$ (Drop) | Exceeds $>0.05$ op. criterion | Severe threshold transfer failure: FPR explodes to 86.93% at in-distribution threshold. |
+| **A5** | Temporal Drift | `a5_temporal_test` (9,339) | In-Time vs Out-of-Time | $\Delta\text{AUC} = \mathbf{+0.0647}$ (Drop) | Test AUC: [0.8987, 0.9319] ($p < 0.001$) | Significant temporal degradation over chronological splits. |
+| **E06** | Adversarial Paradox | `global_test` Perturbed | Clean vs Subdomain Trick | $\text{Recall}: 79.5\% \to 98.7\%$ | — | Heuristic perturbations paradoxically amplify length/depth shortcuts, boosting recall. |
+
+### CLI Reproduction Tool
+```bash
+# 1. Inspect calibrated empirical summary:
+python -m research.reproduce inspect
+
+# 2. Verify all benchmark datasets and split manifests:
+python -m research.reproduce verify
+
+# 3. Re-run an individual experiment (e.g. A1, A3, A4):
+python -m research.reproduce run --experiment a1
+
+# 4. Re-run full confirmatory suite (A1-A5, E06 appendix):
+python -m research.reproduce run --all
+```
+
+---
+
 ## Experimental Benchmark Results (E01 - E09)
 
 All metrics report 5-fold cross-seed averages ($\text{Seeds} = [42, 43, 44, 45, 46]$) on domain-isolated test sets.
