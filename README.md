@@ -5,7 +5,10 @@
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com)
 [![React 19](https://img.shields.io/badge/React-19.0-61DAFB.svg)](https://react.dev/)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-black?logo=vercel)](https://phish-detect-delta.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> 🚀 **Live Interactive Demo**: [https://phish-detect-delta.vercel.app](https://phish-detect-delta.vercel.app)
 
 An ultra-lightweight, zero-network phishing detection architecture designed to tackle generalization collapse in real-world phishing detection. By introducing region-aware threat indicators alongside lexical and structural signals, this system mitigates domain transfer decay on Indian-targeted financial and citizen traffic while defending against adversarial evasion, unseen brands, and AI-generated phishing attacks.
 
