@@ -74,7 +74,7 @@ function showWarningModal(targetUrl, detection) {
         <span style="font-size: 32px;">🛑</span>
         <div>
           <h2 style="margin: 0; font-size: 20px; color: #f87171;">Security Warning: Phishing Suspected</h2>
-          <p style="margin: 4px 0 0; font-size: 13px; color: #94a3b8;">Region-Aware Phishing URL Detector</p>
+          <p style="margin: 4px 0 0; font-size: 13px; color: #94a3b8;">PhishDetect: AI-Driven Phishing URL Detection</p>
         </div>
       </div>
       <p style="font-size: 14px; word-break: break-all; background: #0f172a; padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.06); font-family: monospace;">

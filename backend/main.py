@@ -77,7 +77,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Phishing URL Detector API",
+    title="PhishDetect: AI-Driven Phishing URL Detection API",
     description="Scientific Phishing URL detection service with strict validation and ML/policy separation.",
     version="2.0.0",
     lifespan=lifespan

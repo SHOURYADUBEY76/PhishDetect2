@@ -114,7 +114,7 @@ export default function App() {
             {backendHealth?.status === 'offline' && ' (API Offline)'}
           </span>
         </div>
-        <h1 className="app-title">Region-Aware Phishing URL Detector</h1>
+        <h1 className="app-title">PhishDetect: AI-Driven Phishing URL Detection</h1>
         <p className="app-subtitle">
           Real-time threat intelligence engine evaluating geographic, temporal, and adversarial distribution shifts.
         </p>

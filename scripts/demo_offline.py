@@ -216,7 +216,7 @@ def main():
         model_path = os.path.join(os.path.dirname(__file__), "..", "backend", "model_baseline.joblib")
 
     print("\n" + "=" * 78)
-    print("   REGION-AWARE PHISHING URL DETECTOR (100% OFFLINE STATIC ENGINE)")
+    print("   PHISHDETECT: AI-DRIVEN PHISHING URL DETECTION (100% OFFLINE ENGINE)")
     print("   Zero Network / Zero DNS / Zero WHOIS / Sub-Millisecond Analysis")
     print("=" * 78)
     print(f"Loading local model: {os.path.basename(model_path)}...", flush=True)

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Region-Aware Phishing URL Detector",
+  "name": "PhishDetect: AI-Driven Phishing URL Detection",
   "version": "1.0.0",
   "description": "Real-time client-side phishing URL inspection with region-aware threat intelligence and explanations.",
   "permissions": [

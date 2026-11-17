@@ -1,6 +1,6 @@
 # PROJECT DOCUMENTATION & RESEARCH MANIFESTO
 
-# Region-Aware Phishing URL Detection
+# PhishDetect: AI-Driven Phishing URL Detection
 ### Robust Generalization Across Geographic, Temporal, and Adversarial Distribution Shifts
 
 ---
