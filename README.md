@@ -13,22 +13,25 @@ An ultra-lightweight, zero-network phishing detection architecture designed to t
 
 - **Zero-Network Static URL Analysis**: Sub-millisecond ($1.5\text{--}3.5\text{ ms}$) client-side feature extraction. Never resolves DNS, issues HTTP requests, or queries WHOIS records.
 - **Leakage-Free Domain Group Partitioning**: Strict registered domain isolation (`tldextract.registered_domain`) guarantees zero domain leakage between training, validation, and test sets.
+- **Universal URL Canonicalization**: Transparently standardizes bare domains, scheme defaults, and trailing slashes to prevent representation shift artifacts across all incoming web traffic.
 - **Region-Aware Threat Signatures**: Captures brand-TLD misalignment, deceptive banking tokens, urgent vernacular lures, and homoglyphs specific to the Indian threat landscape.
 - **Explainability Layer**: Converts numeric risk factors into plain-English threat summaries for non-technical end users.
 - **Production Delivery**: Includes a FastAPI REST API, a React 19 + Vite dashboard, and a Chrome Manifest V3 browser extension with inline link inspection and real-time intercept dialogs.
 
 > [!NOTE]
-> For an in-depth component-by-component architectural walkthrough and execution data flow, see [docs/COMPONENTS_AND_ARCHITECTURE.md](docs/COMPONENTS_AND_ARCHITECTURE.md).
+> For an in-depth architectural walkthrough, empirical standing, research gaps, and novelty analysis, see [docs/PROJECT_RESEARCH_DOCUMENTATION.md](docs/PROJECT_RESEARCH_DOCUMENTATION.md) and the academic manuscript [docs/PAPER_MANUSCRIPT.md](docs/PAPER_MANUSCRIPT.md).
 
 ---
 
 ## Pre-Registered Confirmatory Study (Track A: A1–A5, E06 Appendix)
 
-To address the **Lexical Illusion** in ML phishing detection and establish leak-free empirical rigor, a confirmatory study was pre-registered under tag `prereg-v2` (`b4a5d2a`) and executed with domain-clustered bootstrap statistics. 
+To address the **Lexical Illusion** in ML phishing detection and establish leak-free empirical rigor, a confirmatory study was pre-registered under tag `prereg-v2` (`b4a5d2a758223f1d7895b722ef6650087ef33a27`) and executed with domain-clustered bootstrap statistics. 
 
 - **Full Confirmatory Report**: [`research/CONFIRMATORY_REPORT.md`](research/CONFIRMATORY_REPORT.md)
-- **Academic Manuscript Draft**: [`docs/PAPER_MANUSCRIPT.md`](docs/PAPER_MANUSCRIPT.md)
+- **Academic Manuscript**: [`docs/PAPER_MANUSCRIPT.md`](docs/PAPER_MANUSCRIPT.md)
+- **Comprehensive Project Standing & Novelty**: [`docs/PROJECT_RESEARCH_DOCUMENTATION.md`](docs/PROJECT_RESEARCH_DOCUMENTATION.md)
 - **Protocol Amendments**: [`research/EXPERIMENT_PROTOCOL_AMENDMENT_1.md`](research/EXPERIMENT_PROTOCOL_AMENDMENT_1.md)
+- **LLM-Use Audit**: [`research/LLM_USE_AUDIT.md`](research/LLM_USE_AUDIT.md)
 
 ### Confirmatory Findings at a Glance
 
@@ -42,6 +45,7 @@ To address the **Lexical Illusion** in ML phishing detection and establish leak-
 | **E06** | Adversarial Paradox | `global_test` Perturbed | Clean vs Subdomain Trick | $\text{Recall}: 79.5\% \to 98.7\%$ | — | Heuristic perturbations paradoxically amplify length/depth shortcuts, boosting recall. |
 
 ### CLI Reproduction Tool
+
 ```bash
 # 1. Inspect calibrated empirical summary:
 python -m research.reproduce inspect
@@ -125,46 +129,40 @@ Static URL String
 ```
 .
 ├── backend/                  # FastAPI prediction & explanation service
-│   ├── main.py               # API routes and safelist handling
+│   ├── main.py               # API routes, URL canonicalization, and policy layer
 │   ├── model_baseline.joblib # Trained global baseline model
 │   └── model_region_aware.joblib # Production region-aware model
 ├── data/
-│   ├── raw/                  # Downloaded raw datasets & caches
+│   ├── benchmark/            # Confirmatory datasets (A1–A5, census)
+│   ├── raw/                  # Downloaded raw corpora & caches
 │   └── processed/            # Domain-isolated train/test splits
-├── docs/                     # Detailed architectural specifications & documentation
-│   └── COMPONENTS_AND_ARCHITECTURE.md # Full component guide and dataflow walkthrough
+├── docs/                     # Comprehensive research & academic documentation
+│   ├── PROJECT_RESEARCH_DOCUMENTATION.md # Full project standing, architecture, novelty, & roadmap
+│   └── PAPER_MANUSCRIPT.md   # Complete peer-reviewed academic manuscript
 ├── experiments/              # Benchmark reproduction scripts (E01 - E09)
-│   ├── E01_standard.py
-│   ├── E02_regional_transfer.py
-│   ├── E03_regional_augmentation.py
-│   ├── E04_cross_dataset.py
-│   ├── E05_temporal.py
-│   ├── E06_adversarial.py
-│   ├── E07_unseen_brands.py
-│   ├── E08_ai_generated.py
-│   └── E09_combined.py
+│   ├── E01_standard.py ... E09_combined.py
 ├── extension/                # Chrome Manifest V3 extension
-│   ├── manifest.json
-│   ├── background.js
-│   ├── content.js
-│   ├── popup.html
-│   └── popup.js
-├── results/                  # Consolidated benchmark CSVs and master summary
-│   ├── E01.csv ... E09.csv
-│   └── SUMMARY.md
+│   ├── manifest.json, background.js, content.js, popup.html, popup.js
+├── research/                 # Confirmatory empirical protocol & reproduction suite
+│   ├── figures/              # Publication figures (PDF & PNG)
+│   ├── results/              # Confirmatory JSON metrics & verification logs
+│   ├── CONFIRMATORY_REPORT.md # Pre-registered Gate G3 empirical evaluation
+│   ├── EXPERIMENT_PROTOCOL.md # Track A / Track B pre-registered design
+│   ├── LLM_USE_AUDIT.md      # Methodological audit of LLM usage
+│   ├── reproduce.py          # Unified CLI reproduction & verification tool
+│   └── run_bilstm.py         # Character-level BiLSTM training with Lion optimizer
+├── results/                  # Consolidated benchmark summary and neural evaluation
+│   ├── SUMMARY.md            # Master experimental table (E01–E09)
+│   └── bilstm_lion_eval.json # Saved BiLSTM Lion test metrics
 ├── scripts/                  # Data collection & AI generation pipelines
-│   ├── download_data.py
-│   ├── download_phiusiil.py
-│   └── generate_ai_urls.py
+│   ├── download_data.py, download_phiusiil.py, generate_ai_urls.py
 ├── src/                      # Core feature extraction & model library
 │   ├── explainer/            # Plain-English risk explainer
 │   ├── features/             # Lexical, structural, regional extractors
 │   ├── models/               # Baseline tree models & BiLSTM neural network
-│   └── utils/                # Metrics, domain helpers, and data loaders
-├── tests/                    # Automated unit & integration tests
-│   ├── test_phase1.py
-│   ├── test_phase2.py
-│   └── test_phase3.py
+│   └── utils/                # Metrics, domain canonicalization, and data loaders
+├── tests/                    # Automated unit & integration test suites (23 tests)
+│   ├── test_phase1.py, test_phase1_rigor.py, test_phase2.py, test_phase3.py, test_verification_pass.py
 └── web/                      # React 19 + Vite web dashboard
 ```
 
@@ -176,8 +174,8 @@ Static URL String
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/region-aware-phishing.git
-cd region-aware-phishing
+git clone https://github.com/shourya2004raj-hub/Region-aware-Phishing-Detection.git
+cd Region-aware-Phishing-Detection
 
 # Create and activate virtual environment
 python -m venv venv
@@ -215,6 +213,13 @@ python experiments/E08_ai_generated.py
 python experiments/E09_combined.py
 ```
 
+### 4. Neural Deep Learning Baseline (BiLSTM with Lion Optimizer)
+
+Train or evaluate the character-level BiLSTM baseline:
+```bash
+python research/run_bilstm.py
+```
+
 ---
 
 ## Serving & User Interfaces
@@ -228,24 +233,46 @@ Interactive API documentation is available at `http://127.0.0.1:8000/docs`.
 
 #### Example API Request:
 ```bash
-curl -X POST "http://127.0.0.1:8000/explain" \
+curl -X POST "http://127.0.0.1:8000/predict" \
      -H "Content-Type: application/json" \
-     -d '{"url": "http://sbi-kyc-update-portal-urgent.xyz/login.php"}'
+     -d '{"url": "http://sbi-kyc-update-portal-urgent.xyz/login.php", "include_regional": true}'
 ```
 
 #### Example Response:
 ```json
 {
   "url": "http://sbi-kyc-update-portal-urgent.xyz/login.php",
+  "canonical_url": "http://sbi-kyc-update-portal-urgent.xyz/login.php",
+  "scheme_assumed": false,
+  "registered_domain": "sbi-kyc-update-portal-urgent.xyz",
+  "tld": "xyz",
   "is_phishing": true,
-  "confidence": 0.9996,
-  "risk_level": "CRITICAL",
+  "verdict": "phishing",
+  "risk_score": 0.9982,
+  "ml_risk_score": 0.9982,
+  "final_risk_score": 0.9982,
+  "policy_override": "none",
+  "confidence": 0.9968,
+  "decision_threshold": 0.4409,
+  "latency_ms": 2.14,
   "reasons": [
     "Target brand token 'sbi' found in hostname, but the registered domain 'sbi-kyc-update-portal-urgent.xyz' is not an official domain.",
-    "Urgent or deceptive action lure detected: 'kyc-update', 'login'.",
-    "Insecure HTTP connection used for sensitive brand interaction."
+    "Urgent or deceptive action lure detected: 'kyc', 'update', 'login'.",
+    "Insecure HTTP connection used for sensitive financial transaction."
   ],
-  "latency_ms": 3.48
+  "key_signals": {
+    "url_length": 51.0,
+    "num_subdomains": 0.0,
+    "has_ip": false,
+    "is_https": false,
+    "suspicious_keyword_count": 3.0,
+    "url_entropy": 3.91,
+    "brand_tld_misalignment": true,
+    "has_indian_brand_token": true,
+    "has_indian_lure": true,
+    "max_brand_similarity": 1.0,
+    "has_homoglyph_or_punycode": false
+  }
 }
 ```
 
@@ -284,7 +311,12 @@ npm run build
 ```bash
 pytest tests/ -v
 ```
-All 12 unit and integration tests across data processing, feature extraction, baseline models, neural BiLSTM, and FastAPI endpoints will execute and pass.
+All **23 unit and integration tests** across data processing, feature extraction, input validation, URL canonicalization, baseline models, neural BiLSTM, and FastAPI endpoints will execute and pass.
+
+To verify dataset and split integrity:
+```bash
+python -m research.reproduce verify
+```
 
 ---
 
