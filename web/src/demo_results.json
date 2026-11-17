@@ -1,0 +1,173 @@
+{
+  "http://sbi-kyc-update-login.top/account/verify.php": {
+    "url": "http://sbi-kyc-update-login.top/account/verify.php",
+    "canonical_url": "http://sbi-kyc-update-login.top/account/verify.php",
+    "scheme_assumed": false,
+    "registered_domain": "sbi-kyc-update-login.top",
+    "tld": "top",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_score": 0.9897,
+    "ml_risk_score": 0.9897,
+    "final_risk_score": 0.9897,
+    "policy_override": "none",
+    "confidence": 0.9816,
+    "decision_threshold": 0.4409,
+    "latency_ms": 105.868,
+    "reasons": [
+      "Brand Impersonation: Displays 'SBI' lure, but 'sbi-kyc-update-login.top' is not an official authorized portal.",
+      "Credential Lure: Contains high-risk lure keyword ('kyc') frequently used in regional financial phishing.",
+      "Insecure Protocol: Transmits over unencrypted HTTP without TLS verification."
+    ],
+    "key_signals": {
+      "url_length": 50.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": false,
+      "suspicious_keyword_count": 4.0,
+      "url_entropy": 4.359,
+      "brand_tld_misalignment": true,
+      "has_indian_brand_token": true,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.667,
+      "has_homoglyph_or_punycode": false
+    }
+  },
+  "https://onlinesbi.sbi/portal": {
+    "url": "https://onlinesbi.sbi/portal",
+    "canonical_url": "https://onlinesbi.sbi/portal",
+    "scheme_assumed": false,
+    "registered_domain": "onlinesbi.sbi",
+    "tld": "sbi",
+    "is_phishing": false,
+    "verdict": "legitimate",
+    "risk_score": 0.02,
+    "ml_risk_score": 0.5736,
+    "final_risk_score": 0.02,
+    "policy_override": "official_institution_allowlist",
+    "confidence": 0.9546,
+    "decision_threshold": 0.4409,
+    "latency_ms": 5.632,
+    "reasons": [
+      "Official Domain: Verified as an authentic registered portal for SBI.",
+      "Secure Transport: Valid standard HTTPS protocol configuration.",
+      "Clean Architecture: Direct domain routing with standard hierarchical depth.",
+      "Low Threat Metric: Extracted lexical and structural markers align with benign traffic (Risk: 2.0%)."
+    ],
+    "key_signals": {
+      "url_length": 28.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": true,
+      "suspicious_keyword_count": 1.0,
+      "url_entropy": 3.771,
+      "brand_tld_misalignment": false,
+      "has_indian_brand_token": true,
+      "has_indian_lure": false,
+      "max_brand_similarity": 0.667,
+      "has_homoglyph_or_punycode": false
+    }
+  },
+  "https://paytm-cashback-rewards-free.xyz/claim": {
+    "url": "https://paytm-cashback-rewards-free.xyz/claim",
+    "canonical_url": "https://paytm-cashback-rewards-free.xyz/claim",
+    "scheme_assumed": false,
+    "registered_domain": "paytm-cashback-rewards-free.xyz",
+    "tld": "xyz",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_score": 0.9625,
+    "ml_risk_score": 0.9625,
+    "final_risk_score": 0.9625,
+    "policy_override": "none",
+    "confidence": 0.9329,
+    "decision_threshold": 0.4409,
+    "latency_ms": 10.101,
+    "reasons": [
+      "Brand Impersonation: Displays 'PAYTM' lure, but 'paytm-cashback-rewards-free.xyz' is not an official authorized portal.",
+      "Credential Lure: Contains high-risk lure keyword ('reward') frequently used in regional financial phishing."
+    ],
+    "key_signals": {
+      "url_length": 45.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": true,
+      "suspicious_keyword_count": 0.0,
+      "url_entropy": 4.316,
+      "brand_tld_misalignment": true,
+      "has_indian_brand_token": true,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.667,
+      "has_homoglyph_or_punycode": false
+    }
+  },
+  "https://irctc.co.in": {
+    "url": "https://irctc.co.in",
+    "canonical_url": "https://irctc.co.in/",
+    "scheme_assumed": false,
+    "registered_domain": "irctc.co.in",
+    "tld": "co.in",
+    "is_phishing": false,
+    "verdict": "legitimate",
+    "risk_score": 0.02,
+    "ml_risk_score": 0.4072,
+    "final_risk_score": 0.02,
+    "policy_override": "official_institution_allowlist",
+    "confidence": 0.9546,
+    "decision_threshold": 0.4409,
+    "latency_ms": 3.622,
+    "reasons": [
+      "Official Domain: Verified as an authentic registered portal for IRCTC.",
+      "Secure Transport: Valid standard HTTPS protocol configuration.",
+      "Clean Architecture: Direct domain routing with standard hierarchical depth.",
+      "Low Threat Metric: Extracted lexical and structural markers align with benign traffic (Risk: 2.0%)."
+    ],
+    "key_signals": {
+      "url_length": 20.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": true,
+      "suspicious_keyword_count": 0.0,
+      "url_entropy": 3.409,
+      "brand_tld_misalignment": false,
+      "has_indian_brand_token": true,
+      "has_indian_lure": false,
+      "max_brand_similarity": 0.6,
+      "has_homoglyph_or_punycode": false
+    }
+  },
+  "http://uidai-aadhaar-link-portal-12.net/biometric": {
+    "url": "http://uidai-aadhaar-link-portal-12.net/biometric",
+    "canonical_url": "http://uidai-aadhaar-link-portal-12.net/biometric",
+    "scheme_assumed": false,
+    "registered_domain": "uidai-aadhaar-link-portal-12.net",
+    "tld": "net",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_score": 0.9973,
+    "ml_risk_score": 0.9973,
+    "final_risk_score": 0.9973,
+    "policy_override": "none",
+    "confidence": 0.9952,
+    "decision_threshold": 0.4409,
+    "latency_ms": 9.78,
+    "reasons": [
+      "Brand Impersonation: Displays 'AADHAAR' lure, but 'uidai-aadhaar-link-portal-12.net' is not an official authorized portal.",
+      "Credential Lure: Contains high-risk lure keyword ('biometric') frequently used in regional financial phishing.",
+      "Insecure Protocol: Transmits over unencrypted HTTP without TLS verification."
+    ],
+    "key_signals": {
+      "url_length": 49.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": false,
+      "suspicious_keyword_count": 1.0,
+      "url_entropy": 4.181,
+      "brand_tld_misalignment": true,
+      "has_indian_brand_token": true,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.545,
+      "has_homoglyph_or_punycode": false
+    }
+  }
+}
