@@ -176,8 +176,8 @@ Static URL String
 
 ```bash
 # Clone the repository
-git clone https://github.com/shourya2004raj-hub/Region-aware-Phishing-Detection.git
-cd Region-aware-Phishing-Detection
+git clone https://github.com/shourya2004raj-hub/PhishDetect.git
+cd PhishDetect
 
 # Create and activate virtual environment
 python -m venv venv
