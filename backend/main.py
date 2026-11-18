@@ -279,6 +279,13 @@ def explain_url(payload: PredictRequest):
     }
 
 
+# Mount built frontend static files if available
+WEB_DIST_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "web", "dist"))
+if os.path.exists(WEB_DIST_DIR):
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/", StaticFiles(directory=WEB_DIST_DIR, html=True), name="static")
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.main:app", host="127.0.0.1", port=8000, reload=True)

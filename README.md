@@ -179,7 +179,7 @@ Static URL String
 
 ```bash
 # Clone the repository
-git clone https://github.com/shourya2004raj-hub/PhishDetect.git
+git clone https://github.com/SHOURYADUBEY76/PhishDetect.git
 cd PhishDetect
 
 # Create and activate virtual environment

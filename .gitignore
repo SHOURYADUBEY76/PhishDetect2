@@ -24,5 +24,8 @@ dist/
 # IDE
 .vscode/
 .idea/
-# Testing
+# Testing & Logs
 .pytest_cache/
+*.log
+verification_logs/
+research/results/verification_logs/
