@@ -38,9 +38,19 @@ const DEMO_URLS = [
     url: 'https://irctc.co.in'
   },
   {
-    label: 'Aadhaar Link Scam',
-    type: 'danger',
-    url: 'http://uidai-aadhaar-link-portal-12.net/biometric'
+    label: '⚡ Cloudflare Serverless Worker',
+    type: 'evasion',
+    url: 'https://sbi-kyc-verification.workers.dev/auth'
+  },
+  {
+    label: '⚡ Homoglyph Lookalike (pаypal)',
+    type: 'evasion',
+    url: 'http://pаypal-security-update.com/signin'
+  },
+  {
+    label: '⚡ Subdomain Stacking',
+    type: 'evasion',
+    url: 'http://onlinesbi.sbi.co.in.login-portal.xyz/login'
   }
 ];
 
@@ -155,6 +165,7 @@ export default function App() {
           tld: urlObj.hostname.split('.').pop() || '',
           is_phishing: isPhish,
           verdict: isPhish ? 'phishing' : 'legitimate',
+          risk_level: riskScore < 0.20 ? 'SAFE' : riskScore < 0.4409 ? 'SUSPICIOUS' : 'DANGEROUS',
           risk_score: Math.min(0.999, Math.max(0.01, parseFloat(riskScore.toFixed(4)))),
           ml_risk_score: Math.min(0.999, Math.max(0.01, parseFloat(riskScore.toFixed(4)))),
           final_risk_score: Math.min(0.999, Math.max(0.01, parseFloat(riskScore.toFixed(4)))),
@@ -163,6 +174,16 @@ export default function App() {
           decision_threshold: 0.4409,
           latency_ms: 1.84,
           reasons: reasons,
+          counterfactual: isPhish
+            ? hasIndianBrand
+              ? `If this service were served from the genuine authorized institutional portal rather than '${urlObj.hostname}', predicted threat would drop from ${(riskScore * 100).toFixed(1)}% to <2.0%.`
+              : `If suspicious action lures and non-standard TLDs were eliminated, threat score would drop below the operational threshold.`
+            : `Domain '${urlObj.hostname}' is authentic and well-formed. Maintaining standard HTTPS keeps threat rating low.`,
+          multi_tenant_info: {
+            is_multi_tenant: cleanInput.includes('workers.dev') || cleanInput.includes('vercel.app') || cleanInput.includes('netlify.app'),
+            platform: cleanInput.includes('workers.dev') ? 'Cloudflare Workers' : cleanInput.includes('vercel.app') ? 'Vercel' : 'Multi-Tenant Cloud',
+            tenant: urlObj.hostname.split('.')[0]
+          },
           key_signals: {
             url_length: checkUrl.length,
             num_subdomains: Math.max(0, urlObj.hostname.split('.').length - 2),
@@ -355,9 +376,20 @@ export default function App() {
               <div>
                 <div className="verdict-text-main">
                   {result.is_phishing ? 'PHISHING URL DETECTED' : 'VERIFIED LEGITIMATE URL'}
+                  {result.risk_level && (
+                    <span className={`tier-badge tier-${result.risk_level.toLowerCase()}`}>
+                      {result.risk_level}
+                    </span>
+                  )}
                 </div>
                 <div className="verdict-text-sub">
                   Analyzed domain: <strong>{result.registered_domain || 'N/A'}</strong> (TLD: .{result.tld})
+                  {result.multi_tenant_info?.is_multi_tenant && (
+                    <div className="cloud-badge">
+                      ☁️ Multi-Tenant Host: <strong>{result.multi_tenant_info.platform}</strong>
+                      {result.multi_tenant_info.tenant && ` (Tenant: ${result.multi_tenant_info.tenant})`}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -411,6 +443,19 @@ export default function App() {
               )}
             </ul>
           </div>
+
+          {/* Actionable Counterfactual "What-If" Analysis */}
+          {result.counterfactual && (
+            <div className="counterfactual-box">
+              <div className="counterfactual-title">
+                <Zap size={16} />
+                Actionable Counterfactual Analysis ("What-If"):
+              </div>
+              <div className="counterfactual-text">
+                {result.counterfactual}
+              </div>
+            </div>
+          )}
 
           {/* Extracted Threat Signals Grid */}
           <h4 style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: 12 }}>

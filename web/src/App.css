@@ -428,3 +428,88 @@
 .highlight-row td {
   color: #60a5fa;
 }
+
+/* Counterfactual XAI Box */
+.counterfactual-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-left: 4px solid #3b82f6;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.counterfactual-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.counterfactual-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+/* Multi-Tenant Cloud Badge */
+.cloud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* 3-Tier Risk Badge */
+.tier-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.tier-badge.tier-safe {
+  background: rgba(168, 255, 200, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.tier-badge.tier-suspicious {
+  background: rgba(254, 243, 199, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.tier-badge.tier-dangerous {
+  background: rgba(254, 226, 226, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* Adversarial Presets */
+.demo-pill.evasion {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.35);
+  color: #d8b4fe;
+}
+
+.demo-pill.evasion:hover {
+  background: rgba(168, 85, 247, 0.3);
+  border-color: #a855f7;
+}

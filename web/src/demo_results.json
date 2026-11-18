@@ -169,5 +169,128 @@
       "max_brand_similarity": 0.545,
       "has_homoglyph_or_punycode": false
     }
+  },
+  "https://sbi-kyc-verification.workers.dev/auth": {
+    "url": "https://sbi-kyc-verification.workers.dev/auth",
+    "canonical_url": "https://sbi-kyc-verification.workers.dev/auth",
+    "scheme_assumed": false,
+    "registered_domain": "workers.dev",
+    "tld": "dev",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_level": "DANGEROUS",
+    "risk_score": 0.9912,
+    "ml_risk_score": 0.9912,
+    "final_risk_score": 0.9912,
+    "policy_override": "none",
+    "confidence": 0.9842,
+    "decision_threshold": 0.4409,
+    "latency_ms": 2.45,
+    "reasons": [
+      "Brand Impersonation: Displays 'SBI' lure, but 'workers.dev' is not an official authorized portal.",
+      "Credential Lure: Contains high-risk lure keyword ('kyc') frequently used in regional financial phishing.",
+      "Multi-Tenant Cloud Host: Deployed on Cloudflare Workers under tenant 'sbi-kyc-verification', masking attacker infrastructure behind trusted cloud edge."
+    ],
+    "counterfactual": "If this page were hosted on an official domain (e.g. onlinesbi.sbi) instead of a shared Cloudflare Workers tenant ('sbi-kyc-verification'), threat score would drop from 99.1% to <2.0%.",
+    "multi_tenant_info": {
+      "is_multi_tenant": true,
+      "platform": "Cloudflare Workers",
+      "tenant": "sbi-kyc-verification"
+    },
+    "key_signals": {
+      "url_length": 45.0,
+      "num_subdomains": 1.0,
+      "has_ip": false,
+      "is_https": true,
+      "suspicious_keyword_count": 2.0,
+      "url_entropy": 4.12,
+      "brand_tld_misalignment": true,
+      "has_indian_brand_token": true,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.65,
+      "has_homoglyph_or_punycode": false
+    }
+  },
+  "http://pаypal-security-update.com/signin": {
+    "url": "http://pаypal-security-update.com/signin",
+    "canonical_url": "http://pаypal-security-update.com/signin",
+    "scheme_assumed": false,
+    "registered_domain": "pаypal-security-update.com",
+    "tld": "com",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_level": "DANGEROUS",
+    "risk_score": 0.9800,
+    "ml_risk_score": 0.9120,
+    "final_risk_score": 0.9800,
+    "policy_override": "homoglyph_punycode_denylist",
+    "confidence": 0.9640,
+    "decision_threshold": 0.4409,
+    "latency_ms": 3.12,
+    "reasons": [
+      "Homoglyph Obfuscation: Uses deceptive non-ASCII character lookalikes or punycode in hostname to visually spoof a legitimate domain.",
+      "Credential Lure: Contains high-risk lure keywords ('security', 'update', 'signin').",
+      "Insecure Protocol: Transmits over unencrypted HTTP without TLS verification."
+    ],
+    "counterfactual": "If deceptive Cyrillic/homoglyph characters were replaced with standard ASCII on an authorized domain, threat score would drop from 98.0% to <5.0%.",
+    "multi_tenant_info": {
+      "is_multi_tenant": false,
+      "platform": null,
+      "tenant": null
+    },
+    "key_signals": {
+      "url_length": 41.0,
+      "num_subdomains": 0.0,
+      "has_ip": false,
+      "is_https": false,
+      "suspicious_keyword_count": 3.0,
+      "url_entropy": 4.25,
+      "brand_tld_misalignment": false,
+      "has_indian_brand_token": false,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.85,
+      "has_homoglyph_or_punycode": true
+    }
+  },
+  "http://onlinesbi.sbi.co.in.login-portal.xyz/login": {
+    "url": "http://onlinesbi.sbi.co.in.login-portal.xyz/login",
+    "canonical_url": "http://onlinesbi.sbi.co.in.login-portal.xyz/login",
+    "scheme_assumed": false,
+    "registered_domain": "login-portal.xyz",
+    "tld": "xyz",
+    "is_phishing": true,
+    "verdict": "phishing",
+    "risk_level": "DANGEROUS",
+    "risk_score": 0.9991,
+    "ml_risk_score": 0.9991,
+    "final_risk_score": 0.9991,
+    "policy_override": "none",
+    "confidence": 0.9984,
+    "decision_threshold": 0.4409,
+    "latency_ms": 2.18,
+    "reasons": [
+      "Brand Impersonation: Displays 'SBI' lure, but 'login-portal.xyz' is not an official authorized portal.",
+      "Subdomain Masking: Excessive subdomain depth (3 levels) used to conceal the actual destination domain.",
+      "Insecure Protocol: Transmits over unencrypted HTTP without TLS verification."
+    ],
+    "counterfactual": "If this service were served from the genuine SBI domain (onlinesbi.sbi) instead of 'login-portal.xyz', predicted threat would drop from 99.9% to <2.0%.",
+    "multi_tenant_info": {
+      "is_multi_tenant": false,
+      "platform": null,
+      "tenant": null
+    },
+    "key_signals": {
+      "url_length": 49.0,
+      "num_subdomains": 3.0,
+      "has_ip": false,
+      "is_https": false,
+      "suspicious_keyword_count": 2.0,
+      "url_entropy": 4.41,
+      "brand_tld_misalignment": true,
+      "has_indian_brand_token": true,
+      "has_indian_lure": true,
+      "max_brand_similarity": 0.72,
+      "has_homoglyph_or_punycode": false
+    }
   }
 }

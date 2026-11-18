@@ -29,7 +29,8 @@ from src.utils.domain import (
     validate_url_syntax,
     canonicalize_url,
     extract_registered_domain,
-    extract_tld
+    extract_tld,
+    get_multi_tenant_info
 )
 
 
@@ -114,6 +115,7 @@ class PredictResponse(BaseModel):
     tld: str
     is_phishing: bool
     verdict: str
+    risk_level: str
     risk_score: float
     ml_risk_score: float
     final_risk_score: float
@@ -122,6 +124,8 @@ class PredictResponse(BaseModel):
     decision_threshold: float
     latency_ms: float
     reasons: List[str]
+    counterfactual: str
+    multi_tenant_info: Dict[str, Any]
     key_signals: Dict[str, Any]
 
 
@@ -225,6 +229,28 @@ def predict_url(payload: PredictRequest):
         is_phishing=is_phish
     )
 
+    counterfactual = _explainer.explain_counterfactual(
+        url=canonical_url,
+        features=feature_dict,
+        risk_score=final_risk_score,
+        is_phishing=is_phish
+    )
+
+    # 3-tier actionable risk level
+    if final_risk_score < 0.20:
+        risk_level = "SAFE"
+    elif final_risk_score < threshold:
+        risk_level = "SUSPICIOUS"
+    else:
+        risk_level = "DANGEROUS"
+
+    is_multi, cloud_platform, tenant = get_multi_tenant_info(canonical_url)
+    multi_tenant_info = {
+        "is_multi_tenant": is_multi,
+        "platform": cloud_platform,
+        "tenant": tenant
+    }
+
     elapsed_ms = round((time.perf_counter() - start_time) * 1000.0, 3)
 
     key_signals = {
@@ -249,6 +275,7 @@ def predict_url(payload: PredictRequest):
         tld=tld,
         is_phishing=is_phish,
         verdict=verdict,
+        risk_level=risk_level,
         risk_score=final_risk_score,
         ml_risk_score=ml_risk_score,
         final_risk_score=final_risk_score,
@@ -257,6 +284,8 @@ def predict_url(payload: PredictRequest):
         decision_threshold=threshold,
         latency_ms=elapsed_ms,
         reasons=reasons,
+        counterfactual=counterfactual,
+        multi_tenant_info=multi_tenant_info,
         key_signals=key_signals
     )
 
@@ -269,11 +298,14 @@ def explain_url(payload: PredictRequest):
         "url": pred.url,
         "canonical_url": pred.canonical_url,
         "verdict": pred.verdict,
+        "risk_level": pred.risk_level,
         "risk_score": pred.risk_score,
         "ml_risk_score": pred.ml_risk_score,
         "final_risk_score": pred.final_risk_score,
         "policy_override": pred.policy_override,
         "reasons": pred.reasons,
+        "counterfactual": pred.counterfactual,
+        "multi_tenant_info": pred.multi_tenant_info,
         "key_signals": pred.key_signals,
         "latency_ms": pred.latency_ms
     }

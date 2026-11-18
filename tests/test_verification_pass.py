@@ -146,3 +146,46 @@ def test_bootstrap_uncertainty_handling():
     assert not np.isnan(res["ci_lower"])
     assert not np.isnan(res["ci_upper"])
     assert res["ci_upper"] >= res["ci_lower"]
+
+
+def test_multi_tenant_and_counterfactual_innovations():
+    """Verify multi-tenant cloud awareness and actionable counterfactual explanations."""
+    from src.utils.domain import get_multi_tenant_info
+    from src.explainer.explainer import PhishingExplainer
+
+    # Test Cloudflare Worker multi-tenant parsing
+    is_multi, platform, tenant = get_multi_tenant_info("https://sbi-kyc-update.workers.dev/verify")
+    assert is_multi is True
+    assert platform == "Cloudflare Workers"
+    assert tenant == "sbi-kyc-update"
+
+    # Test Vercel multi-tenant parsing
+    is_multi, platform, tenant = get_multi_tenant_info("https://paytm-cashback.vercel.app/claim")
+    assert is_multi is True
+    assert platform == "Vercel"
+    assert tenant == "paytm-cashback"
+
+    # Test standard independent domain (not multi-tenant)
+    is_multi, platform, tenant = get_multi_tenant_info("https://onlinesbi.sbi/portal")
+    assert is_multi is False
+    assert platform is None
+    assert tenant is None
+
+    # Test counterfactual generation
+    explainer = PhishingExplainer()
+    cf_phish = explainer.explain_counterfactual(
+        url="http://sbi-kyc-update.top/login.php",
+        features={"brand_tld_misalignment": 1.0, "is_http": 1.0},
+        risk_score=0.985,
+        is_phishing=True
+    )
+    assert "SBI" in cf_phish or "sbi" in cf_phish.lower()
+    assert "predicted threat would drop" in cf_phish
+
+    cf_safe = explainer.explain_counterfactual(
+        url="https://onlinesbi.sbi/portal",
+        features={"is_https": 1.0},
+        risk_score=0.012,
+        is_phishing=False
+    )
+    assert "well-formed" in cf_safe or "low" in cf_safe.lower()

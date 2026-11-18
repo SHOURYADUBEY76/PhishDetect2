@@ -15,6 +15,44 @@ _extractor = tldextract.TLDExtract(cache_dir="data/raw/tld_cache")
 # Supported web schemes
 VALID_SCHEMES = {"http", "https"}
 
+# Multi-tenant cloud, serverless, and PaaS hosting platforms
+MULTI_TENANT_PLATFORMS = {
+    "workers.dev": "Cloudflare Workers",
+    "pages.dev": "Cloudflare Pages",
+    "vercel.app": "Vercel",
+    "netlify.app": "Netlify",
+    "github.io": "GitHub Pages",
+    "gitlab.io": "GitLab Pages",
+    "firebaseapp.com": "Firebase Hosting",
+    "web.app": "Firebase Web App",
+    "azurewebsites.net": "Azure App Services",
+    "appspot.com": "Google App Engine",
+    "onrender.com": "Render",
+    "glitch.me": "Glitch",
+    "herokuapp.com": "Heroku",
+    "surge.sh": "Surge",
+    "000webhostapp.com": "000webhost",
+}
+
+
+def get_multi_tenant_info(url: str) -> Tuple[bool, Optional[str], Optional[str]]:
+    """Detect if URL is hosted on a multi-tenant cloud/serverless platform.
+    
+    Returns:
+        (is_multi_tenant, platform_name, effective_tenant_entity)
+        e.g. for 'https://sbi-kyc.workers.dev/login', returns:
+             (True, 'Cloudflare Workers', 'sbi-kyc')
+    """
+    if not isinstance(url, str):
+        return False, None, None
+    reg_domain = extract_registered_domain(url)
+    if reg_domain in MULTI_TENANT_PLATFORMS:
+        subdomain = extract_subdomain(url)
+        # Lowest-level subdomain is the tenant/service identifier
+        tenant = subdomain.split(".")[-1] if subdomain else None
+        return True, MULTI_TENANT_PLATFORMS[reg_domain], tenant
+    return False, None, None
+
 
 def validate_url_syntax(url: str) -> Tuple[bool, Optional[str]]:
     """Validate URL syntax and scheme strictly.

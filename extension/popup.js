@@ -38,6 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  function getRiskLevelColor(riskLevel) {
+    if (riskLevel === "SAFE") return "#10b981";
+    if (riskLevel === "SUSPICIOUS") return "#f59e0b";
+    return "#ef4444";
+  }
+
   function analyze(targetUrl) {
     scanBtn.disabled = true;
     scanBtn.textContent = "...";
@@ -55,11 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
         container.style.display = "block";
         container.className = data.is_phishing ? "verdict-card phish" : "verdict-card legit";
 
-        verdictText.textContent = data.is_phishing ? "⚠️ PHISHING DETECTED" : "✓ VERIFIED SAFE";
+        // 3-tier risk badge
+        const tierLabel = data.risk_level || (data.is_phishing ? "DANGEROUS" : "SAFE");
+        verdictText.innerHTML = `${data.is_phishing ? "⚠️ PHISHING DETECTED" : "✓ VERIFIED SAFE"} &nbsp;
+          <span style="font-size:0.75em;padding:2px 8px;border-radius:4px;background:${getRiskLevelColor(tierLabel)}22;border:1px solid ${getRiskLevelColor(tierLabel)};color:${getRiskLevelColor(tierLabel)}">${tierLabel}</span>`;
+
         scoreText.textContent = `${(data.risk_score * 100).toFixed(1)}%`;
         latencyText.textContent = `⚡ ${data.latency_ms} ms`;
 
         reasonsList.innerHTML = "";
+
+        // Multi-tenant cloud warning
+        if (data.multi_tenant_info && data.multi_tenant_info.is_multi_tenant) {
+          const li = document.createElement("li");
+          li.style.color = "#c084fc";
+          li.style.fontWeight = "600";
+          li.textContent = `☁️ Multi-Tenant Host: ${data.multi_tenant_info.platform} (Tenant: ${data.multi_tenant_info.tenant || "unknown"})`;
+          reasonsList.appendChild(li);
+        }
+
         if (data.reasons && data.reasons.length > 0) {
           data.reasons.forEach(r => {
             const li = document.createElement("li");
@@ -71,8 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
           li.textContent = "No anomalous indicators detected.";
           reasonsList.appendChild(li);
         }
+
+        // Counterfactual explanation
+        if (data.counterfactual) {
+          const divider = document.createElement("li");
+          divider.style.cssText = "border-top: 1px solid rgba(255,255,255,0.1); margin-top: 8px; padding-top: 8px; color: #60a5fa; font-style: italic; list-style: none;";
+          divider.textContent = `💡 ${data.counterfactual}`;
+          reasonsList.appendChild(divider);
+        }
       })
-      .catch(err => {
+      .catch(() => {
         container.style.display = "block";
         container.className = "verdict-card phish";
         verdictText.textContent = "Scan Error";

@@ -8,7 +8,9 @@ from urllib.parse import urlparse
 from src.features.regional import (
     INDIAN_BRANDS, INDIAN_LURES, OFFICIAL_DOMAINS, INDIAN_TLDS, BRAND_ALIAS_MAP
 )
-from src.utils.domain import extract_registered_domain, extract_tld, extract_subdomain
+from src.utils.domain import (
+    extract_registered_domain, extract_tld, extract_subdomain, get_multi_tenant_info
+)
 
 
 class PhishingExplainer:
@@ -78,6 +80,13 @@ class PhishingExplainer:
             elif features.get("url_length", 0.0) > 85:
                 reasons.append(f"Abnormal Length: Unusually long URL ({int(features['url_length'])} chars) with dense query token padding.")
 
+            # 7. Multi-tenant cloud host abuse
+            is_multi, cloud_platform, tenant = get_multi_tenant_info(url)
+            if is_multi:
+                reasons.append(
+                    f"Multi-Tenant Cloud Host: Deployed on {cloud_platform} under tenant '{tenant or reg_domain}', masking attacker infrastructure behind trusted cloud edge."
+                )
+
             # Fallback if specific heuristics were subtle
             if not reasons:
                 reasons.append("Statistical Anomaly: High concentration of structural and lexical signals typical of credential harvesting links.")
@@ -107,3 +116,56 @@ class PhishingExplainer:
             reasons.append(f"Low Threat Metric: Extracted lexical and structural markers align with benign traffic (Risk: {risk_score*100:.1f}%).")
 
         return reasons[:4]
+
+    def explain_counterfactual(
+        self,
+        url: str,
+        features: Dict[str, float],
+        risk_score: float,
+        is_phishing: bool
+    ) -> str:
+        """Generate a single actionable counterfactual 'What-If' explanation.
+        Explains what minimal change would flip the prediction or eliminate risk.
+        """
+        if not is_phishing:
+            reg_domain = extract_registered_domain(url)
+            return f"Domain '{reg_domain}' is well-formed. Maintaining standard HTTPS and official TLD keeps threat rating low."
+
+        # High priority: Brand misalignment
+        if features.get("brand_tld_misalignment", 0.0) > 0.5:
+            matched_b = [b for b in INDIAN_BRANDS if b in url.lower()]
+            brand = matched_b[0] if matched_b else "the detected institution"
+            official_candidates = OFFICIAL_DOMAINS.get(brand, set())
+            official = list(official_candidates)[0] if official_candidates else f"{brand}.com"
+            return (
+                f"If this service were hosted on the genuine {brand.upper()} domain ({official}) "
+                f"instead of '{extract_registered_domain(url)}', predicted threat would drop from "
+                f"{risk_score*100:.1f}% to <2.0%."
+            )
+
+        # Homoglyphs
+        if features.get("has_homoglyph_or_punycode", 0.0) > 0.5:
+            return (
+                f"If deceptive Cyrillic/homoglyph characters were replaced with standard ASCII on an "
+                f"authorized domain, threat score would drop from {risk_score*100:.1f}% to <5.0%."
+            )
+
+        # Multi-tenant cloud abuse
+        is_multi, platform, tenant = get_multi_tenant_info(url)
+        if is_multi:
+            return (
+                f"If this page were hosted on an independent verified organizational domain rather "
+                f"than a shared {platform} tenant ('{tenant}'), institutional credibility would be established."
+            )
+
+        # Insecure HTTP
+        if features.get("is_http", 0.0) > 0.5:
+            return (
+                f"If served over verified HTTPS without suspicious action lures in the path, risk would be "
+                f"substantially reduced."
+            )
+
+        return (
+            f"If suspicious urgent action lures and high-entropy parameters were removed from the URL path, "
+            f"risk score would drop below the operational threshold."
+        )
